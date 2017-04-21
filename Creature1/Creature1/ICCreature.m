@@ -27,6 +27,7 @@
     NSLog(@"%@ %s", _name, "go fight");
 }
 -(ICCreature *)giveBirth{
+    NSLog(@"Child wos born");
     return [[ICCreature alloc] initWithSex:ICMale name:[_name stringByAppendingString:@"child"] weight:_weight/2 age:_age/2];
 }
 -(void)addChild:(ICCreature *)child{

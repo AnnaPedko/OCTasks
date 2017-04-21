@@ -12,8 +12,34 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        ICCreature *creature = [[ICCreature alloc] initWithSex:ICMale name:@"Ivan" weight:60 age:30];
-        NSLog(@"%@", [creature class]);
+        NSMutableArray *creatures = [[NSMutableArray alloc] init];
+        
+        for(int i = 0; i < 10; ++i){
+            unsigned randomVariable = arc4random_uniform(1000) + 1;
+            ICCreatureSex sex =ICMale;
+            NSString *name = @"Ivan";
+            if(0 == randomVariable%2){
+                sex = ICFemale;
+                name = @"Olga";
+            }
+            ICCreature *creature = [[ICCreature alloc]
+                                      initWithSex:sex
+                                      name:[NSString stringWithFormat:@"%@%u",name, randomVariable]
+                                      weight:60 + randomVariable
+                                      age:30 + randomVariable];
+            [creature addChild:[creature giveBirth]];
+            [creatures addObject:creature];
+        }
+        for(ICCreature *creature in creatures){
+            if([creature sex] == ICFemale){
+                [creature giveBirth];
+            } else {
+                [creature goFight];
+            }
+            [creature sayHello];
+        }
+        NSLog(@"%lu",(unsigned long)[creatures count]);
     }
+    
     return 0;
 }

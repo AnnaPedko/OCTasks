@@ -20,6 +20,7 @@ typedef enum {
     unsigned _age;
     NSMutableArray *_children;
 }
+@property(nonatomic, readonly)ICCreatureSex sex;
 
 -(instancetype)initWithSex:(ICCreatureSex)sex name:(NSString *)name weight:(unsigned)weight age:(unsigned)age;
 -(void)goFight;
