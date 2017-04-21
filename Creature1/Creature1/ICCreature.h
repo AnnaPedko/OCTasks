@@ -22,5 +22,10 @@ typedef enum {
 }
 
 -(instancetype)initWithSex:(ICCreatureSex)sex name:(NSString *)name weight:(unsigned)weight age:(unsigned)age;
-    
+-(void)goFight;
+-(ICCreature *)giveBirth;
+-(void)addChild:(ICCreature *)child;
+-(void)removeChild:(ICCreature *)child;
+-(void)sayHello;
+
 @end

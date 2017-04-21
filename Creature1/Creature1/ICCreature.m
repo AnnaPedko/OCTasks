@@ -23,4 +23,23 @@
     return self;
 }
 
+-(void)goFight{
+    NSLog(@"%@ %s", _name, "go fight");
+}
+-(ICCreature *)giveBirth{
+    return [[ICCreature alloc] initWithSex:ICMale name:[_name stringByAppendingString:@"child"] weight:_weight/2 age:_age/2];
+}
+-(void)addChild:(ICCreature *)child{
+    [_children addObject:child];
+}
+-(void)removeChild:(ICCreature *)child{
+    [_children removeObject:child];
+}
+-(void)sayHello{
+    NSLog(@"%@ Hello", _name);
+    for(ICCreature *child in _children){
+        [child sayHello];
+    }
+}
+
 @end
