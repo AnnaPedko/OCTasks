@@ -37,6 +37,7 @@ int main(int argc, const char * argv[]) {
                 [creature goFight];
             }
             [creature sayHello];
+            NSLog(@"child count %lu", (unsigned long)creature.children.count);
         }
         NSLog(@"%lu",(unsigned long)[creatures count]);
     }

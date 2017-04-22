@@ -22,7 +22,9 @@
     
     return self;
 }
-
+-(NSArray *)children{
+    return [_children copy];
+}
 -(void)goFight{
     NSLog(@"%@ %s", _name, "go fight");
 }

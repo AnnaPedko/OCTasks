@@ -14,13 +14,14 @@ typedef enum {
 } ICCreatureSex;
 
 @interface ICCreature : NSObject {
-    ICCreatureSex _sex;
+    //ICCreatureSex _sex;
     NSString *_name;
     unsigned _weight;
     unsigned _age;
     NSMutableArray *_children;
 }
 @property(nonatomic, readonly)ICCreatureSex sex;
+@property(nonatomic, readonly)NSArray *children;
 
 -(instancetype)initWithSex:(ICCreatureSex)sex name:(NSString *)name weight:(unsigned)weight age:(unsigned)age;
 -(void)goFight;
