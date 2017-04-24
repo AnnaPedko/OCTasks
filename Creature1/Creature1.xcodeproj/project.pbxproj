@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		653288341EAAA78B00E63A8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 653288331EAAA78B00E63A8A /* main.m */; };
 		6532883C1EAAA7EC00E63A8A /* ICCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 6532883B1EAAA7EC00E63A8A /* ICCreature.m */; };
+		6597E08F1EAE9EB800D45B16 /* ICCreature+ICGenerateRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6597E08E1EAE9EB800D45B16 /* ICCreature+ICGenerateRandomNumber.m */; };
+		6597E0921EAEA70200D45B16 /* ICCreature+ICGenerateRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6597E0911EAEA70200D45B16 /* ICCreature+ICGenerateRandomString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,10 @@
 		653288331EAAA78B00E63A8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6532883A1EAAA7EC00E63A8A /* ICCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCreature.h; sourceTree = "<group>"; };
 		6532883B1EAAA7EC00E63A8A /* ICCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCreature.m; sourceTree = "<group>"; };
+		6597E08D1EAE9EB800D45B16 /* ICCreature+ICGenerateRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ICCreature+ICGenerateRandomNumber.h"; sourceTree = "<group>"; };
+		6597E08E1EAE9EB800D45B16 /* ICCreature+ICGenerateRandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ICCreature+ICGenerateRandomNumber.m"; sourceTree = "<group>"; };
+		6597E0901EAEA70200D45B16 /* ICCreature+ICGenerateRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ICCreature+ICGenerateRandomString.h"; sourceTree = "<group>"; };
+		6597E0911EAEA70200D45B16 /* ICCreature+ICGenerateRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ICCreature+ICGenerateRandomString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,10 @@
 				653288331EAAA78B00E63A8A /* main.m */,
 				6532883A1EAAA7EC00E63A8A /* ICCreature.h */,
 				6532883B1EAAA7EC00E63A8A /* ICCreature.m */,
+				6597E08D1EAE9EB800D45B16 /* ICCreature+ICGenerateRandomNumber.h */,
+				6597E08E1EAE9EB800D45B16 /* ICCreature+ICGenerateRandomNumber.m */,
+				6597E0901EAEA70200D45B16 /* ICCreature+ICGenerateRandomString.h */,
+				6597E0911EAEA70200D45B16 /* ICCreature+ICGenerateRandomString.m */,
 			);
 			path = Creature1;
 			sourceTree = "<group>";
@@ -124,8 +134,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6597E08F1EAE9EB800D45B16 /* ICCreature+ICGenerateRandomNumber.m in Sources */,
 				6532883C1EAAA7EC00E63A8A /* ICCreature.m in Sources */,
 				653288341EAAA78B00E63A8A /* main.m in Sources */,
+				6597E0921EAEA70200D45B16 /* ICCreature+ICGenerateRandomString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +268,7 @@
 				653288391EAAA78B00E63A8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
