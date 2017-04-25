@@ -10,4 +10,8 @@
 
 @implementation ICMaleCreature
 
+- (void)goFight {
+    NSLog(@"%@ %s", self.name, "go fight");
+}
+
 @end
