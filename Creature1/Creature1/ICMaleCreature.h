@@ -12,4 +12,5 @@
 
 - (void)goFight;
 - (void)performGenderSpecificOperation;
+
 @end

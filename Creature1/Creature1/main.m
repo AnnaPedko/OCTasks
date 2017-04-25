@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 #import "ICCreature.h"
+#import "ICMaleCreature.h"
+#import "ICFemaleCreature.h"
 
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
@@ -16,8 +18,14 @@ int main(int argc, const char *argv[]) {
         const NSUInteger creatureCount = 10;
         
         for (NSUInteger i = 0; i < creatureCount; ++i) {
-            ICCreature *creature = [[[ICCreature alloc] init] autorelease];
-            [creatures addObject:creature];
+            ICCreature *maleCreature = [[[ICMaleCreature alloc] init] autorelease];
+            ICCreature *femaleCreature = [[[ICFemaleCreature alloc] init] autorelease];
+            [creatures addObject:maleCreature];
+            [creatures addObject:femaleCreature];
+        }
+        
+        for (ICCreature *creature in creatures) {
+            [creature performGenderSpecificOperation];
         }
         
         NSLog(@"%lu", (unsigned long)[creatures count]);
