@@ -7,8 +7,8 @@
 //
 
 #import "ICCreature.h"
-#import "ICCreature+ICGenerateRandomNumber.h"
-#import "ICCreature+ICGenerateRandomString.h"
+#import "NSNumber+ICGenerateRandomNumber.h"
+#import "NSString+ICGenerateRandomString.h"
 
 @interface ICCreature()
 
@@ -20,14 +20,15 @@
 
 @dynamic children;
 
-- (instancetype)initWithGender:(ICCreatureGender)gender
-                          name:(NSString *)name
-                        weight:(NSUInteger)weight
-                           age:(NSUInteger)age
+#pragma mark - 
+#pragma mark Public Methods
+
+- (instancetype)initWithName:(NSString *)name
+                      weight:(NSUInteger)weight
+                         age:(NSUInteger)age
     {
     self = [super init];
     if (self) {
-        self.gender = gender;
         self.name = name;
         self.weight = weight;
         self.age = age;
@@ -38,10 +39,9 @@
 }
 
 - (instancetype)init {
-   return [self initWithGender:arc4random_uniform(2)
-                          name:[self generateRandomStringWithLength:5]
-                        weight:[self generateRandomNumberBetweenMin:40 max:80]
-                           age:[self generateRandomNumberBetweenMin:20 max:50]];
+   return [self initWithName:[NSString generateRandomStringWithLength:5]
+                      weight:[NSNumber generateRandomNumberBetweenMin:40 max:80]
+                         age:[NSNumber generateRandomNumberBetweenMin:20 max:50]];
 }
 
 -(void)dealloc {
@@ -53,18 +53,6 @@
 
 - (NSArray *)children {
     return [[self.mutableChildren copy] autorelease];
-}
-
-- (void)goFight {
-    NSLog(@"%@ %s", self.name, "go fight");
-}
-
-- (ICCreature *)giveBirth {
-    NSLog(@"Child wos born");
-    return [[[ICCreature alloc] initWithGender:ICMale
-                                         name:[_name stringByAppendingString:@"child"]
-                                       weight:[self generateRandomNumberBetweenMin:2 max:5]
-                                          age:[self generateRandomNumberBetweenMin:0 max:2]] autorelease];
 }
 
 - (void)addChild:(ICCreature *)child {
@@ -80,6 +68,9 @@
     for (ICCreature *child in self.children) {
         [child sayHello];
     }
+}
+
+- (void)performGenderSpecificOperation {
 }
 
 @end

@@ -9,27 +9,24 @@
 #import <Foundation/Foundation.h>
 
 #import "ICCreature.h"
+#import "ICMaleCreature.h"
+#import "ICFemaleCreature.h"
+#import "NSObject+ICInitObject.h"
 
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
-        NSMutableArray *creatures = [[[NSMutableArray alloc] init] autorelease];
+        NSMutableArray *creatures = [NSMutableArray object];
         const NSUInteger creatureCount = 10;
         
         for (NSUInteger i = 0; i < creatureCount; ++i) {
-            ICCreature *creature = [[[ICCreature alloc] init] autorelease];
-            [creature addChild:[creature giveBirth]];
-            [creatures addObject:creature];
+            ICCreature *maleCreature = [ICMaleCreature object];
+            ICCreature *femaleCreature = [ICFemaleCreature object];
+            [creatures addObject:maleCreature];
+            [creatures addObject:femaleCreature];
         }
         
-        for(ICCreature *creature in creatures) {
-            if ([creature gender] == ICFemale) {
-                [creature giveBirth];
-            } else {
-                [creature goFight];
-            }
-            
-            [creature sayHello];
-            NSLog(@"child count %lu", (unsigned long)creature.children.count);
+        for (ICCreature *creature in creatures) {
+            [creature performGenderSpecificOperation];
         }
         
         NSLog(@"%lu", (unsigned long)[creatures count]);
