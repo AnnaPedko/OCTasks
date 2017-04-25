@@ -17,19 +17,7 @@ int main(int argc, const char *argv[]) {
         
         for (NSUInteger i = 0; i < creatureCount; ++i) {
             ICCreature *creature = [[[ICCreature alloc] init] autorelease];
-            [creature addChild:[creature giveBirth]];
             [creatures addObject:creature];
-        }
-        
-        for(ICCreature *creature in creatures) {
-            if ([creature gender] == ICFemale) {
-                [creature giveBirth];
-            } else {
-                [creature goFight];
-            }
-            
-            [creature sayHello];
-            NSLog(@"child count %lu", (unsigned long)creature.children.count);
         }
         
         NSLog(@"%lu", (unsigned long)[creatures count]);
