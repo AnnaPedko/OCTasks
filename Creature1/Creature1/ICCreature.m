@@ -20,6 +20,9 @@
 
 @dynamic children;
 
+#pragma mark - 
+#pragma mark Public Methods
+
 - (instancetype)initWithGender:(ICCreatureGender)gender
                           name:(NSString *)name
                         weight:(NSUInteger)weight
