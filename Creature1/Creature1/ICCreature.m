@@ -7,8 +7,8 @@
 //
 
 #import "ICCreature.h"
-#import "ICCreature+ICGenerateRandomNumber.h"
-#import "ICCreature+ICGenerateRandomString.h"
+#import "NSNumber+ICGenerateRandomNumber.h"
+#import "NSString+ICGenerateRandomString.h"
 
 @interface ICCreature()
 
@@ -24,8 +24,8 @@
 #pragma mark Public Methods
 
 - (instancetype)initWithName:(NSString *)name
-                        weight:(NSUInteger)weight
-                           age:(NSUInteger)age
+                      weight:(NSUInteger)weight
+                         age:(NSUInteger)age
     {
     self = [super init];
     if (self) {
@@ -39,9 +39,9 @@
 }
 
 - (instancetype)init {
-   return [self initWithName:[self generateRandomStringWithLength:5]
-              weight:[self generateRandomNumberBetweenMin:40 max:80]
-                 age:[self generateRandomNumberBetweenMin:20 max:50]];
+   return [self initWithName:[NSString generateRandomStringWithLength:5]
+                      weight:[NSNumber generateRandomNumberBetweenMin:40 max:80]
+                         age:[NSNumber generateRandomNumberBetweenMin:20 max:50]];
 }
 
 -(void)dealloc {
@@ -68,6 +68,9 @@
     for (ICCreature *child in self.children) {
         [child sayHello];
     }
+}
+
+- (void)performGenderSpecificOperation {
 }
 
 @end

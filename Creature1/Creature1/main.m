@@ -11,15 +11,16 @@
 #import "ICCreature.h"
 #import "ICMaleCreature.h"
 #import "ICFemaleCreature.h"
+#import "NSObject+ICInitObject.h"
 
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
-        NSMutableArray *creatures = [[[NSMutableArray alloc] init] autorelease];
+        NSMutableArray *creatures = [NSMutableArray object];
         const NSUInteger creatureCount = 10;
         
         for (NSUInteger i = 0; i < creatureCount; ++i) {
-            ICCreature *maleCreature = [[[ICMaleCreature alloc] init] autorelease];
-            ICCreature *femaleCreature = [[[ICFemaleCreature alloc] init] autorelease];
+            ICCreature *maleCreature = [ICMaleCreature object];
+            ICCreature *femaleCreature = [ICFemaleCreature object];
             [creatures addObject:maleCreature];
             [creatures addObject:femaleCreature];
         }
