@@ -10,4 +10,6 @@
 
 @interface ICMaleCreature : ICCreature
 
+- (void)goFight;
+- (void)performGenderSpecificOperation;
 @end

@@ -22,5 +22,6 @@
 - (void)addChild:(ICCreature *)child;
 - (void)removeChild:(ICCreature *)child;
 - (void)sayHello;
+- (void)performGenderSpecificOperation;
 
 @end

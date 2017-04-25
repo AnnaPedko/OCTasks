@@ -14,4 +14,8 @@
     NSLog(@"%@ %s", self.name, "go fight");
 }
 
+- (void)performGenderSpecificOperation {
+    [self goFight];
+}
+
 @end

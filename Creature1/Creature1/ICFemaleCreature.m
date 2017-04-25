@@ -19,4 +19,8 @@
                                          age:[self generateRandomNumberBetweenMin:0 max:2]] autorelease];
 }
 
+- (void)performGenderSpecificOperation {
+    [self giveBirth];
+}
+
 @end
