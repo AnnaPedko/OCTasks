@@ -1,0 +1,16 @@
+//
+//  ICFemaleCreature.h
+//  Creature1
+//
+//  Created by Anna P. on 25.04.17.
+//  Copyright © 2017 Anna P. All rights reserved.
+//
+
+#import "ICCreature.h"
+
+@interface ICFemaleCreature : ICCreature
+
+- (ICCreature *)giveBirth;
+- (void)performGenderSpecificOperation;
+
+@end
