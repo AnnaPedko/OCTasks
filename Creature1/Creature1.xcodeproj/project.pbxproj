@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6504E4271EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E41B1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m */; };
+		6504E4281EB136900088DAB7 /* NSObject+ICInitObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E41D1EB136900088DAB7 /* NSObject+ICInitObject.m */; };
+		6504E4291EB136900088DAB7 /* NSString+ICGenerateRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E41F1EB136900088DAB7 /* NSString+ICGenerateRandomString.m */; };
+		6504E42A1EB136900088DAB7 /* ICCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E4211EB136900088DAB7 /* ICCreature.m */; };
+		6504E42B1EB136900088DAB7 /* ICFemaleCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E4241EB136900088DAB7 /* ICFemaleCreature.m */; };
+		6504E42C1EB136900088DAB7 /* ICMaleCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E4261EB136900088DAB7 /* ICMaleCreature.m */; };
 		653288341EAAA78B00E63A8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 653288331EAAA78B00E63A8A /* main.m */; };
-		6532883C1EAAA7EC00E63A8A /* ICCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 6532883B1EAAA7EC00E63A8A /* ICCreature.m */; };
-		6597E08F1EAE9EB800D45B16 /* NSNumber+ICGenerateRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6597E08E1EAE9EB800D45B16 /* NSNumber+ICGenerateRandomNumber.m */; };
-		6597E0921EAEA70200D45B16 /* NSString+ICGenerateRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6597E0911EAEA70200D45B16 /* NSString+ICGenerateRandomString.m */; };
-		6597E0951EAFF03E00D45B16 /* ICFemaleCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 6597E0941EAFF03E00D45B16 /* ICFemaleCreature.m */; };
-		6597E0981EAFF05900D45B16 /* ICMaleCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 6597E0971EAFF05900D45B16 /* ICMaleCreature.m */; };
-		6597E09B1EAFFC9000D45B16 /* NSObject+ICInitObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6597E09A1EAFFC9000D45B16 /* NSObject+ICInitObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,20 +29,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6504E41A1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ICGenerateRandomNumber.h"; sourceTree = "<group>"; };
+		6504E41B1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ICGenerateRandomNumber.m"; sourceTree = "<group>"; };
+		6504E41C1EB136900088DAB7 /* NSObject+ICInitObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ICInitObject.h"; sourceTree = "<group>"; };
+		6504E41D1EB136900088DAB7 /* NSObject+ICInitObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ICInitObject.m"; sourceTree = "<group>"; };
+		6504E41E1EB136900088DAB7 /* NSString+ICGenerateRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ICGenerateRandomString.h"; sourceTree = "<group>"; };
+		6504E41F1EB136900088DAB7 /* NSString+ICGenerateRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ICGenerateRandomString.m"; sourceTree = "<group>"; };
+		6504E4201EB136900088DAB7 /* ICCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCreature.h; sourceTree = "<group>"; };
+		6504E4211EB136900088DAB7 /* ICCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCreature.m; sourceTree = "<group>"; };
+		6504E4231EB136900088DAB7 /* ICFemaleCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICFemaleCreature.h; sourceTree = "<group>"; };
+		6504E4241EB136900088DAB7 /* ICFemaleCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICFemaleCreature.m; sourceTree = "<group>"; };
+		6504E4251EB136900088DAB7 /* ICMaleCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICMaleCreature.h; sourceTree = "<group>"; };
+		6504E4261EB136900088DAB7 /* ICMaleCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICMaleCreature.m; sourceTree = "<group>"; };
 		653288301EAAA78B00E63A8A /* Creature1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Creature1; sourceTree = BUILT_PRODUCTS_DIR; };
 		653288331EAAA78B00E63A8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6532883A1EAAA7EC00E63A8A /* ICCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCreature.h; sourceTree = "<group>"; };
-		6532883B1EAAA7EC00E63A8A /* ICCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCreature.m; sourceTree = "<group>"; };
-		6597E08D1EAE9EB800D45B16 /* NSNumber+ICGenerateRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ICGenerateRandomNumber.h"; sourceTree = "<group>"; };
-		6597E08E1EAE9EB800D45B16 /* NSNumber+ICGenerateRandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ICGenerateRandomNumber.m"; sourceTree = "<group>"; };
-		6597E0901EAEA70200D45B16 /* NSString+ICGenerateRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ICGenerateRandomString.h"; sourceTree = "<group>"; };
-		6597E0911EAEA70200D45B16 /* NSString+ICGenerateRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ICGenerateRandomString.m"; sourceTree = "<group>"; };
-		6597E0931EAFF03E00D45B16 /* ICFemaleCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICFemaleCreature.h; sourceTree = "<group>"; };
-		6597E0941EAFF03E00D45B16 /* ICFemaleCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICFemaleCreature.m; sourceTree = "<group>"; };
-		6597E0961EAFF05900D45B16 /* ICMaleCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICMaleCreature.h; sourceTree = "<group>"; };
-		6597E0971EAFF05900D45B16 /* ICMaleCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICMaleCreature.m; sourceTree = "<group>"; };
-		6597E0991EAFFC9000D45B16 /* NSObject+ICInitObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ICInitObject.h"; sourceTree = "<group>"; };
-		6597E09A1EAFFC9000D45B16 /* NSObject+ICInitObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ICInitObject.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +56,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6504E4181EB136900088DAB7 /* Task2 */ = {
+			isa = PBXGroup;
+			children = (
+				6504E4191EB136900088DAB7 /* Category */,
+				6504E4201EB136900088DAB7 /* ICCreature.h */,
+				6504E4211EB136900088DAB7 /* ICCreature.m */,
+				6504E4221EB136900088DAB7 /* Subclasses */,
+			);
+			path = Task2;
+			sourceTree = "<group>";
+		};
+		6504E4191EB136900088DAB7 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				6504E41A1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.h */,
+				6504E41B1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m */,
+				6504E41C1EB136900088DAB7 /* NSObject+ICInitObject.h */,
+				6504E41D1EB136900088DAB7 /* NSObject+ICInitObject.m */,
+				6504E41E1EB136900088DAB7 /* NSString+ICGenerateRandomString.h */,
+				6504E41F1EB136900088DAB7 /* NSString+ICGenerateRandomString.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		6504E4221EB136900088DAB7 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				6504E4231EB136900088DAB7 /* ICFemaleCreature.h */,
+				6504E4241EB136900088DAB7 /* ICFemaleCreature.m */,
+				6504E4251EB136900088DAB7 /* ICMaleCreature.h */,
+				6504E4261EB136900088DAB7 /* ICMaleCreature.m */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
 		653288271EAAA78B00E63A8A = {
 			isa = PBXGroup;
 			children = (
@@ -75,19 +110,8 @@
 		653288321EAAA78B00E63A8A /* Creature1 */ = {
 			isa = PBXGroup;
 			children = (
+				6504E4181EB136900088DAB7 /* Task2 */,
 				653288331EAAA78B00E63A8A /* main.m */,
-				6532883A1EAAA7EC00E63A8A /* ICCreature.h */,
-				6532883B1EAAA7EC00E63A8A /* ICCreature.m */,
-				6597E08D1EAE9EB800D45B16 /* NSNumber+ICGenerateRandomNumber.h */,
-				6597E08E1EAE9EB800D45B16 /* NSNumber+ICGenerateRandomNumber.m */,
-				6597E0901EAEA70200D45B16 /* NSString+ICGenerateRandomString.h */,
-				6597E0911EAEA70200D45B16 /* NSString+ICGenerateRandomString.m */,
-				6597E0931EAFF03E00D45B16 /* ICFemaleCreature.h */,
-				6597E0941EAFF03E00D45B16 /* ICFemaleCreature.m */,
-				6597E0961EAFF05900D45B16 /* ICMaleCreature.h */,
-				6597E0971EAFF05900D45B16 /* ICMaleCreature.m */,
-				6597E0991EAFFC9000D45B16 /* NSObject+ICInitObject.h */,
-				6597E09A1EAFFC9000D45B16 /* NSObject+ICInitObject.m */,
 			);
 			path = Creature1;
 			sourceTree = "<group>";
@@ -149,13 +173,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6597E08F1EAE9EB800D45B16 /* NSNumber+ICGenerateRandomNumber.m in Sources */,
-				6532883C1EAAA7EC00E63A8A /* ICCreature.m in Sources */,
-				6597E09B1EAFFC9000D45B16 /* NSObject+ICInitObject.m in Sources */,
+				6504E42C1EB136900088DAB7 /* ICMaleCreature.m in Sources */,
 				653288341EAAA78B00E63A8A /* main.m in Sources */,
-				6597E0921EAEA70200D45B16 /* NSString+ICGenerateRandomString.m in Sources */,
-				6597E0951EAFF03E00D45B16 /* ICFemaleCreature.m in Sources */,
-				6597E0981EAFF05900D45B16 /* ICMaleCreature.m in Sources */,
+				6504E4291EB136900088DAB7 /* NSString+ICGenerateRandomString.m in Sources */,
+				6504E4281EB136900088DAB7 /* NSObject+ICInitObject.m in Sources */,
+				6504E42A1EB136900088DAB7 /* ICCreature.m in Sources */,
+				6504E4271EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m in Sources */,
+				6504E42B1EB136900088DAB7 /* ICFemaleCreature.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
