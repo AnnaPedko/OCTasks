@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		650483931EB148B400953C16 /* ICBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 650483921EB148B400953C16 /* ICBuilding.m */; };
+		650483961EBA563200953C16 /* ICCarWash.m in Sources */ = {isa = PBXBuildFile; fileRef = 650483951EBA563200953C16 /* ICCarWash.m */; };
+		650483991EBA5C4300953C16 /* ICEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 650483981EBA5C4300953C16 /* ICEmployee.m */; };
+		6504839C1EBA5F6200953C16 /* ICCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504839B1EBA5F6200953C16 /* ICCar.m */; };
+		650483A01EBA757F00953C16 /* ICWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504839F1EBA757F00953C16 /* ICWasher.m */; };
+		650483A31EBA75E300953C16 /* ICAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 650483A21EBA75E300953C16 /* ICAccountant.m */; };
+		650483A71EBA764000953C16 /* ICDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 650483A61EBA764000953C16 /* ICDirector.m */; };
 		6504E4271EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E41B1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m */; };
 		6504E4281EB136900088DAB7 /* NSObject+ICInitObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E41D1EB136900088DAB7 /* NSObject+ICInitObject.m */; };
 		6504E4291EB136900088DAB7 /* NSString+ICGenerateRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E41F1EB136900088DAB7 /* NSString+ICGenerateRandomString.m */; };
@@ -29,6 +36,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		650483911EB148B400953C16 /* ICBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICBuilding.h; path = Task3/ICBuilding.h; sourceTree = "<group>"; };
+		650483921EB148B400953C16 /* ICBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICBuilding.m; path = Task3/ICBuilding.m; sourceTree = "<group>"; };
+		650483941EBA563200953C16 /* ICCarWash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICCarWash.h; path = Task3/ICCarWash.h; sourceTree = "<group>"; };
+		650483951EBA563200953C16 /* ICCarWash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICCarWash.m; path = Task3/ICCarWash.m; sourceTree = "<group>"; };
+		650483971EBA5C4300953C16 /* ICEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICEmployee.h; path = Task3/ICEmployee.h; sourceTree = "<group>"; };
+		650483981EBA5C4300953C16 /* ICEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICEmployee.m; path = Task3/ICEmployee.m; sourceTree = "<group>"; };
+		6504839A1EBA5F6200953C16 /* ICCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICCar.h; path = Task3/ICCar.h; sourceTree = "<group>"; };
+		6504839B1EBA5F6200953C16 /* ICCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICCar.m; path = Task3/ICCar.m; sourceTree = "<group>"; };
+		6504839D1EBA673200953C16 /* ICFinancialFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICFinancialFlow.h; path = Task3/ICFinancialFlow.h; sourceTree = "<group>"; };
+		6504839E1EBA757F00953C16 /* ICWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICWasher.h; path = Task3/ICWasher.h; sourceTree = "<group>"; };
+		6504839F1EBA757F00953C16 /* ICWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICWasher.m; path = Task3/ICWasher.m; sourceTree = "<group>"; };
+		650483A11EBA75E300953C16 /* ICAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICAccountant.h; path = Task3/ICAccountant.h; sourceTree = "<group>"; };
+		650483A21EBA75E300953C16 /* ICAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICAccountant.m; path = Task3/ICAccountant.m; sourceTree = "<group>"; };
+		650483A51EBA764000953C16 /* ICDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICDirector.h; path = Task3/ICDirector.h; sourceTree = "<group>"; };
+		650483A61EBA764000953C16 /* ICDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICDirector.m; path = Task3/ICDirector.m; sourceTree = "<group>"; };
 		6504E41A1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ICGenerateRandomNumber.h"; sourceTree = "<group>"; };
 		6504E41B1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ICGenerateRandomNumber.m"; sourceTree = "<group>"; };
 		6504E41C1EB136900088DAB7 /* NSObject+ICInitObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ICInitObject.h"; sourceTree = "<group>"; };
@@ -56,6 +78,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6504838D1EB13D0600953C16 /* Task3 */ = {
+			isa = PBXGroup;
+			children = (
+				650483A41EBA75FE00953C16 /* Subclasses */,
+				650483911EB148B400953C16 /* ICBuilding.h */,
+				650483921EB148B400953C16 /* ICBuilding.m */,
+				650483941EBA563200953C16 /* ICCarWash.h */,
+				650483951EBA563200953C16 /* ICCarWash.m */,
+				650483971EBA5C4300953C16 /* ICEmployee.h */,
+				650483981EBA5C4300953C16 /* ICEmployee.m */,
+				6504839A1EBA5F6200953C16 /* ICCar.h */,
+				6504839B1EBA5F6200953C16 /* ICCar.m */,
+				6504839D1EBA673200953C16 /* ICFinancialFlow.h */,
+			);
+			name = Task3;
+			sourceTree = "<group>";
+		};
+		650483A41EBA75FE00953C16 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				6504839E1EBA757F00953C16 /* ICWasher.h */,
+				6504839F1EBA757F00953C16 /* ICWasher.m */,
+				650483A11EBA75E300953C16 /* ICAccountant.h */,
+				650483A21EBA75E300953C16 /* ICAccountant.m */,
+				650483A51EBA764000953C16 /* ICDirector.h */,
+				650483A61EBA764000953C16 /* ICDirector.m */,
+			);
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
 		6504E4181EB136900088DAB7 /* Task2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +162,7 @@
 		653288321EAAA78B00E63A8A /* Creature1 */ = {
 			isa = PBXGroup;
 			children = (
+				6504838D1EB13D0600953C16 /* Task3 */,
 				6504E4181EB136900088DAB7 /* Task2 */,
 				653288331EAAA78B00E63A8A /* main.m */,
 			);
@@ -173,13 +226,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6504839C1EBA5F6200953C16 /* ICCar.m in Sources */,
 				6504E42C1EB136900088DAB7 /* ICMaleCreature.m in Sources */,
+				650483931EB148B400953C16 /* ICBuilding.m in Sources */,
 				653288341EAAA78B00E63A8A /* main.m in Sources */,
 				6504E4291EB136900088DAB7 /* NSString+ICGenerateRandomString.m in Sources */,
+				650483A71EBA764000953C16 /* ICDirector.m in Sources */,
 				6504E4281EB136900088DAB7 /* NSObject+ICInitObject.m in Sources */,
+				650483991EBA5C4300953C16 /* ICEmployee.m in Sources */,
+				650483A01EBA757F00953C16 /* ICWasher.m in Sources */,
+				650483A31EBA75E300953C16 /* ICAccountant.m in Sources */,
 				6504E42A1EB136900088DAB7 /* ICCreature.m in Sources */,
 				6504E4271EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m in Sources */,
 				6504E42B1EB136900088DAB7 /* ICFemaleCreature.m in Sources */,
+				650483961EBA563200953C16 /* ICCarWash.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
