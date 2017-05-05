@@ -8,18 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ICCreature : NSObject {
-}
+@interface ICCreature : NSObject
 
-@property (nonatomic, retain)               NSString            *name;
+@property (nonatomic, copy)                 NSString            *name;
 @property (nonatomic, assign)               NSUInteger          weight;
 @property (nonatomic, assign)               NSUInteger          age;
 @property (nonatomic, readonly)             NSArray             *children;
 
-- (instancetype)initWithName:(NSString *)name
-                      weight:(NSUInteger)weight
-                         age:(NSUInteger)age;
 - (void)addChild:(ICCreature *)child;
+- (void)addChildren:(NSArray *)children;
 - (void)removeChild:(ICCreature *)child;
 - (void)sayHello;
 - (void)performGenderSpecificOperation;

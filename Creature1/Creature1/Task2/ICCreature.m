@@ -7,8 +7,8 @@
 //
 
 #import "ICCreature.h"
-#import "NSNumber+ICGenerateRandomNumber.h"
 #import "NSString+ICGenerateRandomString.h"
+#import "ICRandomInRange.h"
 
 @interface ICCreature()
 
@@ -23,28 +23,19 @@
 #pragma mark - 
 #pragma mark Public Methods
 
-- (instancetype)initWithName:(NSString *)name
-                      weight:(NSUInteger)weight
-                         age:(NSUInteger)age
-    {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        self.name = name;
-        self.weight = weight;
-        self.age = age;
+        self.name = [NSString generateRandomStringWithLength:5];
+        self.weight = ICRandomInRange(NSMakeRange(45, 100));
+        self.age = ICRandomInRange(NSMakeRange(3, 60));
         self.mutableChildren = [[[NSMutableArray alloc] init] autorelease];
     }
     
     return self;
 }
 
-- (instancetype)init {
-   return [self initWithName:[NSString generateRandomStringWithLength:5]
-                      weight:[NSNumber generateRandomNumberBetweenMin:40 max:80]
-                         age:[NSNumber generateRandomNumberBetweenMin:20 max:50]];
-}
-
--(void)dealloc {
+- (void)dealloc {
     self.name = nil;
     self.mutableChildren = nil;
     
@@ -53,6 +44,11 @@
 
 - (NSArray *)children {
     return [[self.mutableChildren copy] autorelease];
+}
+
+- (void)addChildren:(NSArray *)children {
+    return [self.mutableChildren addObjectsFromArray:children];
+    
 }
 
 - (void)addChild:(ICCreature *)child {
