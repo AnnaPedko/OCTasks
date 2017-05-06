@@ -7,16 +7,13 @@
 //
 
 #import "ICFemaleCreature.h"
-#import "NSNumber+ICGenerateRandomNumber.h"
-#import "NSString+ICGenerateRandomString.h"
+#import "NSObject+ICInitObject.h"
 
 @implementation ICFemaleCreature
 
 - (ICCreature *)giveBirth {
-    NSLog(@"Child wos born");
-    return [[[ICCreature alloc] initWithName:[self.name stringByAppendingString:@"child"]
-                                      weight:[NSNumber generateRandomNumberBetweenMin:2 max:5]
-                                         age:[NSNumber generateRandomNumberBetweenMin:0 max:2]] autorelease];
+    NSLog(@"Child was born");
+    return [ICCreature object];
 }
 
 - (void)performGenderSpecificOperation {

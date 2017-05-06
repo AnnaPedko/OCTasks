@@ -12,6 +12,9 @@
 #import "ICMaleCreature.h"
 #import "ICFemaleCreature.h"
 #import "NSObject+ICInitObject.h"
+#import "NSArray+ICExtensions.h"
+#import "NSObject+ICExtensions.h"
+#import "ICRandomInRange.h"
 
 #import "ICAccountant.h"
 #import "ICCar.h"
@@ -22,20 +25,18 @@
 
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
-        NSMutableArray *creatures = [NSMutableArray object];
-        const NSUInteger creatureCount = 10;
         
-        for (NSUInteger i = 0; i < creatureCount; ++i) {
-            ICCreature *maleCreature = [ICMaleCreature object];
-            ICCreature *femaleCreature = [ICFemaleCreature object];
-            [creatures addObject:maleCreature];
-            [creatures addObject:femaleCreature];
-        }
+        NSArray *creatures = [NSArray objectsWithCount:4 factory:^{
+            NSUInteger randomValue =ICRandomInRange(NSMakeRange(1, 10));
+            id creature = !(randomValue % 2) ? [ICFemaleCreature object] : [ICMaleCreature object];
+            [creature addChildren:[ICCreature objectsWithCount:2]];
+            
+            return creature;
+        }];
         
         for (ICCreature *creature in creatures) {
             [creature performGenderSpecificOperation];
         }
-        
         NSLog(@"%lu", (unsigned long)[creatures count]);
     }
     

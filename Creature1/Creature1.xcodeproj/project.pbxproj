@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		650483931EB148B400953C16 /* ICBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 650483921EB148B400953C16 /* ICBuilding.m */; };
-		650483961EBA563200953C16 /* ICCarWash.m in Sources */ = {isa = PBXBuildFile; fileRef = 650483951EBA563200953C16 /* ICCarWash.m */; };
-		650483991EBA5C4300953C16 /* ICEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 650483981EBA5C4300953C16 /* ICEmployee.m */; };
-		6504839C1EBA5F6200953C16 /* ICCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504839B1EBA5F6200953C16 /* ICCar.m */; };
-		650483A01EBA757F00953C16 /* ICWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504839F1EBA757F00953C16 /* ICWasher.m */; };
-		650483A31EBA75E300953C16 /* ICAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 650483A21EBA75E300953C16 /* ICAccountant.m */; };
-		650483A71EBA764000953C16 /* ICDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 650483A61EBA764000953C16 /* ICDirector.m */; };
-		6504E4271EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E41B1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m */; };
-		6504E4281EB136900088DAB7 /* NSObject+ICInitObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E41D1EB136900088DAB7 /* NSObject+ICInitObject.m */; };
-		6504E4291EB136900088DAB7 /* NSString+ICGenerateRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E41F1EB136900088DAB7 /* NSString+ICGenerateRandomString.m */; };
-		6504E42A1EB136900088DAB7 /* ICCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E4211EB136900088DAB7 /* ICCreature.m */; };
-		6504E42B1EB136900088DAB7 /* ICFemaleCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E4241EB136900088DAB7 /* ICFemaleCreature.m */; };
-		6504E42C1EB136900088DAB7 /* ICMaleCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504E4261EB136900088DAB7 /* ICMaleCreature.m */; };
-		653288341EAAA78B00E63A8A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 653288331EAAA78B00E63A8A /* main.m */; };
+		D724174F1EBDBC2D002F82C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D724172B1EBDBC2D002F82C7 /* main.m */; };
+		D72417501EBDBC2D002F82C7 /* NSArray+ICExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D724172F1EBDBC2D002F82C7 /* NSArray+ICExtensions.m */; };
+		D72417511EBDBC2D002F82C7 /* NSObject+ICExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D72417311EBDBC2D002F82C7 /* NSObject+ICExtensions.m */; };
+		D72417521EBDBC2D002F82C7 /* NSObject+ICInitObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D72417331EBDBC2D002F82C7 /* NSObject+ICInitObject.m */; };
+		D72417531EBDBC2D002F82C7 /* NSString+ICGenerateRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = D72417351EBDBC2D002F82C7 /* NSString+ICGenerateRandomString.m */; };
+		D72417541EBDBC2D002F82C7 /* ICCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = D72417371EBDBC2D002F82C7 /* ICCreature.m */; };
+		D72417551EBDBC2D002F82C7 /* ICRandomInRange.m in Sources */ = {isa = PBXBuildFile; fileRef = D72417391EBDBC2D002F82C7 /* ICRandomInRange.m */; };
+		D72417561EBDBC2D002F82C7 /* ICFemaleCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = D724173C1EBDBC2D002F82C7 /* ICFemaleCreature.m */; };
+		D72417571EBDBC2D002F82C7 /* ICMaleCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = D724173E1EBDBC2D002F82C7 /* ICMaleCreature.m */; };
+		D72417581EBDBC2D002F82C7 /* ICAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = D72417411EBDBC2D002F82C7 /* ICAccountant.m */; };
+		D72417591EBDBC2D002F82C7 /* ICBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = D72417431EBDBC2D002F82C7 /* ICBuilding.m */; };
+		D724175A1EBDBC2D002F82C7 /* ICCar.m in Sources */ = {isa = PBXBuildFile; fileRef = D72417451EBDBC2D002F82C7 /* ICCar.m */; };
+		D724175B1EBDBC2D002F82C7 /* ICCarWash.m in Sources */ = {isa = PBXBuildFile; fileRef = D72417471EBDBC2D002F82C7 /* ICCarWash.m */; };
+		D724175C1EBDBC2D002F82C7 /* ICDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = D72417491EBDBC2D002F82C7 /* ICDirector.m */; };
+		D724175D1EBDBC2D002F82C7 /* ICEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = D724174B1EBDBC2D002F82C7 /* ICEmployee.m */; };
+		D724175E1EBDBC2D002F82C7 /* ICWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = D724174E1EBDBC2D002F82C7 /* ICWasher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,35 +38,39 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		650483911EB148B400953C16 /* ICBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICBuilding.h; path = Task3/ICBuilding.h; sourceTree = "<group>"; };
-		650483921EB148B400953C16 /* ICBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICBuilding.m; path = Task3/ICBuilding.m; sourceTree = "<group>"; };
-		650483941EBA563200953C16 /* ICCarWash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICCarWash.h; path = Task3/ICCarWash.h; sourceTree = "<group>"; };
-		650483951EBA563200953C16 /* ICCarWash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICCarWash.m; path = Task3/ICCarWash.m; sourceTree = "<group>"; };
-		650483971EBA5C4300953C16 /* ICEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICEmployee.h; path = Task3/ICEmployee.h; sourceTree = "<group>"; };
-		650483981EBA5C4300953C16 /* ICEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICEmployee.m; path = Task3/ICEmployee.m; sourceTree = "<group>"; };
-		6504839A1EBA5F6200953C16 /* ICCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICCar.h; path = Task3/ICCar.h; sourceTree = "<group>"; };
-		6504839B1EBA5F6200953C16 /* ICCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICCar.m; path = Task3/ICCar.m; sourceTree = "<group>"; };
-		6504839D1EBA673200953C16 /* ICFinancialFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICFinancialFlow.h; path = Task3/ICFinancialFlow.h; sourceTree = "<group>"; };
-		6504839E1EBA757F00953C16 /* ICWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICWasher.h; path = Task3/ICWasher.h; sourceTree = "<group>"; };
-		6504839F1EBA757F00953C16 /* ICWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICWasher.m; path = Task3/ICWasher.m; sourceTree = "<group>"; };
-		650483A11EBA75E300953C16 /* ICAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICAccountant.h; path = Task3/ICAccountant.h; sourceTree = "<group>"; };
-		650483A21EBA75E300953C16 /* ICAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICAccountant.m; path = Task3/ICAccountant.m; sourceTree = "<group>"; };
-		650483A51EBA764000953C16 /* ICDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ICDirector.h; path = Task3/ICDirector.h; sourceTree = "<group>"; };
-		650483A61EBA764000953C16 /* ICDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICDirector.m; path = Task3/ICDirector.m; sourceTree = "<group>"; };
-		6504E41A1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ICGenerateRandomNumber.h"; sourceTree = "<group>"; };
-		6504E41B1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ICGenerateRandomNumber.m"; sourceTree = "<group>"; };
-		6504E41C1EB136900088DAB7 /* NSObject+ICInitObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ICInitObject.h"; sourceTree = "<group>"; };
-		6504E41D1EB136900088DAB7 /* NSObject+ICInitObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ICInitObject.m"; sourceTree = "<group>"; };
-		6504E41E1EB136900088DAB7 /* NSString+ICGenerateRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ICGenerateRandomString.h"; sourceTree = "<group>"; };
-		6504E41F1EB136900088DAB7 /* NSString+ICGenerateRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ICGenerateRandomString.m"; sourceTree = "<group>"; };
-		6504E4201EB136900088DAB7 /* ICCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCreature.h; sourceTree = "<group>"; };
-		6504E4211EB136900088DAB7 /* ICCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCreature.m; sourceTree = "<group>"; };
-		6504E4231EB136900088DAB7 /* ICFemaleCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICFemaleCreature.h; sourceTree = "<group>"; };
-		6504E4241EB136900088DAB7 /* ICFemaleCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICFemaleCreature.m; sourceTree = "<group>"; };
-		6504E4251EB136900088DAB7 /* ICMaleCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICMaleCreature.h; sourceTree = "<group>"; };
-		6504E4261EB136900088DAB7 /* ICMaleCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICMaleCreature.m; sourceTree = "<group>"; };
 		653288301EAAA78B00E63A8A /* Creature1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Creature1; sourceTree = BUILT_PRODUCTS_DIR; };
-		653288331EAAA78B00E63A8A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D724172B1EBDBC2D002F82C7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D724172E1EBDBC2D002F82C7 /* NSArray+ICExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ICExtensions.h"; sourceTree = "<group>"; };
+		D724172F1EBDBC2D002F82C7 /* NSArray+ICExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ICExtensions.m"; sourceTree = "<group>"; };
+		D72417301EBDBC2D002F82C7 /* NSObject+ICExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ICExtensions.h"; sourceTree = "<group>"; };
+		D72417311EBDBC2D002F82C7 /* NSObject+ICExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ICExtensions.m"; sourceTree = "<group>"; };
+		D72417321EBDBC2D002F82C7 /* NSObject+ICInitObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ICInitObject.h"; sourceTree = "<group>"; };
+		D72417331EBDBC2D002F82C7 /* NSObject+ICInitObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ICInitObject.m"; sourceTree = "<group>"; };
+		D72417341EBDBC2D002F82C7 /* NSString+ICGenerateRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ICGenerateRandomString.h"; sourceTree = "<group>"; };
+		D72417351EBDBC2D002F82C7 /* NSString+ICGenerateRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ICGenerateRandomString.m"; sourceTree = "<group>"; };
+		D72417361EBDBC2D002F82C7 /* ICCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCreature.h; sourceTree = "<group>"; };
+		D72417371EBDBC2D002F82C7 /* ICCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCreature.m; sourceTree = "<group>"; };
+		D72417381EBDBC2D002F82C7 /* ICRandomInRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICRandomInRange.h; sourceTree = "<group>"; };
+		D72417391EBDBC2D002F82C7 /* ICRandomInRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICRandomInRange.m; sourceTree = "<group>"; };
+		D724173B1EBDBC2D002F82C7 /* ICFemaleCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICFemaleCreature.h; sourceTree = "<group>"; };
+		D724173C1EBDBC2D002F82C7 /* ICFemaleCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICFemaleCreature.m; sourceTree = "<group>"; };
+		D724173D1EBDBC2D002F82C7 /* ICMaleCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICMaleCreature.h; sourceTree = "<group>"; };
+		D724173E1EBDBC2D002F82C7 /* ICMaleCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICMaleCreature.m; sourceTree = "<group>"; };
+		D72417401EBDBC2D002F82C7 /* ICAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICAccountant.h; sourceTree = "<group>"; };
+		D72417411EBDBC2D002F82C7 /* ICAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICAccountant.m; sourceTree = "<group>"; };
+		D72417421EBDBC2D002F82C7 /* ICBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICBuilding.h; sourceTree = "<group>"; };
+		D72417431EBDBC2D002F82C7 /* ICBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICBuilding.m; sourceTree = "<group>"; };
+		D72417441EBDBC2D002F82C7 /* ICCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCar.h; sourceTree = "<group>"; };
+		D72417451EBDBC2D002F82C7 /* ICCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCar.m; sourceTree = "<group>"; };
+		D72417461EBDBC2D002F82C7 /* ICCarWash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCarWash.h; sourceTree = "<group>"; };
+		D72417471EBDBC2D002F82C7 /* ICCarWash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCarWash.m; sourceTree = "<group>"; };
+		D72417481EBDBC2D002F82C7 /* ICDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDirector.h; sourceTree = "<group>"; };
+		D72417491EBDBC2D002F82C7 /* ICDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDirector.m; sourceTree = "<group>"; };
+		D724174A1EBDBC2D002F82C7 /* ICEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICEmployee.h; sourceTree = "<group>"; };
+		D724174B1EBDBC2D002F82C7 /* ICEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICEmployee.m; sourceTree = "<group>"; };
+		D724174C1EBDBC2D002F82C7 /* ICFinancialFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICFinancialFlow.h; sourceTree = "<group>"; };
+		D724174D1EBDBC2D002F82C7 /* ICWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICWasher.h; sourceTree = "<group>"; };
+		D724174E1EBDBC2D002F82C7 /* ICWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICWasher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,75 +84,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6504838D1EB13D0600953C16 /* Task3 */ = {
-			isa = PBXGroup;
-			children = (
-				650483A41EBA75FE00953C16 /* Subclasses */,
-				650483911EB148B400953C16 /* ICBuilding.h */,
-				650483921EB148B400953C16 /* ICBuilding.m */,
-				650483941EBA563200953C16 /* ICCarWash.h */,
-				650483951EBA563200953C16 /* ICCarWash.m */,
-				650483971EBA5C4300953C16 /* ICEmployee.h */,
-				650483981EBA5C4300953C16 /* ICEmployee.m */,
-				6504839A1EBA5F6200953C16 /* ICCar.h */,
-				6504839B1EBA5F6200953C16 /* ICCar.m */,
-				6504839D1EBA673200953C16 /* ICFinancialFlow.h */,
-			);
-			name = Task3;
-			sourceTree = "<group>";
-		};
-		650483A41EBA75FE00953C16 /* Subclasses */ = {
-			isa = PBXGroup;
-			children = (
-				6504839E1EBA757F00953C16 /* ICWasher.h */,
-				6504839F1EBA757F00953C16 /* ICWasher.m */,
-				650483A11EBA75E300953C16 /* ICAccountant.h */,
-				650483A21EBA75E300953C16 /* ICAccountant.m */,
-				650483A51EBA764000953C16 /* ICDirector.h */,
-				650483A61EBA764000953C16 /* ICDirector.m */,
-			);
-			name = Subclasses;
-			sourceTree = "<group>";
-		};
-		6504E4181EB136900088DAB7 /* Task2 */ = {
-			isa = PBXGroup;
-			children = (
-				6504E4191EB136900088DAB7 /* Category */,
-				6504E4201EB136900088DAB7 /* ICCreature.h */,
-				6504E4211EB136900088DAB7 /* ICCreature.m */,
-				6504E4221EB136900088DAB7 /* Subclasses */,
-			);
-			path = Task2;
-			sourceTree = "<group>";
-		};
-		6504E4191EB136900088DAB7 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				6504E41A1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.h */,
-				6504E41B1EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m */,
-				6504E41C1EB136900088DAB7 /* NSObject+ICInitObject.h */,
-				6504E41D1EB136900088DAB7 /* NSObject+ICInitObject.m */,
-				6504E41E1EB136900088DAB7 /* NSString+ICGenerateRandomString.h */,
-				6504E41F1EB136900088DAB7 /* NSString+ICGenerateRandomString.m */,
-			);
-			path = Category;
-			sourceTree = "<group>";
-		};
-		6504E4221EB136900088DAB7 /* Subclasses */ = {
-			isa = PBXGroup;
-			children = (
-				6504E4231EB136900088DAB7 /* ICFemaleCreature.h */,
-				6504E4241EB136900088DAB7 /* ICFemaleCreature.m */,
-				6504E4251EB136900088DAB7 /* ICMaleCreature.h */,
-				6504E4261EB136900088DAB7 /* ICMaleCreature.m */,
-			);
-			path = Subclasses;
-			sourceTree = "<group>";
-		};
 		653288271EAAA78B00E63A8A = {
 			isa = PBXGroup;
 			children = (
-				653288321EAAA78B00E63A8A /* Creature1 */,
+				D724172A1EBDBC2D002F82C7 /* Creature1 */,
 				653288311EAAA78B00E63A8A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -159,14 +100,75 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		653288321EAAA78B00E63A8A /* Creature1 */ = {
+		D724172A1EBDBC2D002F82C7 /* Creature1 */ = {
 			isa = PBXGroup;
 			children = (
-				6504838D1EB13D0600953C16 /* Task3 */,
-				6504E4181EB136900088DAB7 /* Task2 */,
-				653288331EAAA78B00E63A8A /* main.m */,
+				D724172B1EBDBC2D002F82C7 /* main.m */,
+				D724172C1EBDBC2D002F82C7 /* Task2 */,
+				D724173F1EBDBC2D002F82C7 /* Task3 */,
 			);
 			path = Creature1;
+			sourceTree = "<group>";
+		};
+		D724172C1EBDBC2D002F82C7 /* Task2 */ = {
+			isa = PBXGroup;
+			children = (
+				D724172D1EBDBC2D002F82C7 /* Category */,
+				D72417361EBDBC2D002F82C7 /* ICCreature.h */,
+				D72417371EBDBC2D002F82C7 /* ICCreature.m */,
+				D72417381EBDBC2D002F82C7 /* ICRandomInRange.h */,
+				D72417391EBDBC2D002F82C7 /* ICRandomInRange.m */,
+				D724173A1EBDBC2D002F82C7 /* Subclasses */,
+			);
+			path = Task2;
+			sourceTree = "<group>";
+		};
+		D724172D1EBDBC2D002F82C7 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D724172E1EBDBC2D002F82C7 /* NSArray+ICExtensions.h */,
+				D724172F1EBDBC2D002F82C7 /* NSArray+ICExtensions.m */,
+				D72417301EBDBC2D002F82C7 /* NSObject+ICExtensions.h */,
+				D72417311EBDBC2D002F82C7 /* NSObject+ICExtensions.m */,
+				D72417321EBDBC2D002F82C7 /* NSObject+ICInitObject.h */,
+				D72417331EBDBC2D002F82C7 /* NSObject+ICInitObject.m */,
+				D72417341EBDBC2D002F82C7 /* NSString+ICGenerateRandomString.h */,
+				D72417351EBDBC2D002F82C7 /* NSString+ICGenerateRandomString.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		D724173A1EBDBC2D002F82C7 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				D724173B1EBDBC2D002F82C7 /* ICFemaleCreature.h */,
+				D724173C1EBDBC2D002F82C7 /* ICFemaleCreature.m */,
+				D724173D1EBDBC2D002F82C7 /* ICMaleCreature.h */,
+				D724173E1EBDBC2D002F82C7 /* ICMaleCreature.m */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
+		D724173F1EBDBC2D002F82C7 /* Task3 */ = {
+			isa = PBXGroup;
+			children = (
+				D72417401EBDBC2D002F82C7 /* ICAccountant.h */,
+				D72417411EBDBC2D002F82C7 /* ICAccountant.m */,
+				D72417421EBDBC2D002F82C7 /* ICBuilding.h */,
+				D72417431EBDBC2D002F82C7 /* ICBuilding.m */,
+				D72417441EBDBC2D002F82C7 /* ICCar.h */,
+				D72417451EBDBC2D002F82C7 /* ICCar.m */,
+				D72417461EBDBC2D002F82C7 /* ICCarWash.h */,
+				D72417471EBDBC2D002F82C7 /* ICCarWash.m */,
+				D72417481EBDBC2D002F82C7 /* ICDirector.h */,
+				D72417491EBDBC2D002F82C7 /* ICDirector.m */,
+				D724174A1EBDBC2D002F82C7 /* ICEmployee.h */,
+				D724174B1EBDBC2D002F82C7 /* ICEmployee.m */,
+				D724174C1EBDBC2D002F82C7 /* ICFinancialFlow.h */,
+				D724174D1EBDBC2D002F82C7 /* ICWasher.h */,
+				D724174E1EBDBC2D002F82C7 /* ICWasher.m */,
+			);
+			path = Task3;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,20 +228,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6504839C1EBA5F6200953C16 /* ICCar.m in Sources */,
-				6504E42C1EB136900088DAB7 /* ICMaleCreature.m in Sources */,
-				650483931EB148B400953C16 /* ICBuilding.m in Sources */,
-				653288341EAAA78B00E63A8A /* main.m in Sources */,
-				6504E4291EB136900088DAB7 /* NSString+ICGenerateRandomString.m in Sources */,
-				650483A71EBA764000953C16 /* ICDirector.m in Sources */,
-				6504E4281EB136900088DAB7 /* NSObject+ICInitObject.m in Sources */,
-				650483991EBA5C4300953C16 /* ICEmployee.m in Sources */,
-				650483A01EBA757F00953C16 /* ICWasher.m in Sources */,
-				650483A31EBA75E300953C16 /* ICAccountant.m in Sources */,
-				6504E42A1EB136900088DAB7 /* ICCreature.m in Sources */,
-				6504E4271EB136900088DAB7 /* NSNumber+ICGenerateRandomNumber.m in Sources */,
-				6504E42B1EB136900088DAB7 /* ICFemaleCreature.m in Sources */,
-				650483961EBA563200953C16 /* ICCarWash.m in Sources */,
+				D724175A1EBDBC2D002F82C7 /* ICCar.m in Sources */,
+				D72417591EBDBC2D002F82C7 /* ICBuilding.m in Sources */,
+				D72417521EBDBC2D002F82C7 /* NSObject+ICInitObject.m in Sources */,
+				D72417581EBDBC2D002F82C7 /* ICAccountant.m in Sources */,
+				D72417531EBDBC2D002F82C7 /* NSString+ICGenerateRandomString.m in Sources */,
+				D724175D1EBDBC2D002F82C7 /* ICEmployee.m in Sources */,
+				D724175C1EBDBC2D002F82C7 /* ICDirector.m in Sources */,
+				D72417541EBDBC2D002F82C7 /* ICCreature.m in Sources */,
+				D72417501EBDBC2D002F82C7 /* NSArray+ICExtensions.m in Sources */,
+				D72417551EBDBC2D002F82C7 /* ICRandomInRange.m in Sources */,
+				D72417571EBDBC2D002F82C7 /* ICMaleCreature.m in Sources */,
+				D724175E1EBDBC2D002F82C7 /* ICWasher.m in Sources */,
+				D72417511EBDBC2D002F82C7 /* NSObject+ICExtensions.m in Sources */,
+				D72417561EBDBC2D002F82C7 /* ICFemaleCreature.m in Sources */,
+				D724174F1EBDBC2D002F82C7 /* main.m in Sources */,
+				D724175B1EBDBC2D002F82C7 /* ICCarWash.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
