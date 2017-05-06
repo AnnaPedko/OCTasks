@@ -10,6 +10,6 @@
 
 @interface NSArray (ICExtensions)
 
-+ (NSArray *) objectsWithCount:(NSUInteger)count factory:(id(^)(void))objectCreator;
++ (NSArray *)objectsWithCount:(NSUInteger)count factory:(id(^)(void))objectCreator;
 
 @end

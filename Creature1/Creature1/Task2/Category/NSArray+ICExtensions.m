@@ -11,7 +11,7 @@
 
 @implementation NSArray (ICExtension)
 
-+ (NSArray *) objectsWithCount:(NSUInteger)count factory:(id(^)(void))objectCreator {
++ (NSArray *)objectsWithCount:(NSUInteger)count factory:(id(^)(void))objectCreator {
     NSMutableArray *creatures = [NSMutableArray object];
     for (NSUInteger index = 0; index < count; ++index) {
         [creatures addObject:objectCreator()];

@@ -39,7 +39,6 @@ static const NSUInteger ICDefaultStringLength = 30;
     [randomString appendString:[self letterAlphabet]];
     
     return [self stringWithString:randomString];
-
 }
 
 +(id)alphabetWithUnicodeRange:(NSRange)range {
@@ -71,8 +70,6 @@ static const NSUInteger ICDefaultStringLength = 30;
     [randomString appendString: [self generateRandomStringWithLength: length alphabet: [self letterAlphabet]]];
     
     return [self stringWithString:randomString];
-    
-
 }
 
 @end

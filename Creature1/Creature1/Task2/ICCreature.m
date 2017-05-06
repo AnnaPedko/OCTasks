@@ -9,6 +9,7 @@
 #import "ICCreature.h"
 #import "NSString+ICGenerateRandomString.h"
 #import "ICRandomInRange.h"
+#import "NSObject+ICInitObject.h"
 
 @interface ICCreature()
 
@@ -29,7 +30,7 @@
         self.name = [NSString generateRandomStringWithLength:5];
         self.weight = ICRandomInRange(NSMakeRange(45, 100));
         self.age = ICRandomInRange(NSMakeRange(3, 60));
-        self.mutableChildren = [[[NSMutableArray alloc] init] autorelease];
+        self.mutableChildren = [NSMutableArray object];
     }
     
     return self;
