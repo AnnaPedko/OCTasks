@@ -12,8 +12,8 @@
 #import "ICMaleCreature.h"
 #import "ICFemaleCreature.h"
 #import "NSObject+ICInitObject.h"
-#import "NSArray+ICExtension.h"
-#import "NSObject+ICExtension.h"
+#import "NSArray+ICExtensions.h"
+#import "NSObject+ICExtensions.h"
 #import "ICRandomInRange.h"
 
 int main(int argc, const char *argv[]) {

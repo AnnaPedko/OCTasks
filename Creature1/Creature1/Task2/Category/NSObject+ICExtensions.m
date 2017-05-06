@@ -6,10 +6,10 @@
 //  Copyright © 2017 Anna P. All rights reserved.
 //
 
-#import "NSObject+ICExtension.h"
+#import "NSObject+ICExtensions.h"
 #import "NSObject+ICInitObject.h"
 
-@implementation NSObject (ICExtension)
+@implementation NSObject (ICExtensions)
 
 + (NSArray *)objectsWithCount:(NSUInteger) count {
     NSMutableArray *creatures = [NSMutableArray object];

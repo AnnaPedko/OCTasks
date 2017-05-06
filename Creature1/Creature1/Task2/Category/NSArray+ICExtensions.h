@@ -1,5 +1,5 @@
 //
-//  NSObject+ICExtension.h
+//  NSArray+ICExtension.h
 //  Creature1
 //
 //  Created by Anna P. on 05.05.17.
@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (ICExtension)
+@interface NSArray (ICExtensions)
 
-+ (NSArray *)objectsWithCount:(NSUInteger) count;
++ (NSArray *) objectsWithCount:(NSUInteger)count factory:(id(^)(void))objectCreator;
 
 @end

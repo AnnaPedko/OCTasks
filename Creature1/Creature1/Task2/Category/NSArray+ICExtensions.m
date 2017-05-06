@@ -6,7 +6,7 @@
 //  Copyright © 2017 Anna P. All rights reserved.
 //
 
-#import "NSArray+ICExtension.h"
+#import "NSArray+ICExtensions.h"
 #import "NSObject+ICInitObject.h"
 
 @implementation NSArray (ICExtension)
