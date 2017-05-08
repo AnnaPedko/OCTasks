@@ -10,7 +10,7 @@
 
 @interface ICFemaleCreature : ICCreature
 
-- (ICCreature *)giveBirth;
+- (ICCreature *)givingBirthToChild;
 - (void)performGenderSpecificOperation;
 
 @end

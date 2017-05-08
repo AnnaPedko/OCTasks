@@ -8,40 +8,44 @@
 
 #import "NSString+ICGenerateRandomString.h"
 
+static NSRange ICRangeWithCharacter(unichar leftBoundary, unichar rightBoundary) {
+    unichar min = MIN(leftBoundary, rightBoundary);
+    unichar max = MAX(leftBoundary, rightBoundary);
+    
+    return NSMakeRange(min, max - min + 1);
+}
+
 @implementation NSString (ICGenerateRandomString)
 
 static const NSUInteger ICDefaultStringLength = 30;
 
-+ (id)lowercaseLetterAlphabet {
-    return [self alphabetWithUnicodeRange:NSMakeRange('a',
-                                                    'z' - 'a')];
++ (instancetype)lowercaseLetterAlphabet {
+    return [self alphabetWithUnicodeRange:ICRangeWithCharacter('a', 'z')];
 }
 
-+ (id)capitalizedLetterAplphabet {
-    return [self alphabetWithUnicodeRange:NSMakeRange('A',
-                                                      'Z' - 'A')];
++ (instancetype)capitalizedLetterAplphabet {
+    return [self alphabetWithUnicodeRange:NSMakeRange('A', 'Z')];
 }
 
-+ (id)letterAlphabet {
++ (instancetype)letterAlphabet {
     NSMutableString *randomString = [NSMutableString stringWithString:[self lowercaseLetterAlphabet]];
     [randomString appendString:[self capitalizedLetterAplphabet]];
     
     return [self stringWithString:randomString];
 }
 
-+ (id)numericalAlphabet {
-        return [self alphabetWithUnicodeRange:NSMakeRange('1',
-                                                          '9' - '0')];
++ (instancetype)numericalAlphabet {
+    return [self alphabetWithUnicodeRange:ICRangeWithCharacter('0', '9')];
 }
 
-+ (id)alphanumericalAlphabet {
++ (instancetype)alphanumericalAlphabet {
     NSMutableString *randomString = [NSMutableString stringWithString:[self numericalAlphabet]];
     [randomString appendString:[self letterAlphabet]];
     
     return [self stringWithString:randomString];
 }
 
-+(id)alphabetWithUnicodeRange:(NSRange)range {
++(instancetype)alphabetWithUnicodeRange:(NSRange)range {
     NSMutableString *randomString = [NSMutableString string];
     for (unichar character = range.location; character < NSMaxRange(range); ++character) {
         [randomString appendFormat:@"%c",character];
@@ -50,24 +54,35 @@ static const NSUInteger ICDefaultStringLength = 30;
     return [self stringWithString:randomString];
 }
 
-+ (id)generateRandomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet {
++ (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet {
     NSMutableString *randomString = [NSMutableString stringWithCapacity:length];
     NSUInteger alphabetLength = [alphabet length];
     
     for (NSUInteger i = 0; i < length; ++i) {
-        [randomString appendFormat:@"%C", [alphabet characterAtIndex:arc4random() % (u_int32_t)alphabetLength]];
+        [randomString appendFormat:@"%C", [alphabet characterAtIndex:arc4random_uniform((uint32_t)alphabetLength)]];
     }
     
     return [self stringWithString:(randomString)];
 }
 
-+ (id)randomString {
-    return [self generateRandomStringWithLength:arc4random_uniform(ICDefaultStringLength)];
++ (instancetype)randomString {
+    return [self randomStringWithLength:arc4random_uniform(ICDefaultStringLength)];
 }
 
-+ (id)generateRandomStringWithLength:(NSUInteger)length {
++ (instancetype)randomStringWithLength:(NSUInteger)length {
     NSMutableString *randomString = [NSMutableString string];
-    [randomString appendString: [self generateRandomStringWithLength: length alphabet: [self letterAlphabet]]];
+    [randomString appendString: [self randomStringWithLength: length alphabet: [self letterAlphabet]]];
+    
+    return [self stringWithString:randomString];
+}
+
++ (instancetype)randomName {
+    NSUInteger nameLength = 6;
+    NSMutableString *randomString = [NSMutableString string];
+    [randomString appendString:[self randomStringWithLength:1
+                                                       alphabet:[self capitalizedLetterAplphabet]]];
+    [randomString appendString:[self randomStringWithLength:nameLength
+                                                   alphabet:[self lowercaseLetterAlphabet]]];
     
     return [self stringWithString:randomString];
 }

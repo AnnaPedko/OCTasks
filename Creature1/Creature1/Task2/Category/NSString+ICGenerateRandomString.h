@@ -10,15 +10,15 @@
 
 @interface NSString (ICGenerateRandomString)
 
-+ (id)alphabetWithUnicodeRange:(NSRange)range;
-+ (id)lowercaseLetterAlphabet;
-+ (id)capitalizedLetterAplphabet;
-+ (id)letterAlphabet;
-+ (id)numericalAlphabet;
-+ (id)alphanumericalAlphabet;
-+ (id)generateRandomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet;
-+ (id)generateRandomStringWithLength:(NSUInteger)length;
-+ (id)randomString;
-
++ (instancetype)alphabetWithUnicodeRange:(NSRange)range;
++ (instancetype)lowercaseLetterAlphabet;
++ (instancetype)capitalizedLetterAplphabet;
++ (instancetype)letterAlphabet;
++ (instancetype)numericalAlphabet;
++ (instancetype)alphanumericalAlphabet;
++ (instancetype)randomStringWithLength:(NSUInteger)length alphabet:(NSString *)alphabet;
++ (instancetype)randomStringWithLength:(NSUInteger)length;
++ (instancetype)randomString;
++ (instancetype)randomName;
 
 @end

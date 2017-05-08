@@ -20,8 +20,8 @@ int main(int argc, const char *argv[]) {
     @autoreleasepool {
         
         NSArray *creatures = [NSArray objectsWithCount:4 factory:^{
-            NSUInteger randomValue =ICRandomInRange(NSMakeRange(1, 10));
-            id creature = !(randomValue % 2) ? [ICFemaleCreature object] : [ICMaleCreature object];
+            NSUInteger randomValue =ICRandomInRange(NSMakeRange(0, 1));
+            id creature = !(randomValue) ? [ICFemaleCreature object] : [ICMaleCreature object];
             [creature addChildren:[ICCreature objectsWithCount:2]];
             
             return creature;

@@ -11,13 +11,13 @@
 
 @implementation ICFemaleCreature
 
-- (ICCreature *)giveBirth {
+- (ICCreature *)givingBirthToChild {
     NSLog(@"Child was born");
     return [ICCreature object];
 }
 
 - (void)performGenderSpecificOperation {
-    [self giveBirth];
+    [self givingBirthToChild];
 }
 
 @end
