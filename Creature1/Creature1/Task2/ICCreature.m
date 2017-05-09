@@ -7,34 +7,25 @@
 //
 
 #import "ICCreature.h"
-#import "NSString+ICGenerateRandomString.h"
 #import "ICRandomInRange.h"
+
+#import "NSString+ICGenerateRandomString.h"
 #import "NSObject+ICInitObject.h"
 
 @interface ICCreature()
-
-@property (nonatomic, assign) NSMutableArray *mutableChildren;
+@property (nonatomic, retain) NSMutableArray *mutableChildren;
 
 @end
+
+static const NSRange ICWeightRange = {45, 100};
+static const NSRange ICAgeRange = {3, 60};
 
 @implementation ICCreature
 
 @dynamic children;
 
 #pragma mark - 
-#pragma mark Public Methods
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.name = [NSString generateRandomStringWithLength:5];
-        self.weight = ICRandomInRange(NSMakeRange(45, 100));
-        self.age = ICRandomInRange(NSMakeRange(3, 60));
-        self.mutableChildren = [NSMutableArray object];
-    }
-    
-    return self;
-}
+#pragma mark Initializer and Dealloc Methods
 
 - (void)dealloc {
     self.name = nil;
@@ -43,21 +34,41 @@
     [super dealloc];
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.name = [NSString randomName];
+        self.weight = ICRandomInRange(ICWeightRange);
+        self.age = ICRandomInRange(ICAgeRange);
+        self.mutableChildren = [NSMutableArray object];
+    }
+    
+    return self;
+}
+
+#pragma mark - 
+#pragma mark Public Methods
+
 - (NSArray *)children {
     return [[self.mutableChildren copy] autorelease];
 }
 
 - (void)addChildren:(NSArray *)children {
     return [self.mutableChildren addObjectsFromArray:children];
-    
 }
 
 - (void)addChild:(ICCreature *)child {
-    [self.mutableChildren addObject:child];
+    if (child) {
+        [self.mutableChildren addObject:child];
+    }
 }
 
 - (void)removeChild:(ICCreature *)child {
     [self.mutableChildren removeObject:child];
+}
+
+- (void) removeChildren:(NSArray *)children {
+    [self.mutableChildren removeObjectsInArray:children];
 }
 
 - (void)sayHello {

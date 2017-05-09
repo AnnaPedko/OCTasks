@@ -8,16 +8,15 @@
 
 #import "NSObject+ICExtensions.h"
 #import "NSObject+ICInitObject.h"
+#import "NSArray+ICExtensions.h"
 
 @implementation NSObject (ICExtensions)
 
-+ (NSArray *)objectsWithCount:(NSUInteger) count {
-    NSMutableArray *creatures = [NSMutableArray object];
-    for (NSUInteger index = 0; index < count; index++) {
-        [creatures addObject:[self object]];
-    }
++ (NSArray *)objectsWithCount:(NSUInteger)count {
+    NSArray *creatures = [NSArray objectsWithCount:count factory:^{
+        return [self object];}];
     
-    return [[creatures copy] autorelease];
+    return creatures ;
 }
 
 @end

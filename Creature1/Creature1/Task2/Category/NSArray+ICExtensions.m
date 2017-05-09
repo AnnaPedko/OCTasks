@@ -17,7 +17,7 @@
         [creatures addObject:objectCreator()];
     }
     
-    return [[creatures copy] autorelease];
+    return [self arrayWithArray:creatures];
 }
 
 @end

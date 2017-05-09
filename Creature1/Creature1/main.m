@@ -11,10 +11,11 @@
 #import "ICCreature.h"
 #import "ICMaleCreature.h"
 #import "ICFemaleCreature.h"
+#import "ICRandomInRange.h"
+
 #import "NSObject+ICInitObject.h"
 #import "NSArray+ICExtensions.h"
 #import "NSObject+ICExtensions.h"
-#import "ICRandomInRange.h"
 
 #import "ICAccountant.h"
 #import "ICCar.h"
@@ -25,10 +26,10 @@
 
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
-        
+        static const NSRange genderRange = {0, 1};
         NSArray *creatures = [NSArray objectsWithCount:4 factory:^{
-            NSUInteger randomValue =ICRandomInRange(NSMakeRange(1, 10));
-            id creature = !(randomValue % 2) ? [ICFemaleCreature object] : [ICMaleCreature object];
+            NSUInteger randomValue =ICRandomInRange(genderRange);
+            id creature = !(randomValue) ? [ICFemaleCreature object] : [ICMaleCreature object];
             [creature addChildren:[ICCreature objectsWithCount:2]];
             
             return creature;
