@@ -24,7 +24,7 @@ static const NSUInteger ICDefaultStringLength = 30;
 }
 
 + (instancetype)capitalizedLetterAplphabet {
-    return [self alphabetWithUnicodeRange:NSMakeRange('A', 'Z')];
+    return [self alphabetWithUnicodeRange:ICRangeWithCharacter('A', 'Z')];
 }
 
 + (instancetype)letterAlphabet {

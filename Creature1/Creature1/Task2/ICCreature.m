@@ -67,7 +67,7 @@ static const NSRange ICAgeRange = {3, 60};
     [self.mutableChildren removeObject:child];
 }
 
--(void) removeChildren:(NSArray *)children {
+- (void) removeChildren:(NSArray *)children {
     [self.mutableChildren removeObjectsInArray:children];
 }
 

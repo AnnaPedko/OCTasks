@@ -9,10 +9,5 @@
 #include "ICRandomInRange.h"
 
 NSUInteger ICRandomInRange(NSRange range) {
-    NSUInteger max = range.length;
-    NSUInteger min = range.location;
-        
-    return (arc4random() % (max - min + 1)) + min;
+    return range.location + (arc4random_uniform((uint32_t)(NSMaxRange(range) - range.location + 1)));
 }
-
-
