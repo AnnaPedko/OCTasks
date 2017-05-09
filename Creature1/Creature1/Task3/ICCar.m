@@ -14,6 +14,10 @@
 @synthesize salary;
 @synthesize money;
 
+- (void) dealloc {
+    [super dealloc];
+}
+
 - (instancetype) init {
     self = [super init];
     if (self) {
@@ -24,8 +28,10 @@
     return self;
 }
 
-- (void) dealloc {
-    [super dealloc];
+- (NSUInteger)giveMoney{
+    NSUInteger carMoney = self.money;
+    self.money = 0;
+    
+    return carMoney;
 }
-
 @end

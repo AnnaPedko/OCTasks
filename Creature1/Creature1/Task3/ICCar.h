@@ -5,11 +5,11 @@
 //  Created by Anna P. on 03.05.17.
 //  Copyright © 2017 Anna P. All rights reserved.
 //
-
-#import "ICEmployee.h"
+#import <Foundation/Foundation.h>
 #import "ICFinancialFlow.h"
 
-@interface ICCar : ICEmployee <ICFinancialFlow>
+@interface ICCar : NSObject <ICFinancialFlow>
 
+-(NSUInteger)giveMoney;
 
 @end

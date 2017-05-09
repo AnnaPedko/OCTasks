@@ -18,11 +18,12 @@ typedef NS_ENUM(NSUInteger, ICObjectState) {
 @property (nonatomic, assign)   NSUInteger salary;
 @property (nonatomic, assign)   ICObjectState   state;
 
-- (void)takeMoney:(NSUInteger)money;
 - (NSUInteger)giveMoney;
 
 @optional
 - (void)takeMoneyFromObject:(id <ICFinancialFlow>) object;
+- (void)takeMoney:(NSUInteger)money;
+
 
 
 @end
