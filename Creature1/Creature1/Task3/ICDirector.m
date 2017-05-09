@@ -11,7 +11,6 @@
 
 @implementation ICDirector
 
-@synthesize condition;
 
 - (instancetype) init {
     self = [super init];
@@ -25,15 +24,6 @@
 
 - (void) dealloc {
     [super dealloc];
-}
-
-- (void) takeMoney:(ICAccountant *)accountant {
-    if (accountant.isReady) {
-        self.money += accountant.money;
-        accountant.money = 0;
-        accountant.condition = false;
-        self.condition = true;
-    }
 }
 
 

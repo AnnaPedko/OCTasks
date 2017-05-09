@@ -10,11 +10,15 @@
 
 @implementation ICCar
 
+@synthesize state;
+@synthesize salary;
+@synthesize money;
+
 - (instancetype) init {
     self = [super init];
     if (self) {
         self.money = 200;
-        self.condition = false;
+        self.state = ICObjectFree;
     }
     
     return self;

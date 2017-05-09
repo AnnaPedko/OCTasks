@@ -18,7 +18,6 @@
 
 @implementation ICCarWash
 
-@synthesize condition;
 
 - (instancetype) init {
     self = [super init];
@@ -44,14 +43,7 @@
     return [[self.mutableCarGarage copy] autorelease];
 }
 
-- (void) takeMoney:(ICWasher *)washer {
-    if (washer.condition) {
-        self.money += self.price;
-        washer.money -= self.price;
-        washer.condition = false;
-        self.condition= true;
-    }
-}
+
 
 
 @end

@@ -11,38 +11,38 @@
 #import "ICCarWash.h"
 
 @implementation ICWasher
+@synthesize state;
 
-@synthesize condition;
+- (void)dealloc {
+    [super dealloc];
+}
 
-- (instancetype) init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.money = 0;
         self.salary = 0;
         self.experience = 2;
-        self.condition = false;
+        self.state = ICObjectFree;
     }
     
     return self;
 }
 
-- (void) dealloc {
-    [super dealloc];
-}
-
-- (void) takeMoney:(ICCar *)car {
-    self.money += car.money;
-    car.money = 0;
-}
-
-- (void) performEmployeeSpecificOperation:(ICCar *) car {
-    if (!car.isClear) {
-        [self takeMoney:car];
-        car.condition = true;
-        self.condition = true;
+- (void)washCar:(id<ICFinancialFlow>)car {
+    if (!car.state) {
+        car.state = ICObjectFree;
     }
 }
 
+- (void)performEmployeeSpecificOperation:(id<ICFinancialFlow>)car {
+    [self washCar:car];
+    [self takeMoneyFromObject:car];
+}
 
+- (void)processObject:(id<ICFinancialFlow>)car{
+    [super processObject:car];
+    car.state = ICObjectBusy;
+}
 
 @end

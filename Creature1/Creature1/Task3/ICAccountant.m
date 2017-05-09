@@ -10,8 +10,12 @@
 #import "ICCarWash.h"
 
 @implementation ICAccountant
-
-@synthesize condition;
+@synthesize state;
+@synthesize money;
+@synthesize salary;
+- (void) dealloc {
+    [super dealloc];
+}
 
 - (instancetype) init {
     self = [super init];
@@ -19,27 +23,26 @@
         self.money = 0;
         self.experience = 5;
         self.salary = 0;
-        self.condition = false;
+        self.state = ICObjectFree;
     }
+    
     return self;
 }
 
-- (void) dealloc {
-    [super dealloc];
+- (void)performEmployeeSpecificOperation:(id)object {
+    [self takeMoneyFromObject:object];
+    [self countSalary:object];
 }
 
-- (void) takeMoney:(ICCarWash*)carWash {
-    if (carWash.isReady) {
-        self.money = carWash.money;
-        carWash.money = 0;
-        carWash.condition = false;
-    }
-}
-
-- (void) performEmployeeSpecificOperation:(ICEmployee *) employee {
+- (void)countSalary:(id<ICFinancialFlow>)employee {
     employee.salary = 0.1 * self.money;
     self.money -= employee.salary;
-    self.condition = true;
 }
+
+- (void)processObject:(id<ICFinancialFlow>)object {
+    [super processObject:object];
+    object.state = ICObjectFree;
+    
+    }
 
 @end

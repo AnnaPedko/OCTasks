@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ICFinancialFlow.h"
 
-@interface ICEmployee : NSObject
 
-@property (nonatomic, assign) NSUInteger money;
-@property (nonatomic, assign) NSUInteger salary;
-@property (nonatomic, assign) NSUInteger experience;
 
-- (void) performEmployeeSpecificOperation:(id) value;
+@interface ICEmployee : NSObject <ICFinancialFlow>
 
+@property (nonatomic, assign)   NSUInteger    money;
+@property (nonatomic, assign)   NSUInteger    salary;
+@property (nonatomic, assign)   NSUInteger    experience;
+
+- (void)performEmployeeSpecificOperation:(id)object;
+- (void)processObject:(id<ICFinancialFlow>)object;
 @end

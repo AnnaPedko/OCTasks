@@ -7,9 +7,8 @@
 //
 
 #import "ICEmployee.h"
-#import "ICFinancialFlow.h"
 
-@interface ICDirector : ICEmployee <ICFinancialFlow>
+@interface ICDirector : ICEmployee
 
 
 @end

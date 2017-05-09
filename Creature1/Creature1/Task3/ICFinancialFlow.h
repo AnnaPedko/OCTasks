@@ -8,9 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, ICObjectState) {
+    ICObjectBusy,
+    ICObjectFree,
+};
+
 @protocol ICFinancialFlow <NSObject>
+@property (nonatomic, assign)   NSUInteger  money;
+@property (nonatomic, assign)   NSUInteger salary;
+@property (nonatomic, assign)   ICObjectState   state;
 
-@property (nonatomic, assign, getter = isReady) BOOL condition;
+- (void)takeMoney:(NSUInteger)money;
+- (NSUInteger)giveMoney;
 
-- (void) takeMoney:(NSObject *) object;
+@optional
+- (void)takeMoneyFromObject:(id <ICFinancialFlow>) object;
+
+
 @end
+;

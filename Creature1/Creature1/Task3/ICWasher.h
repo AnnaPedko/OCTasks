@@ -7,8 +7,9 @@
 //
 
 #import "ICEmployee.h"
-#import "ICFinancialFlow.h"
 
-@interface ICWasher : ICEmployee <ICFinancialFlow>
+@interface ICWasher : ICEmployee
+
+- (void)processObject:(id<ICFinancialFlow>)object;
 
 @end

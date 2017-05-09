@@ -44,19 +44,19 @@ int main(int argc, const char *argv[]) {
     @autoreleasepool {
         ICEmployee *washer = [ICWasher object];
         ICAccountant *accountant = [ICAccountant object];
-        ICDirector *director = [ICDirector object];
+       // ICDirector *director = [ICDirector object];
         ICCar *car = [ICCar object];
-        ICCarWash *carWash = [ICCarWash object];
+        //ICCarWash *carWash = [ICCarWash object];
         
-        [washer performEmployeeSpecificOperation:car];
-        [carWash takeMoney:washer];
-        [accountant takeMoney:carWash];
+        [washer processObject:car];
+        [accountant processObject:washer];
+        /*[accountant takeMoney:carWash];
         [accountant performEmployeeSpecificOperation:washer];
         [accountant performEmployeeSpecificOperation:accountant];
         [accountant performEmployeeSpecificOperation:director];
-        [director takeMoney: accountant];
+        [director takeMoney: accountant];*/
         
-        NSLog(@"Director money = %lu",[director money]);
+       // NSLog(@"Director money = %lu",[director money]);
         
         
     }
