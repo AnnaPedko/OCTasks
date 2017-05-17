@@ -9,15 +9,28 @@
 #import "ICCarWash.h"
 #import "ICCar.h"
 #import "ICWasher.h"
+#import "ICBuilding.h"
+#import "ICAccountant.h"
+#import "ICDirector.h"
+
+#import "NSObject+ICInitObject.h"
+#import "NSObject+ICExtensions.h"
+#import "NSArray+ICExtensions.h"
+
 
 @interface ICCarWash()
 
-@property (nonatomic, assign) NSMutableArray *mutableCarGarage;
 
 @end
 
 @implementation ICCarWash
+@synthesize state;
+@synthesize salary;
 
+- (void) dealloc {
+    
+    [super dealloc];
+}
 
 - (instancetype) init {
     self = [super init];
@@ -25,22 +38,36 @@
         self.money = 400;
         self.price = 200;
     }
+    
     return self;
     
 }
 
-- (void) dealloc {
-    self.mutableCarGarage = nil;
+- (ICBuilding *)createBuildingWithRooms:(NSUInteger)rooms staff:(NSArray *)staff {
+    ICBuilding *build = [[[ICBuilding alloc] initWithObjects:rooms] autorelease];
+    for (ICRoom *room in build.rooms) {
+        [room addStaff:staff];
+    }
     
-    [super dealloc];
-}
+    return build;
+};
 
-- (void) addCar:(ICCar *)car {
-    [self.mutableCarGarage addObject:car];
-}
-
-- (NSArray *)carGarage {
-    return [[self.mutableCarGarage copy] autorelease];
+- (void)washCars:(NSArray *)cars {
+    ICWasher *washer = [ICWasher object];
+    ICAccountant *accountant = [ICAccountant object];
+    ICDirector *director = [ICDirector object];
+    ICBuilding *build = [self createBuildingWithRooms:1 staff:@[director,accountant]];
+    ICBuilding *washBox = [self createBuildingWithRooms:1 staff:@[washer]];
+    for (id<ICFinancialFlow> car in cars) {
+        ICWasher *freeWasher = [washBox findWorkerByClass:[ICWasher class]];
+        [freeWasher processObject:car];
+        ICAccountant *freeAccountant = [build findWorkerByClass:[ICAccountant class]];
+        [freeAccountant processObject:freeWasher];
+        ICDirector *freeDirector = [build findWorkerByClass:[ICDirector class]];
+        [freeDirector processObject:freeAccountant];
+        NSLog (@"Profit = %lu",freeDirector.money);
+    }
+    
 }
 
 

@@ -28,7 +28,7 @@
     return self;
 }
 
-- (NSUInteger)giveMoney{
+- (NSUInteger)giveMoney {
     NSUInteger carMoney = self.money;
     self.money = 0;
     

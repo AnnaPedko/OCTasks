@@ -13,6 +13,7 @@
 @synthesize state;
 @synthesize money;
 @synthesize salary;
+
 - (void) dealloc {
     [super dealloc];
 }

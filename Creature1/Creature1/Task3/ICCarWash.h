@@ -13,7 +13,8 @@
 
 @property (nonatomic, assign) NSUInteger money;
 @property (nonatomic, assign) NSUInteger price;
-@property (nonatomic,copy) NSArray *carGarage;
+
+- (void)washCars:(NSArray *)cars;
 
 
 

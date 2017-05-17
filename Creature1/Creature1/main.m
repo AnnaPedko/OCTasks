@@ -42,23 +42,12 @@ int main(int argc, const char *argv[]) {
     }
     
     @autoreleasepool {
-        ICEmployee *washer = [ICWasher object];
-        ICAccountant *accountant = [ICAccountant object];
-       // ICDirector *director = [ICDirector object];
-        ICCar *car = [ICCar object];
-        //ICCarWash *carWash = [ICCarWash object];
+        static const NSUInteger countOfCars = 5;
         
-        [washer processObject:car];
-        [accountant processObject:washer];
-        /*[accountant takeMoney:carWash];
-        [accountant performEmployeeSpecificOperation:washer];
-        [accountant performEmployeeSpecificOperation:accountant];
-        [accountant performEmployeeSpecificOperation:director];
-        [director takeMoney: accountant];*/
-        
-       // NSLog(@"Director money = %lu",[director money]);
-        
-        
+        NSArray *cars = [ICCar objectsWithCount:countOfCars];
+        ICCarWash *carWash = [ICCarWash object];
+        [carWash washCars:cars];
+       
     }
     
     return 0;

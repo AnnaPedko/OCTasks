@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ICRoom.h"
 
 @interface ICBuilding : NSObject
+@property (nonatomic,copy)  NSArray  *rooms;
 
-
-@property (nonatomic,assign) NSUInteger room;
-@property (nonatomic,copy) NSArray *people;
+- (id<ICFinancialFlow>)findWorkerByClass:(Class)worker;
+- (instancetype)initWithObjects:(NSUInteger)count;
 
 
 @end

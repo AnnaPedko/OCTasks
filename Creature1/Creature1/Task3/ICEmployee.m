@@ -9,6 +9,9 @@
 #import "ICEmployee.h"
 
 @implementation ICEmployee
+@synthesize state;
+@synthesize salary;
+@synthesize experience;
 
 - (void)dealloc {
     

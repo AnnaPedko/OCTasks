@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		654E13DB1EC9FC6500930D2A /* ICRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 654E13DA1EC9FC6500930D2A /* ICRoom.m */; };
 		D724174F1EBDBC2D002F82C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D724172B1EBDBC2D002F82C7 /* main.m */; };
 		D72417501EBDBC2D002F82C7 /* NSArray+ICExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D724172F1EBDBC2D002F82C7 /* NSArray+ICExtensions.m */; };
 		D72417511EBDBC2D002F82C7 /* NSObject+ICExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D72417311EBDBC2D002F82C7 /* NSObject+ICExtensions.m */; };
@@ -39,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		653288301EAAA78B00E63A8A /* Creature1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Creature1; sourceTree = BUILT_PRODUCTS_DIR; };
+		654E13D91EC9FC6500930D2A /* ICRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICRoom.h; sourceTree = "<group>"; };
+		654E13DA1EC9FC6500930D2A /* ICRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICRoom.m; sourceTree = "<group>"; };
 		D724172B1EBDBC2D002F82C7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D724172E1EBDBC2D002F82C7 /* NSArray+ICExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ICExtensions.h"; sourceTree = "<group>"; };
 		D724172F1EBDBC2D002F82C7 /* NSArray+ICExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ICExtensions.m"; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 				D724174C1EBDBC2D002F82C7 /* ICFinancialFlow.h */,
 				D724174D1EBDBC2D002F82C7 /* ICWasher.h */,
 				D724174E1EBDBC2D002F82C7 /* ICWasher.m */,
+				654E13D91EC9FC6500930D2A /* ICRoom.h */,
+				654E13DA1EC9FC6500930D2A /* ICRoom.m */,
 			);
 			path = Task3;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				D72417561EBDBC2D002F82C7 /* ICFemaleCreature.m in Sources */,
 				D724174F1EBDBC2D002F82C7 /* main.m in Sources */,
 				D724175B1EBDBC2D002F82C7 /* ICCarWash.m in Sources */,
+				654E13DB1EC9FC6500930D2A /* ICRoom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
