@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, ICObjectState) {
 
 @protocol ICFinancialFlow <NSObject>
 @property (nonatomic, assign)   NSUInteger  money;
-@property (nonatomic, assign)   NSUInteger salary;
+@property (nonatomic, assign)   NSUInteger  salary;
 @property (nonatomic, assign)   ICObjectState   state;
 
 @optional

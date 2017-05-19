@@ -7,9 +7,10 @@
 //
 #import <Foundation/Foundation.h>
 #import "ICFinancialFlow.h"
+#import "ICLocation.h"
 
-@interface ICCar : NSObject <ICFinancialFlow>
+@interface ICCar : NSObject <ICFinancialFlow,ICLocation>
 
--(NSUInteger)giveMoney;
+- (NSUInteger)giveMoney;
 
 @end

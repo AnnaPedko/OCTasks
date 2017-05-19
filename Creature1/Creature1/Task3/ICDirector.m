@@ -9,25 +9,30 @@
 #import "ICDirector.h"
 #import "ICAccountant.h"
 
+const static NSUInteger defaultMoney = 0;
+const static NSUInteger defaultSalary = 0;
+const static NSUInteger defaultExperience = 5;
+
 @implementation ICDirector
 @synthesize state;
 @synthesize money;
 @synthesize experience;
 @synthesize salary;
 
-- (void) dealloc {
+- (void)dealloc {
     
     [super dealloc];
 }
 
-- (instancetype) init {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        self.money = 0;
-        self.salary = 0;
-        self.experience = 4;
+        self.money = defaultMoney;
+        self.salary = defaultSalary;
+        self.experience = defaultExperience;
         self.state = ICObjectFree;
     }
+    
     return self;
 }
 

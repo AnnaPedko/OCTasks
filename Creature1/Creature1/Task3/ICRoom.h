@@ -10,9 +10,12 @@
 #import "ICFinancialFlow.h"
 
 @interface ICRoom : NSObject
-@property (nonatomic, copy) NSArray  *staff;
+@property (nonatomic, readonly) NSArray     *staff;
+@property (nonatomic, assign)   NSUInteger  capacity;
+@property (nonatomic, assign)   NSUInteger currentCapacity;
 
 - (void)addWorker:(id<ICFinancialFlow>)worker;
+- (void)removeWorker:(id<ICFinancialFlow>)worker;
 - (void)addStaff:(NSArray *)staff;
 - (id<ICFinancialFlow>)findWorkerByClass:(Class)class;
 

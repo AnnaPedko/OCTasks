@@ -9,6 +9,11 @@
 #import "ICAccountant.h"
 #import "ICCarWash.h"
 
+const static NSUInteger defaultMoney = 0;
+const static NSUInteger defaultExperience = 5;
+const static NSUInteger defaultSalary = 0;
+const static double interestSalary = 0.1;
+
 @implementation ICAccountant
 @synthesize state;
 @synthesize money;
@@ -21,9 +26,9 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        self.money = 0;
-        self.experience = 5;
-        self.salary = 0;
+        self.money = defaultMoney;
+        self.experience = defaultExperience;
+        self.salary = defaultSalary;
         self.state = ICObjectFree;
     }
     
@@ -36,14 +41,13 @@
 }
 
 - (void)countSalary:(id<ICFinancialFlow>)employee {
-    employee.salary = 0.1 * self.money;
+    employee.salary = interestSalary * self.money;
     self.money -= employee.salary;
 }
 
 - (void)processObject:(id<ICFinancialFlow>)object {
     [super processObject:object];
     object.state = ICObjectFree;
-    
-    }
+}
 
 @end

@@ -10,5 +10,4 @@
 
 @interface ICDirector : ICEmployee
 
-
 @end

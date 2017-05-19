@@ -10,12 +10,10 @@
 #import "ICFinancialFlow.h"
 
 @interface ICCarWash : ICBuilding <ICFinancialFlow>
-
-@property (nonatomic, assign) NSUInteger money;
-@property (nonatomic, assign) NSUInteger price;
+@property (nonatomic, assign)   NSUInteger  money;
+@property (nonatomic, retain)   ICBuilding* adminBuilding;
+@property (nonatomic, retain)   ICBuilding* washBox;
 
 - (void)washCars:(NSArray *)cars;
-
-
 
 @end

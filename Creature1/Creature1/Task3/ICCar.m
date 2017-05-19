@@ -7,22 +7,28 @@
 //
 
 #import "ICCar.h"
+#import "NSObject+ICInitObject.h"
+
+const static NSUInteger defaultMoney = 200;
 
 @implementation ICCar
-
 @synthesize state;
 @synthesize salary;
 @synthesize money;
+@synthesize room;
 
-- (void) dealloc {
+- (void)dealloc {
+    self.room = nil;
+    
     [super dealloc];
 }
 
-- (instancetype) init {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        self.money = 200;
+        self.money = defaultMoney;
         self.state = ICObjectFree;
+        self.room = [ICRoom object];
     }
     
     return self;
@@ -34,4 +40,5 @@
     
     return carMoney;
 }
+
 @end

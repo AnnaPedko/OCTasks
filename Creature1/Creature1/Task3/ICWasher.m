@@ -10,6 +10,10 @@
 #import "ICCar.h"
 #import "ICCarWash.h"
 
+const static NSUInteger defaultMoney = 0;
+const static NSUInteger defaultSalary = 0;
+const static NSUInteger defaultExperience = 2;
+
 @implementation ICWasher
 @synthesize state;
 
@@ -20,9 +24,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.money = 0;
-        self.salary = 0;
-        self.experience = 2;
+        self.money = defaultMoney;
+        self.salary = defaultSalary;
+        self.experience = defaultExperience;
         self.state = ICObjectFree;
     }
     

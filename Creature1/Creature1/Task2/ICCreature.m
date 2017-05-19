@@ -21,7 +21,6 @@ static const NSRange ICWeightRange = {45, 100};
 static const NSRange ICAgeRange = {3, 60};
 
 @implementation ICCreature
-
 @dynamic children;
 
 #pragma mark - 

@@ -19,6 +19,9 @@
 
 @end
 
+const static NSUInteger defaultCapacity = 2;
+const static NSUInteger defaultCurrentCapacity = 0;
+
 @implementation ICRoom
 @dynamic staff;
 
@@ -31,6 +34,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.capacity = defaultCapacity;
+        self.currentCapacity = defaultCurrentCapacity;
         self.mutableStaff = [NSMutableArray object];
     }
     
@@ -41,6 +46,10 @@
     if(worker) {
         [self.mutableStaff addObject:worker];
     }
+}
+
+- (void)removeWorker:(id<ICFinancialFlow>)worker {
+    [self.mutableStaff removeObject:worker];
 }
 
 - (void) addStaff:(NSArray *)staff {

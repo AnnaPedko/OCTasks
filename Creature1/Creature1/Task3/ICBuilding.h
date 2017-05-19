@@ -10,7 +10,7 @@
 #import "ICRoom.h"
 
 @interface ICBuilding : NSObject
-@property (nonatomic,copy)  NSArray  *rooms;
+@property (nonatomic, retain)  NSArray  *rooms;
 
 - (id<ICFinancialFlow>)findWorkerByClass:(Class)worker;
 - (instancetype)initWithObjects:(NSUInteger)count;

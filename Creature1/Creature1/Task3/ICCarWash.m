@@ -17,33 +17,31 @@
 #import "NSObject+ICExtensions.h"
 #import "NSArray+ICExtensions.h"
 
-
-@interface ICCarWash()
-
-
-@end
+const static NSUInteger defaultMoney = 400;
 
 @implementation ICCarWash
 @synthesize state;
 @synthesize salary;
 
-- (void) dealloc {
+- (void)dealloc {
+    self.adminBuilding = nil;
+    self.washBox = nil;
     
     [super dealloc];
 }
 
-- (instancetype) init {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        self.money = 400;
-        self.price = 200;
+        self.money = defaultMoney;
+        self.washBox = [self buildingWithRooms:1 staff:@[[ICWasher object]]];
+        self.adminBuilding = [self buildingWithRooms:1 staff:@[[ICDirector object], [ICAccountant object]]];
     }
     
     return self;
-    
 }
 
-- (ICBuilding *)createBuildingWithRooms:(NSUInteger)rooms staff:(NSArray *)staff {
+- (ICBuilding *)buildingWithRooms:(NSUInteger)rooms staff:(NSArray *)staff {
     ICBuilding *build = [[[ICBuilding alloc] initWithObjects:rooms] autorelease];
     for (ICRoom *room in build.rooms) {
         [room addStaff:staff];
@@ -52,25 +50,41 @@
     return build;
 };
 
+- (void)addCar:(ICCar *)car {
+    for (ICRoom *room in self.washBox.rooms) {
+        if (room.currentCapacity<room.capacity) {
+            [room addWorker:car];
+            room.currentCapacity += 1;
+            car.room = room;
+            break;
+        }
+    }
+}
+
+- (void)removeCar:(ICCar *)car {
+    for (ICRoom *room in self.washBox.rooms) {
+        if ([room isEqual:car.room]) {
+            [room removeWorker:car];
+            room.capacity -= 1;
+            car.room = nil;
+        }
+        
+        break;
+    }
+}
+
 - (void)washCars:(NSArray *)cars {
-    ICWasher *washer = [ICWasher object];
-    ICAccountant *accountant = [ICAccountant object];
-    ICDirector *director = [ICDirector object];
-    ICBuilding *build = [self createBuildingWithRooms:1 staff:@[director,accountant]];
-    ICBuilding *washBox = [self createBuildingWithRooms:1 staff:@[washer]];
-    for (id<ICFinancialFlow> car in cars) {
-        ICWasher *freeWasher = [washBox findWorkerByClass:[ICWasher class]];
+    for (ICCar* car in cars) {
+        ICWasher *freeWasher = [self.washBox findWorkerByClass:[ICWasher class]];
+        [self addCar:car];
         [freeWasher processObject:car];
-        ICAccountant *freeAccountant = [build findWorkerByClass:[ICAccountant class]];
+        [self removeCar:car];
+        ICAccountant *freeAccountant = [self.adminBuilding findWorkerByClass:[ICAccountant class]];
         [freeAccountant processObject:freeWasher];
-        ICDirector *freeDirector = [build findWorkerByClass:[ICDirector class]];
+        ICDirector *freeDirector = [self.adminBuilding findWorkerByClass:[ICDirector class]];
         [freeDirector processObject:freeAccountant];
         NSLog (@"Profit = %lu",freeDirector.money);
     }
-    
 }
-
-
-
 
 @end

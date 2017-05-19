@@ -42,6 +42,7 @@
 		653288301EAAA78B00E63A8A /* Creature1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Creature1; sourceTree = BUILT_PRODUCTS_DIR; };
 		654E13D91EC9FC6500930D2A /* ICRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICRoom.h; sourceTree = "<group>"; };
 		654E13DA1EC9FC6500930D2A /* ICRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICRoom.m; sourceTree = "<group>"; };
+		654E13DC1ECFB15100930D2A /* ICLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICLocation.h; sourceTree = "<group>"; };
 		D724172B1EBDBC2D002F82C7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D724172E1EBDBC2D002F82C7 /* NSArray+ICExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ICExtensions.h"; sourceTree = "<group>"; };
 		D724172F1EBDBC2D002F82C7 /* NSArray+ICExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ICExtensions.m"; sourceTree = "<group>"; };
@@ -172,6 +173,7 @@
 				D724174E1EBDBC2D002F82C7 /* ICWasher.m */,
 				654E13D91EC9FC6500930D2A /* ICRoom.h */,
 				654E13DA1EC9FC6500930D2A /* ICRoom.m */,
+				654E13DC1ECFB15100930D2A /* ICLocation.h */,
 			);
 			path = Task3;
 			sourceTree = "<group>";

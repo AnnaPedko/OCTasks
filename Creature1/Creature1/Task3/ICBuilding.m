@@ -45,5 +45,4 @@ const static NSUInteger defaultCountOfRooms = 1;
     return freeWorker;
 }
 
-
 @end
