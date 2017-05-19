@@ -47,7 +47,6 @@ int main(int argc, const char *argv[]) {
         NSArray *cars = [ICCar objectsWithCount:countOfCars];
         ICCarWash *carWash = [ICCarWash object];
         [carWash washCars:cars];
-       
     }
     
     return 0;
