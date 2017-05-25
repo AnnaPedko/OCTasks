@@ -9,9 +9,6 @@
 #import "ICEmployee.h"
 
 @implementation ICEmployee
-@synthesize state;
-@synthesize salary;
-@synthesize experience;
 
 - (void)dealloc {
     
@@ -22,7 +19,7 @@
       return [super init];
 }
 
-- (void)performEmployeeSpecificOperation:(id)object {
+- (void)performObjectSpecificOperation:(id)object {
     
 };
 
@@ -43,7 +40,8 @@
 
 - (void)processObject:(id<ICFinancialFlow>)object {
     self.state = ICObjectBusy;
-    [self performEmployeeSpecificOperation:object];
+    [self takeMoneyFromObject:object];
+    [self performObjectSpecificOperation:object];
     self.state = ICObjectFree;
 }
 

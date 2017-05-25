@@ -34,6 +34,8 @@ const static NSUInteger defaultCountOfRooms = 1;
     return [self initWithObjects:defaultCountOfRooms];
 }
 
+//TODO : should be change to category
+
 - (id<ICFinancialFlow>)findWorkerByClass:(Class)class {
     id<ICFinancialFlow>freeWorker = nil;
     for (ICRoom *room in self.rooms) {

@@ -33,20 +33,18 @@ const static NSUInteger defaultExperience = 2;
     return self;
 }
 
-- (void)washCar:(id<ICFinancialFlow>)car {
-    if (!car.state) {
-        car.state = ICObjectFree;
+- (void)washCar:(ICCar *)car {
+    if (!car.clean) {
+        car.clean = YES;
     }
 }
 
-- (void)performEmployeeSpecificOperation:(id<ICFinancialFlow>)car {
+- (void)performObjectSpecificOperation:(id<ICFinancialFlow>)car {
     [self washCar:car];
-    [self takeMoneyFromObject:car];
 }
 
 - (void)processObject:(id<ICFinancialFlow>)car{
     [super processObject:car];
-    car.state = ICObjectBusy;
 }
 
 @end

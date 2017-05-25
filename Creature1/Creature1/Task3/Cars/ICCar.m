@@ -12,23 +12,12 @@
 const static NSUInteger defaultMoney = 200;
 
 @implementation ICCar
-@synthesize state;
-@synthesize salary;
 @synthesize money;
-@synthesize room;
-
-- (void)dealloc {
-    self.room = nil;
-    
-    [super dealloc];
-}
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.money = defaultMoney;
-        self.state = ICObjectFree;
-        self.room = [ICRoom object];
     }
     
     return self;

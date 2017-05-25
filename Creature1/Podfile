@@ -1,0 +1,3 @@
+target :ObjCTests do
+pod 'Kiwi'
+end

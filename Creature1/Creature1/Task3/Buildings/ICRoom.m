@@ -12,6 +12,7 @@
 #import "NSObject+ICInitObject.h"
 
 #import "ICFinancialFlow.h"
+#import "ICEmployee.h"
 
 
 @interface ICRoom ()
@@ -20,7 +21,6 @@
 @end
 
 const static NSUInteger defaultCapacity = 2;
-const static NSUInteger defaultCurrentCapacity = 0;
 
 @implementation ICRoom
 @dynamic staff;
@@ -35,7 +35,6 @@ const static NSUInteger defaultCurrentCapacity = 0;
     self = [super init];
     if (self) {
         self.capacity = defaultCapacity;
-        self.currentCapacity = defaultCurrentCapacity;
         self.mutableStaff = [NSMutableArray object];
     }
     
@@ -60,9 +59,9 @@ const static NSUInteger defaultCurrentCapacity = 0;
     return [[self.mutableStaff copy] autorelease];
 }
 
-- (id<ICFinancialFlow>)findWorkerByClass:(Class)class {
-    id <ICFinancialFlow> freeWorker = nil;
-    for (id <ICFinancialFlow> worker in self.staff) {
+- (ICEmployee *)findWorkerByClass:(Class)class {
+    ICEmployee *freeWorker = nil;
+    for (ICEmployee *worker in self.staff) {
         if ([worker isMemberOfClass:class]) {
             if (worker.state == ICObjectFree) {
                 freeWorker = worker;

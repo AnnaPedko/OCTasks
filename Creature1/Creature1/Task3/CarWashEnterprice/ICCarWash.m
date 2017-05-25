@@ -20,8 +20,6 @@
 const static NSUInteger defaultMoney = 400;
 
 @implementation ICCarWash
-@synthesize state;
-@synthesize salary;
 
 - (void)dealloc {
     self.adminBuilding = nil;
@@ -50,7 +48,7 @@ const static NSUInteger defaultMoney = 400;
     return build;
 };
 
-- (void)addCar:(ICCar *)car {
+/*- (void)addCar:(ICCar *)car {
     for (ICRoom *room in self.washBox.rooms) {
         if (room.currentCapacity<room.capacity) {
             [room addWorker:car];
@@ -59,9 +57,9 @@ const static NSUInteger defaultMoney = 400;
             break;
         }
     }
-}
+}*/
 
-- (void)removeCar:(ICCar *)car {
+/*- (void)removeCar:(ICCar *)car {
     for (ICRoom *room in self.washBox.rooms) {
         if ([room isEqual:car.room]) {
             [room removeWorker:car];
@@ -71,14 +69,14 @@ const static NSUInteger defaultMoney = 400;
         
         break;
     }
-}
+}*/
 
 - (void)washCars:(NSArray *)cars {
     for (ICCar* car in cars) {
         ICWasher *freeWasher = [self.washBox findWorkerByClass:[ICWasher class]];
-        [self addCar:car];
+        //[self addCar:car];
         [freeWasher processObject:car];
-        [self removeCar:car];
+        //[self removeCar:car];
         ICAccountant *freeAccountant = [self.adminBuilding findWorkerByClass:[ICAccountant class]];
         [freeAccountant processObject:freeWasher];
         ICDirector *freeDirector = [self.adminBuilding findWorkerByClass:[ICDirector class]];

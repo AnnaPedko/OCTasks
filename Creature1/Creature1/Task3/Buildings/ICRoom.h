@@ -12,7 +12,7 @@
 @interface ICRoom : NSObject
 @property (nonatomic, readonly) NSArray     *staff;
 @property (nonatomic, assign)   NSUInteger  capacity;
-@property (nonatomic, assign)   NSUInteger currentCapacity;
+@property (nonatomic, assign)   NSUInteger  length;
 
 - (void)addWorker:(id<ICFinancialFlow>)worker;
 - (void)removeWorker:(id<ICFinancialFlow>)worker;

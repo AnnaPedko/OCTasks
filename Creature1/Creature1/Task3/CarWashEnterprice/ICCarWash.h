@@ -6,10 +6,10 @@
 //  Copyright © 2017 Anna P. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "ICBuilding.h"
-#import "ICFinancialFlow.h"
 
-@interface ICCarWash : ICBuilding <ICFinancialFlow>
+@interface ICCarWash : NSObject
 @property (nonatomic, assign)   NSUInteger  money;
 @property (nonatomic, retain)   ICBuilding* adminBuilding;
 @property (nonatomic, retain)   ICBuilding* washBox;

@@ -6,10 +6,11 @@
 //  Copyright © 2017 Anna P. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#import "ICFinancialFlow.h"
-#import "ICLocation.h"
 
-@interface ICCar : NSObject <ICFinancialFlow,ICLocation>
+#import "ICFinancialFlow.h"
+
+@interface ICCar : NSObject <ICFinancialFlow>
+@property (nonatomic, assign) BOOL clean;
 
 - (NSUInteger)giveMoney;
 
