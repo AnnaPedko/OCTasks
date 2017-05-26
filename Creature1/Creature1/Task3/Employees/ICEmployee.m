@@ -10,11 +10,6 @@
 
 @implementation ICEmployee
 
-- (void)dealloc {
-    
-    [super dealloc];
-}
-
 - (instancetype)init {
       return [super init];
 }
