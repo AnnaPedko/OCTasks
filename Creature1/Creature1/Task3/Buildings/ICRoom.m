@@ -9,24 +9,24 @@
 #import "ICRoom.h"
 
 #import "NSObject+ICExtensions.h"
-#import "NSObject+ICInitObject.h"
+#import "NSArray+ICExtensions.h"
 
 #import "ICFinancialFlow.h"
+
 #import "ICEmployee.h"
 
-
 @interface ICRoom ()
-@property (nonatomic,retain) NSMutableArray *mutableStaff;
+@property (nonatomic, retain) NSMutableArray *mutableObjects;
 
 @end
 
 const static NSUInteger defaultCapacity = 2;
 
 @implementation ICRoom
-@dynamic staff;
+@dynamic objects;
 
 -(void)dealloc {
-    self.mutableStaff = nil;
+    self.mutableObjects = nil;
     
     [super dealloc];
 }
@@ -35,43 +35,51 @@ const static NSUInteger defaultCapacity = 2;
     self = [super init];
     if (self) {
         self.capacity = defaultCapacity;
-        self.mutableStaff = [NSMutableArray object];
+        self.mutableObjects = [NSMutableArray object];
     }
     
     return self;
 }
 
-- (void)addWorker:(id<ICFinancialFlow>)worker {
-    if(worker) {
-        [self.mutableStaff addObject:worker];
+- (void)addObject:(id<ICFinancialFlow>)object {
+    if(object) {
+        if (self.length < self.capacity) {
+            [self.mutableObjects addObject:object];
+            self.length++;
+        }
     }
 }
 
-- (void)removeWorker:(id<ICFinancialFlow>)worker {
-    [self.mutableStaff removeObject:worker];
+- (void)removeObject:(id<ICFinancialFlow>)object {
+    [self.mutableObjects removeObject:object];
+    self.length--;
 }
 
-- (void) addStaff:(NSArray *)staff {
-    return [self.mutableStaff addObjectsFromArray:staff];
-}
-     
-- (NSArray *)staff {
-    return [[self.mutableStaff copy] autorelease];
+- (void)addObjects:(NSArray *)objects {
+    if ((self.length + [objects count]) < self.capacity) {
+        self.length += [objects count];
+        [self.mutableObjects addObjectsFromArray:objects];
+    }
 }
 
-- (ICEmployee *)findWorkerByClass:(Class)class {
-    ICEmployee *freeWorker = nil;
-    for (ICEmployee *worker in self.staff) {
-        if ([worker isMemberOfClass:class]) {
-            if (worker.state == ICObjectFree) {
-                freeWorker = worker;
-                break;
-            }
+- (void)removeObjects:(NSArray *)objects {
+    [self.mutableObjects removeObjectsInArray:objects];
+    self.length -= [objects count];
+}
+
+- (NSArray *)objects {
+    return [[self.mutableObjects copy] autorelease];
+}
+
+- (ICEmployee *)freeWorkerWithClass:(Class)cls {
+    NSArray * classStaff = [self.objects objectsWithClass:cls];
+    for (ICEmployee *worker in classStaff) {
+        if (worker.state == ICObjectFree) {
+            return worker;
         }
     }
     
-    return freeWorker;
+    return nil;
 }
-
 
 @end

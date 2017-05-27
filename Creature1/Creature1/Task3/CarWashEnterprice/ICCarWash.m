@@ -13,7 +13,6 @@
 #import "ICAccountant.h"
 #import "ICDirector.h"
 
-#import "NSObject+ICInitObject.h"
 #import "NSObject+ICExtensions.h"
 #import "NSArray+ICExtensions.h"
 
@@ -42,44 +41,19 @@ const static NSUInteger defaultMoney = 400;
 - (ICBuilding *)buildingWithRooms:(NSUInteger)rooms staff:(NSArray *)staff {
     ICBuilding *build = [[[ICBuilding alloc] initWithObjects:rooms] autorelease];
     for (ICRoom *room in build.rooms) {
-        [room addStaff:staff];
+        [room addObjects:staff];
     }
     
     return build;
 };
 
-/*- (void)addCar:(ICCar *)car {
-    for (ICRoom *room in self.washBox.rooms) {
-        if (room.currentCapacity<room.capacity) {
-            [room addWorker:car];
-            room.currentCapacity += 1;
-            car.room = room;
-            break;
-        }
-    }
-}*/
-
-/*- (void)removeCar:(ICCar *)car {
-    for (ICRoom *room in self.washBox.rooms) {
-        if ([room isEqual:car.room]) {
-            [room removeWorker:car];
-            room.capacity -= 1;
-            car.room = nil;
-        }
-        
-        break;
-    }
-}*/
-
 - (void)washCars:(NSArray *)cars {
     for (ICCar* car in cars) {
-        ICWasher *freeWasher = [self.washBox findWorkerByClass:[ICWasher class]];
-        //[self addCar:car];
+        ICWasher *freeWasher = [self.washBox freeWorkerWithClass:[ICWasher class]];
         [freeWasher processObject:car];
-        //[self removeCar:car];
-        ICAccountant *freeAccountant = [self.adminBuilding findWorkerByClass:[ICAccountant class]];
+        ICAccountant *freeAccountant = [self.adminBuilding freeWorkerWithClass:[ICAccountant class]];
         [freeAccountant processObject:freeWasher];
-        ICDirector *freeDirector = [self.adminBuilding findWorkerByClass:[ICDirector class]];
+        ICDirector *freeDirector = [self.adminBuilding freeWorkerWithClass:[ICDirector class]];
         [freeDirector processObject:freeAccountant];
         NSLog (@"Profit = %lu",freeDirector.money);
     }

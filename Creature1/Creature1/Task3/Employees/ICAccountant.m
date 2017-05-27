@@ -27,17 +27,16 @@ const static double interestSalary = 0.1;
 
 - (void)performObjectSpecificOperation:(id)object {
     [self takeMoneyFromObject:object];
-    [self countSalary:object];
+    [self calculateSalary:object];
 }
 
-- (void)countSalary:(ICEmployee *)employee {
+- (void)calculateSalary:(ICEmployee *)employee {
     employee.salary = interestSalary * self.money;
     self.money -= employee.salary;
 }
 
 - (void)processObject:(ICEmployee *)object {
     [super processObject:object];
-    object.state = ICObjectFree;
 }
 
 @end

@@ -11,5 +11,7 @@
 @interface NSArray (ICExtensions)
 
 + (NSArray *)objectsWithCount:(NSUInteger)count factory:(id(^)(void))objectCreator;
+- (instancetype)objectsWithClass:(Class)cls;
+
 
 @end

@@ -9,8 +9,13 @@
 
 #import "ICFinancialFlow.h"
 
+typedef NS_ENUM(NSUInteger, ICCarState) {
+    ICCarDirty,
+    ICCarClean,
+};
+
 @interface ICCar : NSObject <ICFinancialFlow>
-@property (nonatomic, assign) BOOL clean;
+@property (nonatomic, assign)   ICCarState  state;
 
 - (NSUInteger)giveMoney;
 

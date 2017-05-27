@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6555ED881ED7F2F1003037FD /* NSArray+ICExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6555ED541ED7F2F1003037FD /* NSArray+ICExtensions.m */; };
 		6555ED891ED7F2F1003037FD /* NSObject+ICExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6555ED561ED7F2F1003037FD /* NSObject+ICExtensions.m */; };
-		6555ED8A1ED7F2F1003037FD /* NSObject+ICInitObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6555ED581ED7F2F1003037FD /* NSObject+ICInitObject.m */; };
 		6555ED8B1ED7F2F1003037FD /* ICAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6555ED5B1ED7F2F1003037FD /* ICAlphabet.m */; };
 		6555ED8C1ED7F2F1003037FD /* NSString+ICGenerateRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6555ED5D1ED7F2F1003037FD /* NSString+ICGenerateRandomString.m */; };
 		6555ED8D1ED7F2F1003037FD /* ICClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6555ED601ED7F2F1003037FD /* ICClusterAlphabet.m */; };
@@ -52,8 +51,6 @@
 		6555ED541ED7F2F1003037FD /* NSArray+ICExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ICExtensions.m"; sourceTree = "<group>"; };
 		6555ED551ED7F2F1003037FD /* NSObject+ICExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ICExtensions.h"; sourceTree = "<group>"; };
 		6555ED561ED7F2F1003037FD /* NSObject+ICExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ICExtensions.m"; sourceTree = "<group>"; };
-		6555ED571ED7F2F1003037FD /* NSObject+ICInitObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ICInitObject.h"; sourceTree = "<group>"; };
-		6555ED581ED7F2F1003037FD /* NSObject+ICInitObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ICInitObject.m"; sourceTree = "<group>"; };
 		6555ED5A1ED7F2F1003037FD /* ICAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICAlphabet.h; sourceTree = "<group>"; };
 		6555ED5B1ED7F2F1003037FD /* ICAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICAlphabet.m; sourceTree = "<group>"; };
 		6555ED5C1ED7F2F1003037FD /* NSString+ICGenerateRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ICGenerateRandomString.h"; sourceTree = "<group>"; };
@@ -90,7 +87,6 @@
 		6555ED831ED7F2F1003037FD /* ICWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICWasher.h; sourceTree = "<group>"; };
 		6555ED841ED7F2F1003037FD /* ICWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICWasher.m; sourceTree = "<group>"; };
 		6555ED861ED7F2F1003037FD /* ICFinancialFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICFinancialFlow.h; sourceTree = "<group>"; };
-		6555ED871ED7F2F1003037FD /* ICLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICLocation.h; sourceTree = "<group>"; };
 		6C8BFCE5A1B121DB34EDD9E1 /* Pods-ObjCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjCTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ObjCTests/Pods-ObjCTests.release.xcconfig"; sourceTree = "<group>"; };
 		6E52772DD18261CC17DD7FDC /* libPods-ObjCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		988BE8DDB73A098C2EED6456 /* libPods-Creature1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Creature1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,8 +183,6 @@
 				6555ED541ED7F2F1003037FD /* NSArray+ICExtensions.m */,
 				6555ED551ED7F2F1003037FD /* NSObject+ICExtensions.h */,
 				6555ED561ED7F2F1003037FD /* NSObject+ICExtensions.m */,
-				6555ED571ED7F2F1003037FD /* NSObject+ICInitObject.h */,
-				6555ED581ED7F2F1003037FD /* NSObject+ICInitObject.m */,
 				6555ED591ED7F2F1003037FD /* NSString + ICExtensions */,
 			);
 			path = Categories;
@@ -302,7 +296,6 @@
 			isa = PBXGroup;
 			children = (
 				6555ED861ED7F2F1003037FD /* ICFinancialFlow.h */,
-				6555ED871ED7F2F1003037FD /* ICLocation.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -457,7 +450,6 @@
 				6555ED8B1ED7F2F1003037FD /* ICAlphabet.m in Sources */,
 				6555ED941ED7F2F1003037FD /* ICMaleCreature.m in Sources */,
 				6555ED8C1ED7F2F1003037FD /* NSString+ICGenerateRandomString.m in Sources */,
-				6555ED8A1ED7F2F1003037FD /* NSObject+ICInitObject.m in Sources */,
 				6555ED9C1ED7F2F1003037FD /* ICWasher.m in Sources */,
 				6555ED971ED7F2F1003037FD /* ICCar.m in Sources */,
 				6555ED961ED7F2F1003037FD /* ICRoom.m in Sources */,

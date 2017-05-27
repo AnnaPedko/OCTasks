@@ -7,6 +7,7 @@
 //
 
 #import "ICBuilding.h"
+
 #import "NSObject+ICExtensions.h"
 
 const static NSUInteger defaultCountOfRooms = 1;
@@ -34,17 +35,12 @@ const static NSUInteger defaultCountOfRooms = 1;
     return [self initWithObjects:defaultCountOfRooms];
 }
 
-//TODO : should be change to category
-
-- (id<ICFinancialFlow>)findWorkerByClass:(Class)class {
-    id<ICFinancialFlow>freeWorker = nil;
+- (id<ICFinancialFlow>)freeWorkerWithClass:(Class)cls {
     for (ICRoom *room in self.rooms) {
-        if ((freeWorker = [room findWorkerByClass:class])) {
-            break;
-        }
+        return [room freeWorkerWithClass:cls];
     }
     
-    return freeWorker;
+    return nil;
 }
 
 @end

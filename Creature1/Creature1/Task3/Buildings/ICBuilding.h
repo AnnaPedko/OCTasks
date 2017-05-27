@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "ICRoom.h"
 
 @interface ICBuilding : NSObject
 @property (nonatomic, retain)  NSArray  *rooms;
 
-- (id<ICFinancialFlow>)findWorkerByClass:(Class)worker;
+- (id<ICFinancialFlow>)freeWorkerWithClass:(Class)cls;
 - (instancetype)initWithObjects:(NSUInteger)count;
-
 
 @end

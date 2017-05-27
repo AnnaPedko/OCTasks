@@ -10,7 +10,7 @@
 #import "ICRandomInRange.h"
 
 #import "NSString+ICGenerateRandomString.h"
-#import "NSObject+ICInitObject.h"
+#import "NSObject+ICExtensions.h"
 
 @interface ICCreature()
 @property (nonatomic, retain) NSMutableArray *mutableChildren;

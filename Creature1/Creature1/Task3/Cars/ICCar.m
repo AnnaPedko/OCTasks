@@ -7,7 +7,8 @@
 //
 
 #import "ICCar.h"
-#import "NSObject+ICInitObject.h"
+
+#import "NSObject+ICExtensions.h"
 
 const static NSUInteger defaultMoney = 200;
 
@@ -18,6 +19,7 @@ const static NSUInteger defaultMoney = 200;
     self = [super init];
     if (self) {
         self.money = defaultMoney;
+        self.state = ICCarDirty;
     }
     
     return self;

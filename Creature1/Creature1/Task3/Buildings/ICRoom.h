@@ -7,16 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "ICFinancialFlow.h"
 
+#import "ICEmployee.h"
+
 @interface ICRoom : NSObject
-@property (nonatomic, readonly) NSArray     *staff;
+@property (nonatomic, readonly) NSArray     *objects;
 @property (nonatomic, assign)   NSUInteger  capacity;
 @property (nonatomic, assign)   NSUInteger  length;
 
-- (void)addWorker:(id<ICFinancialFlow>)worker;
-- (void)removeWorker:(id<ICFinancialFlow>)worker;
-- (void)addStaff:(NSArray *)staff;
-- (id<ICFinancialFlow>)findWorkerByClass:(Class)class;
+- (void)addObject:(id<ICFinancialFlow>)object;
+- (void)removeObject:(id<ICFinancialFlow>)object;
+- (void)addObjects:(NSArray *)objects;
+- (void)removeObjects:(NSArray *)objects;
+- (ICEmployee *)freeWorkerWithClass:(Class)cls;
 
 @end

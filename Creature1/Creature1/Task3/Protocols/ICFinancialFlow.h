@@ -8,11 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, ICObjectState) {
-    ICObjectBusy,
-    ICObjectFree,
-};
-
 @protocol ICFinancialFlow <NSObject>
 @property (nonatomic, assign)   NSUInteger  money;
 

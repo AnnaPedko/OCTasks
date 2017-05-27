@@ -20,4 +20,12 @@
     return [self arrayWithArray:creatures];
 }
 
+- (instancetype)objectsWithClass:(Class)cls {
+    NSPredicate *predicate = [NSPredicate predicateWithBlock: ^BOOL(id object, NSDictionary *bindings) {
+        return [object isMemberOfClass:cls];
+    }];
+    
+    return [self filteredArrayUsingPredicate:predicate];
+}
+
 @end

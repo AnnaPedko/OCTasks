@@ -13,10 +13,14 @@
 @implementation NSObject (ICExtensions)
 
 + (NSArray *)objectsWithCount:(NSUInteger)count {
-    NSArray *creatures = [NSArray objectsWithCount:count factory:^{
+    NSArray *objects = [NSArray objectsWithCount:count factory:^{
         return [self object];}];
     
-    return creatures ;
+    return objects ;
+}
+
++ (instancetype)object {
+    return [[[self alloc] init] autorelease];
 }
 
 @end

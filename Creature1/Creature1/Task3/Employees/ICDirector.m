@@ -14,11 +14,6 @@ const static NSUInteger defaultExperience = 5;
 @implementation ICDirector
 @synthesize money;
 
-- (void)dealloc {
-    
-    [super dealloc];
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -35,8 +30,6 @@ const static NSUInteger defaultExperience = 5;
 
 - (void)processObject:(ICEmployee *)object {
     [super processObject:object];
-    object.state = ICObjectFree;
-    
 }
 
 @end

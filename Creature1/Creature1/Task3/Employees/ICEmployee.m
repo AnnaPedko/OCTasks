@@ -10,10 +10,6 @@
 
 @implementation ICEmployee
 
-- (instancetype)init {
-      return [super init];
-}
-
 - (void)performObjectSpecificOperation:(id)object {
     
 };
