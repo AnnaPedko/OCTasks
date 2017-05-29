@@ -21,6 +21,6 @@
 - (void)removeObject:(id<ICFinancialFlow>)object;
 - (void)addObjects:(NSArray *)objects;
 - (void)removeObjects:(NSArray *)objects;
-- (ICEmployee *)freeWorkerWithClass:(Class)cls;
+- (NSArray *)employeesWithClass:(Class)cls;
 
 @end

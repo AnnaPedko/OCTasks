@@ -7,7 +7,6 @@
 //
 
 #import "NSObject+ICExtensions.h"
-#import "NSObject+ICInitObject.h"
 #import "NSArray+ICExtensions.h"
 
 @implementation NSObject (ICExtensions)

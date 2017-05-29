@@ -13,7 +13,6 @@
 #import "ICFemaleCreature.h"
 #import "ICRandomInRange.h"
 
-#import "NSObject+ICInitObject.h"
 #import "NSArray+ICExtensions.h"
 #import "NSObject+ICExtensions.h"
 

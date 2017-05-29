@@ -10,37 +10,56 @@
 
 #import "NSObject+ICExtensions.h"
 
-const static NSUInteger defaultCountOfRooms = 1;
+const static NSUInteger ICDefaultCountOfRooms = 1;
+
+@interface ICBuilding ()
+@property (nonatomic, retain)   NSMutableArray *mutableRooms;
+
+@end
 
 @implementation ICBuilding
 
+@dynamic rooms;
+
 - (void)dealloc {
-    self.rooms = nil;
+    self.mutableRooms = nil;
     
     [super dealloc];
 }
 
-- (instancetype)initWithObjects:(NSUInteger)count {
+- (instancetype)init {
+    
     self = [super init];
-    if (self) {
-        self.rooms = [ICRoom objectsWithCount:count];
-    }
     
     return self;
 }
 
-- (instancetype)init {
-    self = [super init];
-    
-    return [self initWithObjects:defaultCountOfRooms];
+- (NSArray *)employeesWithClass:(Class)cls {
+    NSMutableArray *employees = [[[NSMutableArray alloc]init]autorelease];
+    for (ICRoom *room in self.rooms) {
+        if ([room employeesWithClass:cls]) {
+            [employees addObject:[room employeesWithClass:cls]];
+        }
+    }
+    return [NSArray arrayWithArray:employees];
 }
 
-- (id<ICFinancialFlow>)freeWorkerWithClass:(Class)cls {
-    for (ICRoom *room in self.rooms) {
-        return [room freeWorkerWithClass:cls];
+- (void)addRoom:(ICRoom *)room {
+    if (room) {
+        [self.mutableRooms addObject:room];
     }
-    
-    return nil;
+}
+
+- (void)addRooms:(NSArray *)objects {
+    [self.mutableRooms addObjectsFromArray:objects];
+}
+
+- (void)removeRoom:(ICRoom *)room {
+    [self.mutableRooms removeObject:room];
+}
+
+- (NSArray *)rooms {
+    return [[self.mutableRooms copy] autorelease];
 }
 
 @end

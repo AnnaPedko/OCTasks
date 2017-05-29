@@ -7,7 +7,6 @@
 //
 
 #import "NSArray+ICExtensions.h"
-#import "NSObject+ICInitObject.h"
 
 @implementation NSArray (ICExtension)
 
@@ -20,12 +19,31 @@
     return [self arrayWithArray:creatures];
 }
 
-- (instancetype)objectsWithClass:(Class)cls {
+/*- (instancetype)objectsWithClass:(Class)cls {
     NSPredicate *predicate = [NSPredicate predicateWithBlock: ^BOOL(id object, NSDictionary *bindings) {
         return [object isMemberOfClass:cls];
     }];
     
     return [self filteredArrayUsingPredicate:predicate];
+}*/
+
+- (instancetype)objectsWithClass:(Class)cls {
+        return [self filteredArrayWithBlock:^BOOL(id cls) {
+            return [self isMemberOfClass:cls];
+        }];
+    
 }
+
+- (instancetype)filteredArrayWithBlock:(BOOL(^)(id object))block {
+    if (!block) {
+        return nil;
+    }
+    NSPredicate *predicate = [NSPredicate predicateWithBlock: ^BOOL(id object, NSDictionary *bindings) {
+        return block(object);
+    }];
+    
+    return [self filteredArrayUsingPredicate:predicate];
+}
+
 
 @end

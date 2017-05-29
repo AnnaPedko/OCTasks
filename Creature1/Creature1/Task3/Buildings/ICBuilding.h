@@ -11,9 +11,11 @@
 #import "ICRoom.h"
 
 @interface ICBuilding : NSObject
-@property (nonatomic, retain)  NSArray  *rooms;
+@property (nonatomic, readonly)  NSArray  *rooms;
 
-- (id<ICFinancialFlow>)freeWorkerWithClass:(Class)cls;
-- (instancetype)initWithObjects:(NSUInteger)count;
+- (NSArray *)employeesWithClass:(Class)cls;
+- (void)addRoom:(ICRoom *)room;
+- (void)removeRoom:(ICRoom *)room;
+- (void)addRooms:(NSArray *)objects;
 
 @end

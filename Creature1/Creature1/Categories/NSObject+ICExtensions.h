@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "NSArray+ICExtensions.h"
+
 @interface NSObject (ICExtensions)
 
-+ (NSArray *)objectsWithCount:(NSUInteger) count;
 + (instancetype)object;
++ (NSArray *)objectsWithCount:(NSUInteger) count;
 
 @end

@@ -13,10 +13,11 @@
 #import "ICAccountant.h"
 #import "ICDirector.h"
 
-#import "NSObject+ICExtensions.h"
 #import "NSArray+ICExtensions.h"
+#import "NSObject+ICExtensions.h"
 
 const static NSUInteger defaultMoney = 400;
+const static NSUInteger ICDefaultCountOfRooms = 3;
 
 @implementation ICCarWash
 
@@ -27,35 +28,58 @@ const static NSUInteger defaultMoney = 400;
     [super dealloc];
 }
 
+- (id<ICFinancialFlow>)freeEmployeeWithClass:(Class)cls {
+    return [[[self employeesWithClass:cls] filteredArrayWithBlock:^BOOL(ICEmployee *employee) {
+    return employee.state == ICObjectFree;
+    }]firstObject];
+}
+
+- (NSArray *)employeesWithClass:(Class)cls {
+    NSMutableArray *employees = [[[NSMutableArray alloc] init] autorelease];
+    NSArray *enterprise = @[self.adminBuilding, self.washBox];
+    for (ICBuilding * building in enterprise) {
+        [employees addObject:[building employeesWithClass:cls]];
+    }
+    return [NSArray arrayWithArray:employees];
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
+        
         self.money = defaultMoney;
-        self.washBox = [self buildingWithRooms:1 staff:@[[ICWasher object]]];
-        self.adminBuilding = [self buildingWithRooms:1 staff:@[[ICDirector object], [ICAccountant object]]];
+        self.adminBuilding = [ICBuilding object];
+        self.washBox = [ICBuilding object];
+        [self prepareEnterprise:self.adminBuilding
+                      withRooms:ICDefaultCountOfRooms
+                       andStaff:@[[ICAccountant class],[ICDirector class]]];
+        [self prepareEnterprise:self.washBox
+                      withRooms:ICDefaultCountOfRooms
+                       andStaff:@[[ICWasher class]]];
     }
     
     return self;
 }
 
-- (ICBuilding *)buildingWithRooms:(NSUInteger)rooms staff:(NSArray *)staff {
-    ICBuilding *build = [[[ICBuilding alloc] initWithObjects:rooms] autorelease];
-    for (ICRoom *room in build.rooms) {
-        [room addObjects:staff];
+- (void)prepareEnterprise:(ICBuilding *)building withRooms:(NSUInteger)countOfRooms andStaff:(NSArray *)staff {
+    [building addRooms:[ICRoom objectsWithCount:countOfRooms]];
+    for (ICRoom *room in building.rooms) {
+        for (Class employee in staff) {
+            [room addObject:[employee object]];
+            NSLog(@"Room description = %@",[room description]);
+        }
     }
-    
-    return build;
-};
+}
 
 - (void)washCars:(NSArray *)cars {
     for (ICCar* car in cars) {
-        ICWasher *freeWasher = [self.washBox freeWorkerWithClass:[ICWasher class]];
-        [freeWasher processObject:car];
-        ICAccountant *freeAccountant = [self.adminBuilding freeWorkerWithClass:[ICAccountant class]];
-        [freeAccountant processObject:freeWasher];
-        ICDirector *freeDirector = [self.adminBuilding freeWorkerWithClass:[ICDirector class]];
-        [freeDirector processObject:freeAccountant];
-        NSLog (@"Profit = %lu",freeDirector.money);
+        ICWasher *washer = [self freeEmployeeWithClass:[ICWasher class]];
+        [washer processObject:car];
+        ICAccountant *accountant = [self freeEmployeeWithClass:[ICAccountant class]];
+        [accountant processObject:washer];
+        ICDirector *director = [self freeEmployeeWithClass:[ICDirector class]];
+        [director processObject:accountant];
+        NSLog (@"Profit = %lu",director.money);
     }
 }
 

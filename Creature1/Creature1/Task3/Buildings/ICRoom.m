@@ -23,6 +23,7 @@
 const static NSUInteger defaultCapacity = 2;
 
 @implementation ICRoom
+
 @dynamic objects;
 
 -(void)dealloc {
@@ -45,19 +46,19 @@ const static NSUInteger defaultCapacity = 2;
     if(object) {
         if (self.length < self.capacity) {
             [self.mutableObjects addObject:object];
-            self.length++;
+            self.length += 1;
         }
     }
 }
 
 - (void)removeObject:(id<ICFinancialFlow>)object {
     [self.mutableObjects removeObject:object];
-    self.length--;
+    self.length -= 1;
 }
 
 - (void)addObjects:(NSArray *)objects {
-    if ((self.length + [objects count]) < self.capacity) {
-        self.length += [objects count];
+    if ((self.length + objects.count) < self.capacity) {
+        self.length += objects.count;
         [self.mutableObjects addObjectsFromArray:objects];
     }
 }
@@ -71,15 +72,8 @@ const static NSUInteger defaultCapacity = 2;
     return [[self.mutableObjects copy] autorelease];
 }
 
-- (ICEmployee *)freeWorkerWithClass:(Class)cls {
-    NSArray * classStaff = [self.objects objectsWithClass:cls];
-    for (ICEmployee *worker in classStaff) {
-        if (worker.state == ICObjectFree) {
-            return worker;
-        }
-    }
-    
-    return nil;
+- (NSArray *)employeesWithClass:(Class)cls {
+    return [NSArray arrayWithArray:[self.objects objectsWithClass:cls]];
 }
 
 @end
