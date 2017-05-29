@@ -15,12 +15,13 @@
 
 #import "ICEmployee.h"
 
+const static NSUInteger ICDefaultCapacity = 5;
+
+
 @interface ICRoom ()
 @property (nonatomic, retain) NSMutableArray *mutableObjects;
 
 @end
-
-const static NSUInteger defaultCapacity = 2;
 
 @implementation ICRoom
 
@@ -35,7 +36,7 @@ const static NSUInteger defaultCapacity = 2;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.capacity = defaultCapacity;
+        self.capacity = ICDefaultCapacity;
         self.mutableObjects = [NSMutableArray object];
     }
     
@@ -46,14 +47,14 @@ const static NSUInteger defaultCapacity = 2;
     if(object) {
         if (self.length < self.capacity) {
             [self.mutableObjects addObject:object];
-            self.length += 1;
+            self.length = self.length + 1;
         }
     }
 }
 
 - (void)removeObject:(id<ICFinancialFlow>)object {
     [self.mutableObjects removeObject:object];
-    self.length -= 1;
+    self.length = self.length - 1;
 }
 
 - (void)addObjects:(NSArray *)objects {

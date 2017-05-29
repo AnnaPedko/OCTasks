@@ -16,7 +16,7 @@
 #import "NSArray+ICExtensions.h"
 #import "NSObject+ICExtensions.h"
 
-const static NSUInteger defaultMoney = 400;
+const static NSUInteger ICDefaultMoney = 400;
 const static NSUInteger ICDefaultCountOfRooms = 3;
 
 @implementation ICCarWash
@@ -44,19 +44,16 @@ const static NSUInteger ICDefaultCountOfRooms = 3;
 }
 
 - (instancetype)init {
-    self = [super init];
-    if (self) {
-        
-        self.money = defaultMoney;
+    
+        self.money = ICDefaultMoney;
         self.adminBuilding = [ICBuilding object];
         self.washBox = [ICBuilding object];
         [self prepareEnterprise:self.adminBuilding
                       withRooms:ICDefaultCountOfRooms
-                       andStaff:@[[ICAccountant class],[ICDirector class]]];
+                       andStaff:@[[ICAccountant class], [ICDirector class], [ICWasher class]]];
         [self prepareEnterprise:self.washBox
                       withRooms:ICDefaultCountOfRooms
                        andStaff:@[[ICWasher class]]];
-    }
     
     return self;
 }
