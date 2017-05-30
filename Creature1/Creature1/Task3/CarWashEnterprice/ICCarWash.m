@@ -17,7 +17,7 @@
 #import "NSObject+ICExtensions.h"
 
 const static NSUInteger defaultMoney = 400;
-const static NSUInteger ICDefaultCountOfRooms = 3;
+const static NSUInteger ICDefaultCountOfRooms = 1;
 
 @implementation ICCarWash
 
@@ -29,18 +29,23 @@ const static NSUInteger ICDefaultCountOfRooms = 3;
 }
 
 - (id<ICFinancialFlow>)freeEmployeeWithClass:(Class)cls {
-    return [[[self employeesWithClass:cls] filteredArrayWithBlock:^BOOL(ICEmployee *employee) {
-    return employee.state == ICObjectFree;
+    NSArray *employeesWithClass = [self employeesWithClass:cls];
+    return [[employeesWithClass filteredArrayWithBlock:^BOOL(ICEmployee *employee){
+        return employee.state == ICObjectFree;
     }]firstObject];
 }
 
 - (NSArray *)employeesWithClass:(Class)cls {
-    NSMutableArray *employees = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *employees = [NSMutableArray object];
     NSArray *enterprise = @[self.adminBuilding, self.washBox];
     for (ICBuilding * building in enterprise) {
-        [employees addObject:[building employeesWithClass:cls]];
+        NSArray* specificEmmployees = [building employeesWithClass:cls];
+        if (specificEmmployees.count > 0) {
+            [employees addObjectsFromArray:specificEmmployees];
+        }
     }
-    return [NSArray arrayWithArray:employees];
+    
+    return [[employees copy]autorelease];
 }
 
 - (instancetype)init {
@@ -62,9 +67,10 @@ const static NSUInteger ICDefaultCountOfRooms = 3;
 }
 
 - (void)prepareEnterprise:(ICBuilding *)building withRooms:(NSUInteger)countOfRooms andStaff:(NSArray *)staff {
-    [building addRooms:[ICRoom objectsWithCount:countOfRooms]];
+    NSArray * rooms = [ICRoom objectsWithCount:countOfRooms];
+    [building addRooms:rooms];
     for (ICRoom *room in building.rooms) {
-        for (Class employee in staff) {
+        for (id employee in staff) {
             [room addObject:[employee object]];
             NSLog(@"Room description = %@",[room description]);
         }

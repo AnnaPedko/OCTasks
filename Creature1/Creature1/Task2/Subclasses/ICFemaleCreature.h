@@ -8,6 +8,8 @@
 
 #import "ICCreature.h"
 
+#import "NSObject+ICExtensions.h"
+
 @interface ICFemaleCreature : ICCreature
 
 - (ICCreature *)givingBirthToChild;

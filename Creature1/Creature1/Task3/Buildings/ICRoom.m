@@ -20,7 +20,7 @@
 
 @end
 
-const static NSUInteger defaultCapacity = 2;
+const static NSUInteger defaultCapacity = 5;
 
 @implementation ICRoom
 
@@ -73,7 +73,7 @@ const static NSUInteger defaultCapacity = 2;
 }
 
 - (NSArray *)employeesWithClass:(Class)cls {
-    return [NSArray arrayWithArray:[self.objects objectsWithClass:cls]];
+    return [[[self.mutableObjects objectsWithClass:cls] copy] autorelease ];
 }
 
 @end

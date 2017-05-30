@@ -12,8 +12,8 @@
 
 @interface NSArray (ICExtensions)
 
-- (instancetype)objectsWithClass:(Class)cls;
+- (NSArray *)objectsWithClass:(Class)cls;
 + (NSArray *)objectsWithCount:(NSUInteger)count factory:(id(^)(void))objectCreator;
-- (instancetype)filteredArrayWithBlock:(BOOL(^)(id object))block;
+- (NSArray *)filteredArrayWithBlock:(BOOL(^)(id object))block;
 
 @end

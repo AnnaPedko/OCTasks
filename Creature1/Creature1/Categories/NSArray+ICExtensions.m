@@ -16,34 +16,26 @@
         [creatures addObject:objectCreator()];
     }
     
-    return [self arrayWithArray:creatures];
+    return [ self arrayWithArray:creatures];
 }
 
-/*- (instancetype)objectsWithClass:(Class)cls {
-    NSPredicate *predicate = [NSPredicate predicateWithBlock: ^BOOL(id object, NSDictionary *bindings) {
-        return [object isMemberOfClass:cls];
-    }];
-    
-    return [self filteredArrayUsingPredicate:predicate];
-}*/
-
-- (instancetype)objectsWithClass:(Class)cls {
-        return [self filteredArrayWithBlock:^BOOL(id cls) {
-            return [self isMemberOfClass:cls];
+- (NSArray *)objectsWithClass:(Class)cls {
+        return [self filteredArrayWithBlock:^BOOL(id object) {
+            return [object isMemberOfClass:cls];
         }];
     
 }
 
-- (instancetype)filteredArrayWithBlock:(BOOL(^)(id object))block {
+- (NSArray *)filteredArrayWithBlock:(BOOL(^)(id object))block {
     if (!block) {
         return nil;
     }
+    
     NSPredicate *predicate = [NSPredicate predicateWithBlock: ^BOOL(id object, NSDictionary *bindings) {
         return block(object);
     }];
     
     return [self filteredArrayUsingPredicate:predicate];
 }
-
 
 @end

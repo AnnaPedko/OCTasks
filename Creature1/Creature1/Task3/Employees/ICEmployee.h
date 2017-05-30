@@ -11,8 +11,8 @@
 #import "ICFinancialFlow.h"
 
 typedef NS_ENUM(NSUInteger, ICObjectState) {
-    ICObjectBusy,
     ICObjectFree,
+    ICObjectBusy,
 };
 
 @interface ICEmployee : NSObject <ICFinancialFlow>

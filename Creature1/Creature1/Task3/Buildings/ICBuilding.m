@@ -10,8 +10,6 @@
 
 #import "NSObject+ICExtensions.h"
 
-const static NSUInteger ICDefaultCountOfRooms = 1;
-
 @interface ICBuilding ()
 @property (nonatomic, retain)   NSMutableArray *mutableRooms;
 
@@ -28,8 +26,7 @@ const static NSUInteger ICDefaultCountOfRooms = 1;
 }
 
 - (instancetype)init {
-    
-    self = [super init];
+    self.mutableRooms = [NSMutableArray object];
     
     return self;
 }
@@ -37,11 +34,12 @@ const static NSUInteger ICDefaultCountOfRooms = 1;
 - (NSArray *)employeesWithClass:(Class)cls {
     NSMutableArray *employees = [[[NSMutableArray alloc]init]autorelease];
     for (ICRoom *room in self.rooms) {
-        if ([room employeesWithClass:cls]) {
-            [employees addObject:[room employeesWithClass:cls]];
+        NSArray* specificEmmployees = [room employeesWithClass:cls];
+        if (specificEmmployees.count > 0) {
+            [employees addObjectsFromArray:specificEmmployees];
         }
     }
-    return [NSArray arrayWithArray:employees];
+    return [[employees copy]autorelease];
 }
 
 - (void)addRoom:(ICRoom *)room {
@@ -51,7 +49,7 @@ const static NSUInteger ICDefaultCountOfRooms = 1;
 }
 
 - (void)addRooms:(NSArray *)objects {
-    [self.mutableRooms addObjectsFromArray:objects];
+    return [self.mutableRooms addObjectsFromArray:objects];
 }
 
 - (void)removeRoom:(ICRoom *)room {

@@ -11,6 +11,10 @@
 
 @implementation NSObject (ICExtensions)
 
++ (instancetype)object {
+    return [[[self alloc] init] autorelease];
+}
+
 + (NSArray *)objectsWithCount:(NSUInteger)count {
     NSArray *objects = [NSArray objectsWithCount:count factory:^{
         return [self object];}];
@@ -18,8 +22,6 @@
     return objects ;
 }
 
-+ (instancetype)object {
-    return [[[self alloc] init] autorelease];
-}
+
 
 @end

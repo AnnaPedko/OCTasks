@@ -7,7 +7,6 @@
 //
 
 #import "ICFemaleCreature.h"
-#import "NSObject+ICInitObject.h"
 
 @implementation ICFemaleCreature
 
