@@ -13,7 +13,6 @@
 const static NSUInteger defaultExperience = 2;
 
 @implementation ICWasher
-@synthesize state;
 
 - (void)dealloc {
     [super dealloc];

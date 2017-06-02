@@ -27,6 +27,7 @@
 		651069C91EDE05BD0014FFC2 /* ICDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 651069AD1EDE05BD0014FFC2 /* ICDirector.m */; };
 		651069CA1EDE05BD0014FFC2 /* ICEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 651069AF1EDE05BD0014FFC2 /* ICEmployee.m */; };
 		651069CB1EDE05BD0014FFC2 /* ICWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 651069B11EDE05BD0014FFC2 /* ICWasher.m */; };
+		6530B9F01EE1F561002AC64A /* ICObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530B9EF1EE1F561002AC64A /* ICObservableObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +85,8 @@
 		651069B31EDE05BD0014FFC2 /* ICFinancialFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICFinancialFlow.h; sourceTree = "<group>"; };
 		651069B41EDE05BD0014FFC2 /* Creature1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Creature1.xcodeproj; sourceTree = "<group>"; };
 		651069CE1EDE05D40014FFC2 /* Creature1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Creature1; sourceTree = BUILT_PRODUCTS_DIR; };
+		6530B9EE1EE1F561002AC64A /* ICObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICObservableObject.h; sourceTree = "<group>"; };
+		6530B9EF1EE1F561002AC64A /* ICObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICObservableObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +192,7 @@
 		6510699D1EDE05BD0014FFC2 /* Task3 */ = {
 			isa = PBXGroup;
 			children = (
+				6530B9ED1EE1F4E1002AC64A /* ObservableObject */,
 				6510699E1EDE05BD0014FFC2 /* Buildings */,
 				651069A31EDE05BD0014FFC2 /* Cars */,
 				651069A61EDE05BD0014FFC2 /* CarWashEnterprice */,
@@ -253,6 +257,15 @@
 		651069B51EDE05BD0014FFC2 /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6530B9ED1EE1F4E1002AC64A /* ObservableObject */ = {
+			isa = PBXGroup;
+			children = (
+				6530B9EE1EE1F561002AC64A /* ICObservableObject.h */,
+				6530B9EF1EE1F561002AC64A /* ICObservableObject.m */,
+			);
+			path = ObservableObject;
 			sourceTree = "<group>";
 		};
 		653288271EAAA78B00E63A8A = {
@@ -337,6 +350,7 @@
 				651069C31EDE05BD0014FFC2 /* ICMaleCreature.m in Sources */,
 				651069C11EDE05BD0014FFC2 /* ICRandomInRange.m in Sources */,
 				651069C41EDE05BD0014FFC2 /* ICBuilding.m in Sources */,
+				6530B9F01EE1F561002AC64A /* ICObservableObject.m in Sources */,
 				651069C61EDE05BD0014FFC2 /* ICCar.m in Sources */,
 				651069CA1EDE05BD0014FFC2 /* ICEmployee.m in Sources */,
 				651069C81EDE05BD0014FFC2 /* ICAccountant.m in Sources */,

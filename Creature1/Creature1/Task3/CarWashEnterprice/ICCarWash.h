@@ -12,10 +12,7 @@
 
 @interface ICCarWash : NSObject
 @property (nonatomic, assign)   NSUInteger  money;
-@property (nonatomic, retain)   ICBuilding* adminBuilding;
-@property (nonatomic, retain)   ICBuilding* washBox;
 
 - (void)washCars:(NSArray *)cars;
-- (id<ICFinancialFlow>)freeEmployeeWithClass:(Class)cls;
 
 @end
