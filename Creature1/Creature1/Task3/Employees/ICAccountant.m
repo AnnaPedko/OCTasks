@@ -9,16 +9,17 @@
 #import "ICAccountant.h"
 #import "ICCarWash.h"
 
-const static NSUInteger defaultExperience = 5;
+const static NSUInteger ICDefaultExperience = 5;
 const static double interestSalary = 0.1;
 
 @implementation ICAccountant
+
 @synthesize money;
 
 - (instancetype) init {
     self = [super init];
     if (self) {
-        self.experience = defaultExperience;
+        self.experience = ICDefaultExperience;
         self.state = ICObjectFree;
     }
     

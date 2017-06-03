@@ -9,15 +9,16 @@
 #import "ICDirector.h"
 #import "ICAccountant.h"
 
-const static NSUInteger defaultExperience = 5;
+const static NSUInteger ICDefaultExperience = 5;
 
 @implementation ICDirector
+
 @synthesize money;
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.experience = defaultExperience;
+        self.experience = ICDefaultExperience;
         self.state = ICObjectFree;
     }
     

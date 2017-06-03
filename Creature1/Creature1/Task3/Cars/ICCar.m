@@ -10,7 +10,7 @@
 
 #import "NSObject+ICExtensions.h"
 
-const static NSUInteger defaultMoney = 200;
+const static NSUInteger ICDefaultMoney = 200;
 
 @implementation ICCar
 @synthesize money;
@@ -18,7 +18,7 @@ const static NSUInteger defaultMoney = 200;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.money = defaultMoney;
+        self.money = ICDefaultMoney;
         self.state = ICCarDirty;
     }
     

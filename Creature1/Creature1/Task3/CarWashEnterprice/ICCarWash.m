@@ -53,7 +53,8 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 }
 
 - (id<ICFinancialFlow>)freeEmployee:(NSArray *)employees {
-    return [[employees filteredArrayWithBlock:^BOOL(ICEmployee *employee){
+    return [[employees filteredArrayWithBlock:^BOOL(ICEmployee *employee) {
+        
              return employee.state == ICObjectFree;
         }]firstObject];
     }

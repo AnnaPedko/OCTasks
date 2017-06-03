@@ -10,7 +10,7 @@
 #import "ICCar.h"
 #import "ICCarWash.h"
 
-const static NSUInteger defaultExperience = 2;
+const static NSUInteger ICDefaultExperience = 2;
 
 @implementation ICWasher
 
@@ -21,7 +21,7 @@ const static NSUInteger defaultExperience = 2;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.experience = defaultExperience;
+        self.experience = ICDefaultExperience;
         self.state = ICObjectFree;
     }
     
