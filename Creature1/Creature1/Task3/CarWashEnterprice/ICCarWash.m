@@ -28,6 +28,9 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 
 - (void)dealloc {
     self.washers = nil;
+    self.director = nil;
+    self.accountant = nil;
+    self.mutableCars = nil;
     
     [super dealloc];
 }
@@ -81,7 +84,7 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 }
 
 - (void)employeeDidBecomeBusy:(id)employee {
-    NSLog(@"Employee became busy %@", employee);
+    NSLog(@"%@ became busy", employee);
 }
 
 @end

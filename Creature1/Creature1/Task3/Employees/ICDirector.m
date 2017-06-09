@@ -19,14 +19,13 @@ const static NSUInteger ICDefaultExperience = 5;
     self = [super init];
     if (self) {
         self.experience = ICDefaultExperience;
-        self.state = ICObjectFree;
     }
     
     return self;
 }
 
 - (void)performObjectSpecificOperation:(id)object {
-    
+    [super performObjectSpecificOperation:object];
 }
 
 - (void)processObject:(ICEmployee *)object {

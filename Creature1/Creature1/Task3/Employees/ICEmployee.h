@@ -16,7 +16,8 @@
 
 typedef NS_ENUM(NSUInteger, ICObjectState) {
     ICObjectFree,
-    ICObjectBusy
+    ICObjectBusy,
+    ICObjectReadyForProcessing
 };
 
 @protocol ICEmployeeObserver <NSObject>
@@ -24,6 +25,7 @@ typedef NS_ENUM(NSUInteger, ICObjectState) {
 @optional
 - (void)employeeDidFinishWork:(id<ICFinancialFlow>)employee;
 - (void)employeeDidBecomeBusy:(id<ICFinancialFlow>)employee;
+- (void)employeeReadyForProcessing:(id<ICFinancialFlow>)employee;
 
 @end
 

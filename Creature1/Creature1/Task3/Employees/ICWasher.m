@@ -22,7 +22,6 @@ const static NSUInteger ICDefaultExperience = 2;
     self = [super init];
     if (self) {
         self.experience = ICDefaultExperience;
-        self.state = ICObjectFree;
     }
     
     return self;

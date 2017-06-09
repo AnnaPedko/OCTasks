@@ -20,14 +20,13 @@ const static double interestSalary = 0.1;
     self = [super init];
     if (self) {
         self.experience = ICDefaultExperience;
-        self.state = ICObjectFree;
     }
     
     return self;
 }
 
 - (void)performObjectSpecificOperation:(id)object {
-    [self takeMoneyFromObject:object];
+    [super performObjectSpecificOperation:object];
     [self calculateSalary:object];
 }
 

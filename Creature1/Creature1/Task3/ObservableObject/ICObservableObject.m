@@ -9,7 +9,7 @@
 #import "ICObservableObject.h"
 
 @interface ICObservableObject ()
-@property (nonatomic, retain)   NSMutableSet    *mutableObservers;
+@property (nonatomic, retain)   NSHashTable   *mutableObservers;
 
 - (void)notifyOfChangingStateWithSelector:(SEL)selector;
 
@@ -31,7 +31,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObservers = [NSMutableSet set];
+        self.mutableObservers = [[[NSHashTable alloc] init] autorelease];
     }
     return self;
 }
@@ -75,7 +75,7 @@
 }
 
 - (void)notifyOfChangingStateWithSelector:(SEL)selector {
-    NSMutableSet *observers = self.mutableObservers;
+    NSHashTable *observers = self.mutableObservers;
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
             [observer performSelector:selector withObject:self];

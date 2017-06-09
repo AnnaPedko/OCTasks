@@ -23,22 +23,29 @@
             return @selector(employeeDidFinishWork:);
         case ICObjectBusy:
             return @selector(employeeDidBecomeBusy:);
-            
+        case ICObjectReadyForProcessing:
+            return @selector(employeeReadyForProcessing:);
         default:
             return [super selectorForState:state];
     }
 }
 
-- (void)employeeDidFinishWork:(id)employee {
+- (void)employeeReadyForProcessing:(id)employee {
+    NSLog(@"%@ ready for processing ", employee);
     [self processObject:employee];
 }
 
 - (void)employeeDidBecomeBusy:(id)employee {
-    NSLog(@"Employee became busy %@", employee);
+    NSLog(@" %@ became busy ", employee);
+}
+
+- (void)changeStateForObject:(ICEmployee *)object {
+    NSLog(@" %@ became free", object);
+    object.state = ICObjectFree;
 }
 
 - (void)performObjectSpecificOperation:(id)object {
-    
+    [self changeStateForObject:object];
 };
 
 #pragma mark -
@@ -64,9 +71,10 @@
 
 - (void)processObject:(id<ICFinancialFlow>)object {
     self.state = ICObjectBusy;
+    NSLog(@"%@ became process object %@",self, object);
     [self takeMoneyFromObject:object];
     [self performObjectSpecificOperation:object];
-    self.state = ICObjectFree;
+    self.state = ICObjectReadyForProcessing;
 }
 
 @end
