@@ -68,8 +68,10 @@
 - (void)processObject:(id<ICFinancialFlow>)object {
     self.state = ICObjectBusy;
     NSLog(@"%@ became process object %@",self, object);
+    
     [self takeMoneyFromObject:object];
     [self performObjectSpecificOperation:object];
+    
     self.state = ICObjectReadyForProcessing;
 }
 

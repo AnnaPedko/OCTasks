@@ -26,10 +26,7 @@ const static NSUInteger ICDefaultExperience = 5;
 
 - (void)performObjectSpecificOperation:(id)object {
     [super performObjectSpecificOperation:object];
-}
-
-- (void)processObject:(ICEmployee *)object {
-    [super processObject:object];
+    self.salary = self.money;
 }
 
 @end

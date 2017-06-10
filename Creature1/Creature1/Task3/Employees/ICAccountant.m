@@ -35,8 +35,4 @@ const static double interestSalary = 0.1;
     self.money -= employee.salary;
 }
 
-- (void)processObject:(ICEmployee *)object {
-    [super processObject:object];
-}
-
 @end

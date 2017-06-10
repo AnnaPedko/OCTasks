@@ -37,8 +37,4 @@ const static NSUInteger ICDefaultExperience = 2;
     [self washCar:car];
 }
 
-- (void)processObject:(id<ICFinancialFlow>)car{
-    [super processObject:car];
-}
-
 @end
