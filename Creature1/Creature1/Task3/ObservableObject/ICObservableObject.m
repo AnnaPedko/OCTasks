@@ -62,7 +62,7 @@
     [self.mutableObservers removeObject:observer];
 }
 
-- (BOOL)isObserverdByObjects:(id)observer {
+- (BOOL)isObservedByObjects:(id)observer {
     return [self.mutableObservers containsObject:observer];
 }
 

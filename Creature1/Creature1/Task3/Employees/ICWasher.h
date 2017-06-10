@@ -10,6 +10,4 @@
 
 @interface ICWasher : ICEmployee
 
-- (void)processObject:(id<ICFinancialFlow>)object;
-
 @end

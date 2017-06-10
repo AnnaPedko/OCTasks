@@ -11,10 +11,6 @@
 @implementation ICEmployee
 
 #pragma mark - 
-#pragma mark Accessors
-
-
-#pragma mark - 
 #pragma mark Overloaded Methods
 
 - (SEL)selectorForState:(NSUInteger)state {
@@ -31,12 +27,12 @@
 }
 
 - (void)employeeReadyForProcessing:(id)employee {
-    NSLog(@"%@ ready for processing ", employee);
+    NSLog(@"%@ ready for processing", employee);
     [self processObject:employee];
 }
 
 - (void)employeeDidBecomeBusy:(id)employee {
-    NSLog(@" %@ became busy ", employee);
+    NSLog(@" %@ became busy", employee);
 }
 
 - (void)changeStateForObject:(ICEmployee *)object {
