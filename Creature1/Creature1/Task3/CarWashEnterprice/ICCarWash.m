@@ -75,7 +75,7 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 
 - (void)employeeDidFinishWork:(id)employee {
     if (self.mutableCars.count > 0) {
-        ICCar *dirtyCar = [self.mutableCars firstObject];
+        ICCar *dirtyCar = [[[self.mutableCars firstObject] retain] autorelease];
         [self.mutableCars removeObject:dirtyCar];
         [employee processObject:dirtyCar];
     }
