@@ -50,11 +50,10 @@
 - (BOOL)isEmpty {
     if (![self count]) {
         return YES;
-    } else {return NO;}
+    } else {
+        return NO;
+    }
 }
-
-#pragma mark -
-#pragma Private Methods
 
 - (NSUInteger)count {
     return self.queue.count;

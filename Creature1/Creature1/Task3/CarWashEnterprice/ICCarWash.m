@@ -22,7 +22,6 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 @property (nonatomic, retain)   NSMutableArray  *washers;
 @property (nonatomic, retain)   ICDirector  *director;
 @property (nonatomic, retain)   ICAccountant  *accountant;
-@property (nonatomic, retain)   ICQueue *washerQueue;
 @property (nonatomic, retain)   ICQueue *carQueue;
 
 @end
@@ -33,7 +32,6 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
     self.washers = nil;
     self.director = nil;
     self.accountant = nil;
-    self.washerQueue = nil;
     self.carQueue = nil;
     
     [super dealloc];
@@ -41,7 +39,6 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 
 - (instancetype)init {
     self.washers = [NSMutableArray object];
-    self.washerQueue = [ICQueue object];
     self.carQueue = [ICQueue object];
     
     [self prepareEnterprise];

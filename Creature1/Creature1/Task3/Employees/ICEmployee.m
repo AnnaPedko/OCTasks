@@ -22,7 +22,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.queue = nil;
+        self.queue = [ICQueue object];
     }
     
     return self;
@@ -44,9 +44,16 @@
     }
 }
 
+- (void)processQueue {
+    for (NSUInteger i = 0; i < [self.queue count]; i++) {
+        [self processObject:[self.queue dequeue]];
+    }
+}
+
 - (void)employeeReadyForProcessing:(id)employee {
     NSLog(@"%@ ready for processing", employee);
-    [self processObject:employee];
+    [self.queue enqueue:employee];
+    [self processQueue];
 }
 
 - (void)employeeDidBecomeBusy:(id)employee {
@@ -68,13 +75,17 @@
 #pragma Public Methods
 
 - (void)processObject:(id<ICFinancialFlow>)object {
-    self.state = ICObjectBusy;
-    NSLog(@"%@ became process object %@",self, object);
+    if (self.state == ICObjectFree) {
+        
+        self.state = ICObjectBusy;
+        NSLog(@"%@ became process object %@",self, object);
+        
+        [self takeMoneyFromObject:object];
+        [self performObjectSpecificOperation:object];
+        [self finishProcessObject:object];
+        [self finishWork];
+    }
     
-    [self takeMoneyFromObject:object];
-    [self performObjectSpecificOperation:object];
-    [self finishProcessObject:object];
-    [self finishWork];
 }
 
 #pragma mark -
