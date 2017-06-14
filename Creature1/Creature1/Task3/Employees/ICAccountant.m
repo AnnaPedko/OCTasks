@@ -26,8 +26,13 @@ const static double interestSalary = 0.1;
 }
 
 - (void)performObjectSpecificOperation:(id)object {
-    [super performObjectSpecificOperation:object];
     [self calculateSalary:object];
+    [self finishProcessObject:object];
+}
+
+- (void)finishProcessObject:(ICEmployee *)object {
+    NSLog(@" %@ finishProcessObject %@", self, object);
+    object.state = ICObjectFree;
 }
 
 - (void)calculateSalary:(ICEmployee *)employee {

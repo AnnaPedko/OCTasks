@@ -14,10 +14,6 @@ const static NSUInteger ICDefaultExperience = 2;
 
 @implementation ICWasher
 
-- (void)dealloc {
-    [super dealloc];
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -28,9 +24,12 @@ const static NSUInteger ICDefaultExperience = 2;
 }
 
 - (void)washCar:(ICCar *)car {
-    if (car.state == ICCarDirty) {
-        car.state = ICCarClean;
-    }
+    [self finishProcessObject:car];
+}
+
+- (void)finishProcessObject:(ICCar *)object {
+    NSLog(@" %@ became clean", object);
+    object.state = ICCarClean;
 }
 
 - (void)performObjectSpecificOperation:(id<ICFinancialFlow>)car {

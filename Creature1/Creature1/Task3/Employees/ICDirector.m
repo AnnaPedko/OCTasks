@@ -24,9 +24,18 @@ const static NSUInteger ICDefaultExperience = 5;
     return self;
 }
 
+- (void)finishProcessObject:(ICEmployee *)object {
+    NSLog(@" %@ finishProcessObject %@", self, object);
+    object.state = ICObjectFree;
+}
+
+- (void)finishWork {
+    self.state = ICObjectFree;
+}
+
 - (void)performObjectSpecificOperation:(id)object {
-    [super performObjectSpecificOperation:object];
     self.salary = self.money;
+    [self finishProcessObject:object];
 }
 
 @end

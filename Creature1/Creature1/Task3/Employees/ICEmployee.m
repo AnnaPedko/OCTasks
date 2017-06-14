@@ -35,13 +35,14 @@
     NSLog(@" %@ became busy", employee);
 }
 
-- (void)changeStateForObject:(ICEmployee *)object {
-    NSLog(@" %@ became free", object);
-    object.state = ICObjectFree;
+- (void)finishProcessObject:(id)object {
+}
+
+- (void)finishWork {
+    self.state = ICObjectReadyForProcessing;
 }
 
 - (void)performObjectSpecificOperation:(id)object {
-    [self changeStateForObject:object];
 };
 
 #pragma mark -
@@ -54,7 +55,7 @@
     [self takeMoneyFromObject:object];
     [self performObjectSpecificOperation:object];
     
-    self.state = ICObjectReadyForProcessing;
+    [self finishWork];
 }
 
 #pragma mark -

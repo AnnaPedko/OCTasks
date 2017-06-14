@@ -68,8 +68,8 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
         } else {
             [self.mutableCars addObject:car];
         }
-        
-        NSLog (@"Profit = %lu",self.director.money);
+        NSLog(@"-----------------------------");
+        NSLog (@"Profit = %lu",self.director.salary);
     }
 }
 
