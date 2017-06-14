@@ -46,14 +46,16 @@
 
 - (void)processQueue {
     for (NSUInteger i = 0; i < [self.queue count]; i++) {
-        [self processObject:[self.queue dequeue]];
+        [self performSelectorInBackground:@selector(processObject:) withObject:[self.queue dequeue]];
     }
 }
 
 - (void)employeeReadyForProcessing:(id)employee {
-    NSLog(@"%@ ready for processing", employee);
-    [self.queue enqueue:employee];
-    [self processQueue];
+    @synchronized (self) {
+        NSLog(@"%@ ready for processing", employee);
+        [self.queue enqueue:employee];
+        [self processQueue];
+    }
 }
 
 - (void)employeeDidBecomeBusy:(id)employee {
@@ -75,17 +77,18 @@
 #pragma Public Methods
 
 - (void)processObject:(id<ICFinancialFlow>)object {
-    if (self.state == ICObjectFree) {
-        
-        self.state = ICObjectBusy;
-        NSLog(@"%@ became process object %@",self, object);
-        
-        [self takeMoneyFromObject:object];
-        [self performObjectSpecificOperation:object];
-        [self finishProcessObject:object];
-        [self finishWork];
+    @synchronized (self) {
+        if (self.state == ICObjectFree) {
+            
+            self.state = ICObjectBusy;
+            NSLog(@"%@ became process object %@",self, object);
+            
+            [self takeMoneyFromObject:object];
+            [self performObjectSpecificOperation:object];
+            [self finishProcessObject:object];
+            [self finishWork];
+        }
     }
-    
 }
 
 #pragma mark -

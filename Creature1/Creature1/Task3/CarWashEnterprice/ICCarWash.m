@@ -74,6 +74,8 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
         }
         NSLog(@"-----------------------------");
         NSLog (@"Profit = %lu",self.director.salary);
+        NSRunLoop *runLoop = [[NSRunLoop new] autorelease];
+
     }
 }
 
