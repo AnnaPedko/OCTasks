@@ -15,6 +15,9 @@ const static NSUInteger ICDefaultExperience = 5;
 
 @synthesize money;
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -24,18 +27,28 @@ const static NSUInteger ICDefaultExperience = 5;
     return self;
 }
 
+#pragma mark -
+#pragma mark Overload methods
+
 - (void)finishProcessObject:(ICEmployee *)object {
     NSLog(@" %@ finishProcessObject %@", self, object);
     object.state = ICObjectFree;
 }
 
 - (void)finishWork {
+    NSLog(@"%@ finish work", self);
     self.state = ICObjectFree;
 }
 
 - (void)performObjectSpecificOperation:(id)object {
+    [self calculateProfit];
+}
+
+#pragma mark -
+#pragma mark Private methods
+
+- (void)calculateProfit {
     self.salary = self.money;
-    [self finishProcessObject:object];
 }
 
 @end

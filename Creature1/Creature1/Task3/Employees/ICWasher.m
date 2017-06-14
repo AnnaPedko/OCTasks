@@ -14,6 +14,9 @@ const static NSUInteger ICDefaultExperience = 2;
 
 @implementation ICWasher
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -23,9 +26,8 @@ const static NSUInteger ICDefaultExperience = 2;
     return self;
 }
 
-- (void)washCar:(ICCar *)car {
-    [self finishProcessObject:car];
-}
+#pragma mark -
+#pragma mark Overload Methods
 
 - (void)finishProcessObject:(ICCar *)object {
     NSLog(@" %@ became clean", object);
@@ -34,6 +36,13 @@ const static NSUInteger ICDefaultExperience = 2;
 
 - (void)performObjectSpecificOperation:(id<ICFinancialFlow>)car {
     [self washCar:car];
+}
+
+#pragma mark -
+#pragma mark Private methods
+
+- (void)washCar:(ICCar *)car {
+    
 }
 
 @end

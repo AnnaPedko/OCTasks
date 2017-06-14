@@ -36,5 +36,7 @@ typedef NS_ENUM(NSUInteger, ICObjectState) {
 
 - (void)performObjectSpecificOperation:(id)object;
 - (void)processObject:(id<ICFinancialFlow>)object;
+- (void)finishWork;
+- (void)finishProcessObject:(id)object;
 
 @end

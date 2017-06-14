@@ -11,7 +11,7 @@
 @implementation ICEmployee
 
 #pragma mark - 
-#pragma mark Overloaded Methods
+#pragma mark Overload Methods
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
@@ -39,6 +39,7 @@
 }
 
 - (void)finishWork {
+    NSLog(@"%@ finish work", self);
     self.state = ICObjectReadyForProcessing;
 }
 
@@ -54,7 +55,7 @@
     
     [self takeMoneyFromObject:object];
     [self performObjectSpecificOperation:object];
-    
+    [self finishProcessObject:object];
     [self finishWork];
 }
 

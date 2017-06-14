@@ -41,7 +41,7 @@ int main(int argc, const char *argv[]) {
     }
     
     @autoreleasepool {
-        static const NSUInteger countOfCars = 5;
+        static const NSUInteger countOfCars = 2;
         
         NSArray *cars = [ICCar objectsWithCount:countOfCars];
         ICCarWash *carWash = [ICCarWash object];

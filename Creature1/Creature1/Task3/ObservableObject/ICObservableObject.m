@@ -48,9 +48,9 @@
         _state = state;
         
         [self notifyOfChangeState:state];
-        [self notifyOfChangingStateWithSelector:[self selectorForState:state]];
     }
 }
+
 #pragma mark -
 #pragma mark Public
 
@@ -85,7 +85,8 @@
 }
 
 - (void)notifyOfChangeState:(NSUInteger)state {
-    NSLog(@"%@ changes state %lu",self, (unsigned long)state);
+    NSLog(@"%@ object changes state to %lu", self, state);
+    [self notifyOfChangingStateWithSelector:[self selectorForState:state]];
 }
 
 @end

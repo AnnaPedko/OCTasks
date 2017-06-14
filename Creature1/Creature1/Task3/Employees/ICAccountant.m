@@ -10,11 +10,14 @@
 #import "ICCarWash.h"
 
 const static NSUInteger ICDefaultExperience = 5;
-const static double interestSalary = 0.1;
+const static double ICInterestSalary = 0.1;
 
 @implementation ICAccountant
 
 @synthesize money;
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
 
 - (instancetype) init {
     self = [super init];
@@ -25,9 +28,11 @@ const static double interestSalary = 0.1;
     return self;
 }
 
+#pragma mark -
+#pragma mark Overload methods
+
 - (void)performObjectSpecificOperation:(id)object {
     [self calculateSalary:object];
-    [self finishProcessObject:object];
 }
 
 - (void)finishProcessObject:(ICEmployee *)object {
@@ -35,8 +40,11 @@ const static double interestSalary = 0.1;
     object.state = ICObjectFree;
 }
 
+#pragma mark -
+#pragma mark Private methods
+
 - (void)calculateSalary:(ICEmployee *)employee {
-    employee.salary = interestSalary * self.money;
+    employee.salary = ICInterestSalary * self.money;
     self.money -= employee.salary;
 }
 
