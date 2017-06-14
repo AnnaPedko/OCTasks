@@ -31,7 +31,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObservers = [[[NSHashTable alloc] init] autorelease];
+        self.mutableObservers = [NSHashTable weakObjectsHashTable];
     }
     return self;
 }
