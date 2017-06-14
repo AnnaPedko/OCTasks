@@ -11,6 +11,7 @@
 #import "ICWasher.h"
 #import "ICAccountant.h"
 #import "ICDirector.h"
+#import "ICQueue.h"
 
 #import "NSArray+ICExtensions.h"
 #import "NSObject+ICExtensions.h"
@@ -21,7 +22,9 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 @property (nonatomic, retain)   NSMutableArray  *washers;
 @property (nonatomic, retain)   ICDirector  *director;
 @property (nonatomic, retain)   ICAccountant  *accountant;
-@property (nonatomic, retain)   NSMutableArray   *mutableCars;
+@property (nonatomic, retain)   ICQueue *washerQueue;
+@property (nonatomic, retain)   ICQueue *carQueue;
+
 @end
 
 @implementation ICCarWash
@@ -30,13 +33,17 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
     self.washers = nil;
     self.director = nil;
     self.accountant = nil;
-    self.mutableCars = nil;
+    self.washerQueue = nil;
+    self.carQueue = nil;
     
     [super dealloc];
 }
 
 - (instancetype)init {
     self.washers = [NSMutableArray object];
+    self.washerQueue = [ICQueue object];
+    self.carQueue = [ICQueue object];
+    
     [self prepareEnterprise];
     
     return self;
@@ -66,7 +73,7 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
         if (washer) {
             [washer processObject:car];
         } else {
-            [self.mutableCars addObject:car];
+            [self.carQueue enqueue:car];
         }
         NSLog(@"-----------------------------");
         NSLog (@"Profit = %lu",self.director.salary);
@@ -74,9 +81,8 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 }
 
 - (void)employeeDidFinishWork:(id)employee {
-    if (self.mutableCars.count > 0) {
-        ICCar *dirtyCar = [[[self.mutableCars firstObject] retain] autorelease];
-        [self.mutableCars removeObject:dirtyCar];
+    if (![self.carQueue isEmpty]) {
+        ICCar *dirtyCar = [self.carQueue dequeue];
         [employee processObject:dirtyCar];
     }
 }

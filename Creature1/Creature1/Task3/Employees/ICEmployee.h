@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "ICObservableObject.h"
+#import "ICQueue.h"
 
 #import "ICFinancialFlow.h"
 
@@ -33,6 +34,7 @@ typedef NS_ENUM(NSUInteger, ICObjectState) {
 @property (nonatomic, assign)   NSUInteger    money;
 @property (nonatomic, assign)   NSUInteger    salary;
 @property (nonatomic, assign)   NSUInteger    experience;
+@property (nonatomic, retain)   ICQueue     *queue;
 
 - (void)performObjectSpecificOperation:(id)object;
 - (void)processObject:(id<ICFinancialFlow>)object;

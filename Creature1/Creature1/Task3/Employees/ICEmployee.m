@@ -10,6 +10,24 @@
 
 @implementation ICEmployee
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    self.queue = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.queue = nil;
+    }
+    
+    return self;
+}
+
 #pragma mark - 
 #pragma mark Overload Methods
 
