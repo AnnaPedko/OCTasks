@@ -26,6 +26,7 @@
 		6530BA371EE2307B002AC64A /* ICEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BA1C1EE2307B002AC64A /* ICEmployee.m */; };
 		6530BA381EE2307B002AC64A /* ICWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BA1E1EE2307B002AC64A /* ICWasher.m */; };
 		6530BA391EE2307B002AC64A /* ICObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BA211EE2307B002AC64A /* ICObservableObject.m */; };
+		6530BB0C1EF18596002AC64A /* ICQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB0B1EF18596002AC64A /* ICQueue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -81,6 +82,8 @@
 		6530BA211EE2307B002AC64A /* ICObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICObservableObject.m; sourceTree = "<group>"; };
 		6530BA231EE2307B002AC64A /* ICFinancialFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICFinancialFlow.h; sourceTree = "<group>"; };
 		6530BA241EE2307B002AC64A /* Creature1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Creature1.xcodeproj; sourceTree = "<group>"; };
+		6530BB0A1EF18596002AC64A /* ICQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICQueue.h; sourceTree = "<group>"; };
+		6530BB0B1EF18596002AC64A /* ICQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICQueue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,7 @@
 		6530BA0F1EE2307B002AC64A /* Task3 */ = {
 			isa = PBXGroup;
 			children = (
+				6530BB091EF18582002AC64A /* Queue */,
 				6530BA101EE2307B002AC64A /* Cars */,
 				6530BA131EE2307B002AC64A /* CarWashEnterprice */,
 				6530BA161EE2307B002AC64A /* Employees */,
@@ -239,6 +243,15 @@
 		6530BA251EE2307B002AC64A /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6530BB091EF18582002AC64A /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				6530BB0A1EF18596002AC64A /* ICQueue.h */,
+				6530BB0B1EF18596002AC64A /* ICQueue.m */,
+			);
+			path = Queue;
 			sourceTree = "<group>";
 		};
 		653288271EAAA78B00E63A8A = {
@@ -325,6 +338,7 @@
 				6530BA301EE2307B002AC64A /* ICRandomInRange.m in Sources */,
 				6530BA2A1EE2307B002AC64A /* NSString+ICGenerateRandomString.m in Sources */,
 				6530BA2D1EE2307B002AC64A /* ICStringsAlphabet.m in Sources */,
+				6530BB0C1EF18596002AC64A /* ICQueue.m in Sources */,
 				6530BA341EE2307B002AC64A /* ICCarWash.m in Sources */,
 				6530BA311EE2307B002AC64A /* ICFemaleCreature.m in Sources */,
 				6530BA2E1EE2307B002AC64A /* main.m in Sources */,
