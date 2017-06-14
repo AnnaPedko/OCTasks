@@ -45,6 +45,19 @@
 };
 
 #pragma mark -
+#pragma Public Methods
+
+- (void)processObject:(id<ICFinancialFlow>)object {
+    self.state = ICObjectBusy;
+    NSLog(@"%@ became process object %@",self, object);
+    
+    [self takeMoneyFromObject:object];
+    [self performObjectSpecificOperation:object];
+    
+    self.state = ICObjectReadyForProcessing;
+}
+
+#pragma mark -
 #pragma mark ICFinancialFlow Methods
 
 - (void)takeMoneyFromObject:(id<ICFinancialFlow>)object {
@@ -60,19 +73,6 @@
     self.money = 0;
     
     return money;
-}
-
-#pragma mark - 
-#pragma Public Methods
-
-- (void)processObject:(id<ICFinancialFlow>)object {
-    self.state = ICObjectBusy;
-    NSLog(@"%@ became process object %@",self, object);
-    
-    [self takeMoneyFromObject:object];
-    [self performObjectSpecificOperation:object];
-    
-    self.state = ICObjectReadyForProcessing;
 }
 
 @end
