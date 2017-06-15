@@ -8,6 +8,12 @@
 
 #import "ICEmployee.h"
 
+@interface ICEmployee ()
+- (void)backgroundProcessingObject:(id<ICFinancialFlow>)object;
+- (void)mainProcessingObject:(id<ICFinancialFlow>)object;
+- (void)sleep;
+
+@end
 @implementation ICEmployee
 
 #pragma mark -
@@ -29,6 +35,9 @@
 }
 
 #pragma mark - 
+#pragma mark Accessors
+
+#pragma mark - 
 #pragma mark Overload Methods
 
 - (SEL)selectorForState:(NSUInteger)state {
@@ -45,9 +54,25 @@
 }
 
 - (void)processQueue {
-    for (NSUInteger i = 0; i < [self.queue count]; i++) {
-        [self performSelectorInBackground:@selector(processObject:) withObject:[self.queue dequeue]];
+    while ([self.queue isFull]) {
+        NSLog(@"count = %lu",[self.queue count]);
+        id object = [self.queue dequeue];
+        [self performSelectorInBackground:@selector(backgroundProcessingObject:) withObject:object];
     }
+}
+
+- (void)backgroundProcessingObject:(id<ICFinancialFlow>)object {
+    NSLog(@"Background %@, object = %@", self,object);
+    [self sleep];
+    [self processObject:object];
+    [self performSelectorOnMainThread:@selector(mainProcessingObject:) withObject:object waitUntilDone:NO];
+
+}
+
+- (void)mainProcessingObject:(id<ICFinancialFlow>)object {
+    [self finishProcessObject:object];
+    [self finishWork];
+
 }
 
 - (void)employeeReadyForProcessing:(id)employee {
@@ -56,6 +81,10 @@
         [self.queue enqueue:employee];
         [self processQueue];
     }
+}
+
+- (void)sleep {
+    usleep(1000 * (useconds_t)(10));
 }
 
 - (void)employeeDidBecomeBusy:(id)employee {
@@ -67,7 +96,9 @@
 
 - (void)finishWork {
     NSLog(@"%@ finish work", self);
-    self.state = ICObjectReadyForProcessing;
+    @synchronized (self) {
+        self.state = ICObjectReadyForProcessing;
+    }
 }
 
 - (void)performObjectSpecificOperation:(id)object {
@@ -78,15 +109,13 @@
 
 - (void)processObject:(id<ICFinancialFlow>)object {
     @synchronized (self) {
-        if (self.state == ICObjectFree) {
-            
+        if (ICObjectFree == self.state) {
             self.state = ICObjectBusy;
             NSLog(@"%@ became process object %@",self, object);
             
             [self takeMoneyFromObject:object];
             [self performObjectSpecificOperation:object];
-            [self finishProcessObject:object];
-            [self finishWork];
+            
         }
     }
 }
@@ -95,19 +124,26 @@
 #pragma mark ICFinancialFlow Methods
 
 - (void)takeMoneyFromObject:(id<ICFinancialFlow>)object {
-    [self takeMoney:[object giveMoney]];
+    @synchronized (self) {
+        [self takeMoney:[object giveMoney]];
+    }
 }
 
 - (void)takeMoney:(NSUInteger)money {
-    self.money += money;
+    @synchronized (self) {
+        self.money += money;
+    }
 }
 
 - (NSUInteger)giveMoney {
-    NSUInteger money = self.money;
-    self.money = 0;
-    
-    return money;
+    @synchronized (self) {
+        NSUInteger money = self.money;
+        self.money = 0;
+        
+        return money;
+    }
 }
+    
 
 @end
 

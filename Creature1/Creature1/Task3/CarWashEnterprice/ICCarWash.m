@@ -65,24 +65,23 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
     }
 
 - (void)washCars:(NSArray *)cars {
+    ICWasher *washer = [self freeEmployee:self.washers];
     for (ICCar* car in cars) {
-        ICWasher *washer = [self freeEmployee:self.washers];
+        [washer.queue enqueue:car];
+    }
         if (washer) {
-            [washer processObject:car];
-        } else {
-            [self.carQueue enqueue:car];
+            [washer processQueue];
         }
         NSLog(@"-----------------------------");
         NSLog (@"Profit = %lu",self.director.salary);
         NSRunLoop *runLoop = [[NSRunLoop new] autorelease];
 
     }
-}
 
-- (void)employeeDidFinishWork:(id)employee {
-    if (![self.carQueue isEmpty]) {
-        ICCar *dirtyCar = [self.carQueue dequeue];
-        [employee processObject:dirtyCar];
+
+- (void)employeeDidFinishWork:(ICWasher *)washer {
+    if ([washer.queue isFull]) {
+        [washer processQueue];
     }
 }
 

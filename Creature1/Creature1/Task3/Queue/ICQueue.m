@@ -47,8 +47,8 @@
     return object;
 }
 
-- (BOOL)isEmpty {
-    if (![self count]) {
+- (BOOL)isFull {
+    if ([self count]) {
         return YES;
     } else {
         return NO;
