@@ -41,7 +41,9 @@ const static NSUInteger ICDefaultExperience = 5;
 }
 
 - (void)performObjectSpecificOperation:(id)object {
-    [self calculateProfit];
+    @synchronized (self) {
+        [self calculateProfit];
+    }
 }
 
 #pragma mark -

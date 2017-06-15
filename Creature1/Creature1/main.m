@@ -49,6 +49,6 @@ int main(int argc, const char *argv[]) {
         }
     }
      NSRunLoop *runLoop = [[NSRunLoop new] autorelease];
-
+    [runLoop run];
     return 0;
 }

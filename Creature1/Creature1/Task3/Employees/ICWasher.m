@@ -35,7 +35,9 @@ const static NSUInteger ICDefaultExperience = 2;
 }
 
 - (void)performObjectSpecificOperation:(id<ICFinancialFlow>)car {
-    [self washCar:car];
+    @synchronized (self) {
+        [self washCar:car];
+    }
 }
 
 #pragma mark -
