@@ -35,9 +35,6 @@
 }
 
 #pragma mark - 
-#pragma mark Accessors
-
-#pragma mark - 
 #pragma mark Overload Methods
 
 - (SEL)selectorForState:(NSUInteger)state {
@@ -63,7 +60,6 @@
 
 - (void)backgroundProcessingObject:(id<ICFinancialFlow>)object {
     NSLog(@"Background %@, object = %@", self,object);
-    [self sleep];
     [self processObject:object];
     [self performSelectorOnMainThread:@selector(mainProcessingObject:) withObject:object waitUntilDone:NO];
 
@@ -84,7 +80,7 @@
 }
 
 - (void)sleep {
-    usleep(1000 * (useconds_t)(10));
+    usleep(1000 * (useconds_t)(100*1000));
 }
 
 - (void)employeeDidBecomeBusy:(id)employee {
@@ -112,10 +108,9 @@
         if (ICObjectFree == self.state) {
             self.state = ICObjectBusy;
             NSLog(@"%@ became process object %@",self, object);
-            
+            [self sleep];
             [self takeMoneyFromObject:object];
             [self performObjectSpecificOperation:object];
-            
         }
     }
 }

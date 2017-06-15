@@ -32,7 +32,9 @@ const static double ICInterestSalary = 0.1;
 #pragma mark Overload methods
 
 - (void)performObjectSpecificOperation:(id)object {
-    [self calculateSalary:object];
+    @synchronized (self) {
+        [self calculateSalary:object];
+    }
 }
 
 - (void)finishProcessObject:(ICEmployee *)object {

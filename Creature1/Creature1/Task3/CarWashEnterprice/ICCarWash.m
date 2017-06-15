@@ -12,6 +12,7 @@
 #import "ICAccountant.h"
 #import "ICDirector.h"
 #import "ICQueue.h"
+#import "ICCarWashController.h"
 
 #import "NSArray+ICExtensions.h"
 #import "NSObject+ICExtensions.h"
@@ -23,6 +24,7 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 @property (nonatomic, retain)   ICDirector  *director;
 @property (nonatomic, retain)   ICAccountant  *accountant;
 @property (nonatomic, retain)   ICQueue *carQueue;
+@property (nonatomic, retain)   ICCarWashController *washController;
 
 @end
 
@@ -33,6 +35,7 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
     self.director = nil;
     self.accountant = nil;
     self.carQueue = nil;
+    self.washController = nil;
     
     [super dealloc];
 }
@@ -40,7 +43,8 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 - (instancetype)init {
     self.washers = [NSMutableArray object];
     self.carQueue = [ICQueue object];
-    
+    self.washController = [ICCarWashController object];
+
     [self prepareEnterprise];
     
     return self;
@@ -53,7 +57,7 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
     
     for (ICWasher *washer in self.washers) {
         [washer addObserver:self.accountant];
-        [washer addObserver:self];
+        [washer addObserver:self.washController];
     }
     
     [self.accountant addObserver:self.director];
@@ -65,24 +69,9 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
     }
 
 - (void)washCars:(NSArray *)cars {
-    ICWasher *washer = [self freeEmployee:self.washers];
-    for (ICCar* car in cars) {
-        [washer.queue enqueue:car];
-    }
-        if (washer) {
-            [washer processQueue];
-        }
-        NSLog(@"-----------------------------");
-        NSLog (@"Profit = %lu",self.director.salary);
-        NSRunLoop *runLoop = [[NSRunLoop new] autorelease];
-
-    }
-
-
-- (void)employeeDidFinishWork:(ICWasher *)washer {
-    if ([washer.queue isFull]) {
-        [washer processQueue];
-    }
+    [self.washController createCarQueue:cars];
+    [self.washController createWasherQueue:self.washers];
+    [self.washController washCars];
 }
 
 - (void)employeeDidBecomeBusy:(id)employee {
