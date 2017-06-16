@@ -14,7 +14,7 @@
 
 - (void)enqueue:(id)object;
 - (id)dequeue;
-- (BOOL)isFull;
+- (BOOL)isEmpty;
 - (NSUInteger)count;
 
 @end

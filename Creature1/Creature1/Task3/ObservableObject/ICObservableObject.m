@@ -44,10 +44,12 @@
 }
 
 - (void)setState:(NSUInteger)state {
-    if (state != _state) {
-        _state = state;
-        
-        [self notifyOfChangeState:state];
+    @synchronized (self) {
+        if (state != _state) {
+            _state = state;
+            
+            [self notifyOfChangeState:state];
+        }
     }
 }
 
@@ -55,7 +57,7 @@
 #pragma mark Public
 
 - (void)addObserver:(id)observer {
-    [self.mutableObservers addObject:observer];
+        [self.mutableObservers addObject:observer];
 }
 
 - (void)removeObserver:(id)observer {

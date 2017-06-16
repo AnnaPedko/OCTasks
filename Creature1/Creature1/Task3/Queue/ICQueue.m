@@ -47,11 +47,11 @@
     return object;
 }
 
-- (BOOL)isFull {
+- (BOOL)isEmpty {
     if ([self count]) {
-        return YES;
-    } else {
         return NO;
+    } else {
+        return YES;
     }
 }
 

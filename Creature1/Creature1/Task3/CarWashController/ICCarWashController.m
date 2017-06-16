@@ -50,11 +50,11 @@
 
 - (void)performWorkWithWasher:(ICEmployee *)washer {
     @synchronized (self) {
-        if([self.carQueue isFull]) {
+        if(![self.carQueue isEmpty]) {
             [washer.queue enqueue:[self.carQueue dequeue]];
             
-            if ([washer.queue isFull]) {
-                [washer processQueue];
+            if (![washer.queue isEmpty]) {
+                [washer workWithObject:[washer.queue dequeue]];
             }
         }
     }
@@ -62,6 +62,7 @@
 
 - (void)employeeDidFinishWork:(ICEmployee *)washer {
     @synchronized (self) {
+        [self.washerQueue enqueue:washer];
         [self performWorkWithWasher:washer];
     }
 }
@@ -69,7 +70,7 @@
 - (void)washCars {
     @synchronized (self) {
         for (NSUInteger i = 0; i < [self.washerQueue count]; i++) {
-            ICEmployee * washer = [self.washerQueue dequeue];
+            ICEmployee *washer = [self.washerQueue dequeue];
             if (washer && ICObjectFree == washer.state ) {
                 [self performWorkWithWasher:washer];
             }

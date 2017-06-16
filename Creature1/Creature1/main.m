@@ -41,14 +41,19 @@ int main(int argc, const char *argv[]) {
     }
     
     @autoreleasepool {
-        static const NSUInteger countOfCars = 2;
+        static const NSUInteger ICCountOfCars = 2;
+        
         for (NSUInteger i = 0 ; i < 100; i++) {
-        NSArray *cars = [ICCar objectsWithCount:countOfCars];
-        ICCarWash *carWash = [ICCarWash object];
-        [carWash washCars:cars];
+            NSArray *cars = [ICCar objectsWithCount:ICCountOfCars];
+            ICCarWash *carWash = [ICCarWash object];
+            [carWash washCars:cars];
         }
+        
+        NSRunLoop *runLoop = [[NSRunLoop new] autorelease];
+        [runLoop run];
     }
-     NSRunLoop *runLoop = [[NSRunLoop new] autorelease];
-    [runLoop run];
+    
+    
+    
     return 0;
 }

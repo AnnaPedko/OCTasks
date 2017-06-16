@@ -34,7 +34,7 @@
     return self;
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark Overload Methods
 
 - (SEL)selectorForState:(NSUInteger)state {
@@ -50,20 +50,14 @@
     }
 }
 
-- (void)processQueue {
-        while ([self.queue isFull]) {
-            NSLog(@"count = %lu",[self.queue count]);
-            id object = [self.queue dequeue];
-            [self performSelectorInBackground:@selector(backgroundProcessingObject:) withObject:object];
+- (void)assignThread:(id)object {
+    [self performSelectorInBackground:@selector(backgroundProcessingObject:) withObject:object];
     }
-}
 
 - (void)backgroundProcessingObject:(id<ICFinancialFlow>)object {
         NSLog(@"Background %@, object = %@", self,object);
         [self processObject:object];
     
-        [self sleep];
-
         [self performSelectorOnMainThread:@selector(mainProcessingObject:)
                                withObject:object
                             waitUntilDone:NO];
@@ -79,15 +73,16 @@
     @synchronized (self) {
         [self.queue enqueue:employee];
         NSLog(@"%@ ready for processing", employee);
-        if (ICObjectFree == self.state) {
-            self.state = ICObjectBusy;
-            [self processQueue];
-       }
+        [self workWithObject:[self.queue dequeue]];
     }
 }
 
+- (void)workWithObject:(id)object {
+    [self assignThread:object];
+}
+
 - (void)sleep {
-    usleep((uint32)arc4random_uniform(100));
+    usleep((uint32)arc4random_uniform(1000 * 1000 * 100));
 }
 
 - (void)employeeDidBecomeBusy:(id)employee {
@@ -116,6 +111,8 @@
             self.state = ICObjectBusy;
             NSLog(@"%@ became process object %@",self, object);
             
+            [self sleep];
+
             [self takeMoneyFromObject:object];
             [self performObjectSpecificOperation:object];
         }
