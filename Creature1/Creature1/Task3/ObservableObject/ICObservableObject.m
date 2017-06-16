@@ -44,12 +44,10 @@
 }
 
 - (void)setState:(NSUInteger)state {
-    @synchronized (self) {
-        if (state != _state) {
-            _state = state;
+    if (state != _state) {
+        _state = state;
             
-            [self notifyOfChangeState:state];
-        }
+        [self notifyOfChangeState:state];
     }
 }
 

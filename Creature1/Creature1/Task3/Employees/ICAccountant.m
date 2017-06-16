@@ -39,6 +39,8 @@ const static double ICInterestSalary = 0.1;
 
 - (void)finishProcessObject:(ICEmployee *)object {
     NSLog(@" %@ finishProcessObject %@", self, object);
+    NSLog(@"Accountant %@ money = %lu" , self, self.money);
+
     object.state = ICObjectFree;
 }
 

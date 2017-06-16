@@ -43,13 +43,13 @@ int main(int argc, const char *argv[]) {
     @autoreleasepool {
         static const NSUInteger ICCountOfCars = 2;
         
-        for (NSUInteger i = 0 ; i < 100; i++) {
+        for (NSUInteger i = 0 ; i < 10; i++) {
             NSArray *cars = [ICCar objectsWithCount:ICCountOfCars];
             ICCarWash *carWash = [ICCarWash object];
             [carWash washCars:cars];
         }
         
-        NSRunLoop *runLoop = [[NSRunLoop new] autorelease];
+        NSRunLoop *runLoop = [NSRunLoop mainRunLoop];
         [runLoop run];
     }
     

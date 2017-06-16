@@ -51,6 +51,7 @@ const static NSUInteger ICDefaultExperience = 5;
 
 - (void)calculateProfit {
     self.salary = self.money;
+    NSLog(@"Money = %lu",self.salary);
 }
 
 @end

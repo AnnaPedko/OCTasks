@@ -14,6 +14,9 @@
 - (void)sleep;
 
 @end
+
+static const NSUInteger ICSleepDuration = 10;
+
 @implementation ICEmployee
 
 #pragma mark -
@@ -50,12 +53,13 @@
     }
 }
 
-- (void)assignThread:(id)object {
+- (void)assignThreadForProcessObject:(id)object {
     [self performSelectorInBackground:@selector(backgroundProcessingObject:) withObject:object];
     }
 
 - (void)backgroundProcessingObject:(id<ICFinancialFlow>)object {
-        NSLog(@"Background %@, object = %@", self,object);
+        NSLog(@"Background %@, object = %@", self, object);
+    
         [self processObject:object];
     
         [self performSelectorOnMainThread:@selector(mainProcessingObject:)
@@ -65,6 +69,9 @@
 
 - (void)mainProcessingObject:(id<ICFinancialFlow>)object {
     NSLog(@"Main %@, object = %@", self,object);
+    
+    [self sleep];
+
     [self finishProcessObject:object];
     [self finishWork];
 }
@@ -72,17 +79,18 @@
 - (void)employeeReadyForProcessing:(id)employee {
     @synchronized (self) {
         [self.queue enqueue:employee];
+        
         NSLog(@"%@ ready for processing", employee);
         [self workWithObject:[self.queue dequeue]];
     }
 }
 
 - (void)workWithObject:(id)object {
-    [self assignThread:object];
+    [self assignThreadForProcessObject:object];
 }
 
 - (void)sleep {
-    usleep((uint32)arc4random_uniform(1000 * 1000 * 100));
+    usleep((uint32)arc4random_uniform(1000 * 1000 * ICSleepDuration));
 }
 
 - (void)employeeDidBecomeBusy:(id)employee {
@@ -111,10 +119,9 @@
             self.state = ICObjectBusy;
             NSLog(@"%@ became process object %@",self, object);
             
-            [self sleep];
-
             [self takeMoneyFromObject:object];
             [self performObjectSpecificOperation:object];
+            NSLog(@" %@ money = %lu" , self, self.money);
         }
     }
 }
@@ -143,6 +150,5 @@
     }
 }
     
-
 @end
 
