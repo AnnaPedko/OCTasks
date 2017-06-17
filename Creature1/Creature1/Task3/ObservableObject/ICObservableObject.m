@@ -55,15 +55,21 @@
 #pragma mark Public
 
 - (void)addObserver:(id)observer {
+    @synchronized (self) {
         [self.mutableObservers addObject:observer];
+    }
 }
 
 - (void)removeObserver:(id)observer {
-    [self.mutableObservers removeObject:observer];
+    @synchronized (self) {
+        [self.mutableObservers removeObject:observer];
+    }
 }
 
 - (BOOL)isObservedByObjects:(id)observer {
-    return [self.mutableObservers containsObject:observer];
+    @synchronized (self) {
+        return [self.mutableObservers containsObject:observer];
+    }
 }
 
 #pragma mark - 
