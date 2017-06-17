@@ -33,11 +33,12 @@
 }
 
 - (void)performProcessingWithObject:(id<ICFinancialFlow>)object {
- 
+    [object workWithObject:[self.processingObjects dequeue]];
 }
 
 - (void)employeeDidFinishWork:(id<ICFinancialFlow>)object {
     if (![self.processingObjects isEmpty]) {
+        [self performProcessingWithObject:object];
         
     }
 }
