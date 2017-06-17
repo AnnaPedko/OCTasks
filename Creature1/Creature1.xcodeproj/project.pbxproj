@@ -28,6 +28,7 @@
 		6530BA391EE2307B002AC64A /* ICObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BA211EE2307B002AC64A /* ICObservableObject.m */; };
 		6530BB0C1EF18596002AC64A /* ICQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB0B1EF18596002AC64A /* ICQueue.m */; };
 		6530BB121EF31CB4002AC64A /* ICCarWashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB111EF31CB4002AC64A /* ICCarWashController.m */; };
+		6530BB181EF4AB44002AC64A /* ICDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB171EF4AB44002AC64A /* ICDispatch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +88,8 @@
 		6530BB0B1EF18596002AC64A /* ICQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICQueue.m; sourceTree = "<group>"; };
 		6530BB101EF31CB4002AC64A /* ICCarWashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCarWashController.h; sourceTree = "<group>"; };
 		6530BB111EF31CB4002AC64A /* ICCarWashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCarWashController.m; sourceTree = "<group>"; };
+		6530BB161EF4AB44002AC64A /* ICDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDispatch.h; sourceTree = "<group>"; };
+		6530BB171EF4AB44002AC64A /* ICDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDispatch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,7 @@
 		6530BA0F1EE2307B002AC64A /* Task3 */ = {
 			isa = PBXGroup;
 			children = (
+				6530BB151EF4AB27002AC64A /* Dispatch */,
 				6530BB0F1EF31C9F002AC64A /* CarWashController */,
 				6530BB091EF18582002AC64A /* Queue */,
 				6530BA101EE2307B002AC64A /* Cars */,
@@ -267,6 +271,15 @@
 			path = CarWashController;
 			sourceTree = "<group>";
 		};
+		6530BB151EF4AB27002AC64A /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				6530BB161EF4AB44002AC64A /* ICDispatch.h */,
+				6530BB171EF4AB44002AC64A /* ICDispatch.m */,
+			);
+			path = Dispatch;
+			sourceTree = "<group>";
+		};
 		653288271EAAA78B00E63A8A = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +358,7 @@
 				6530BA391EE2307B002AC64A /* ICObservableObject.m in Sources */,
 				6530BA371EE2307B002AC64A /* ICEmployee.m in Sources */,
 				6530BA2F1EE2307B002AC64A /* ICCreature.m in Sources */,
+				6530BB181EF4AB44002AC64A /* ICDispatch.m in Sources */,
 				6530BA2C1EE2307B002AC64A /* ICRangeAlphabet.m in Sources */,
 				6530BA281EE2307B002AC64A /* NSObject+ICExtensions.m in Sources */,
 				6530BA321EE2307B002AC64A /* ICMaleCreature.m in Sources */,
