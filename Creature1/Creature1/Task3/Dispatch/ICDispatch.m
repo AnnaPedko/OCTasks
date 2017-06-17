@@ -32,7 +32,7 @@
     return self;
 }
 
-- (void)performProcessingWithObject:(id<ICFinancialFlow>)object {
+- (void)performProcessingWithObject:(id)object {
     [object workWithObject:[self.processingObjects dequeue]];
 }
 
@@ -42,7 +42,8 @@
         
     }
 }
-- (void)employeeDidBecomeBusy:(id<ICFinancialFlow>)employee {
+- (void)employeeReadyForProcessing:(id)employee {
+    [self.processingObjects enqueue:employee];
 
 }
 

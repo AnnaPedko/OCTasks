@@ -7,6 +7,9 @@
 //
 
 #import "ICCarWashController.h"
+
+#import "ICDispatch.h"
+
 #import "ICEmployee.h"
 #import "ICCar.h"
 #import "ICWasher.h"
@@ -14,6 +17,10 @@
 @interface ICCarWashController () <ICEmployeeObserver>
 @property (nonatomic, retain)   ICQueue *washerQueue;
 @property (nonatomic, retain)   ICQueue *carQueue;
+@property (nonatomic, retain)   ICDispatch  *washerDispatch;
+@property (nonatomic, retain)   ICDispatch  *accountantDispatch;
+@property (nonatomic, retain)   ICDispatch  *directorDispatch;
+
 
 @end
 
@@ -22,6 +29,9 @@
 - (void)dealloc {
     self.washerQueue = nil;
     self.carQueue = nil;
+    self.washerDispatch = nil;
+    self.accountantDispatch = nil;
+    self.directorDispatch = nil;
     
     [super dealloc];
 }
@@ -29,8 +39,11 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.washerQueue = [[ICQueue new] autorelease];
-        self.carQueue = [[ICQueue new] autorelease];
+        self.washerQueue = [ICQueue object];
+        self.carQueue = [ICQueue object];
+        self.washerDispatch = [ICDispatch object];
+        self.accountantDispatch = [ICDispatch object];
+        self.directorDispatch = [ICDispatch object];
     }
     
     return self;
