@@ -23,7 +23,6 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 @property (nonatomic, retain)   NSMutableArray  *washers;
 @property (nonatomic, retain)   ICDirector  *director;
 @property (nonatomic, retain)   ICAccountant  *accountant;
-@property (nonatomic, retain)   ICQueue *carQueue;
 @property (nonatomic, retain)   ICCarWashController *washController;
 
 @end
