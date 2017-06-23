@@ -13,8 +13,9 @@
 
 @interface ICCarWashController : NSObject
 
-- (void)createWasherQueue:(NSArray *)washers;
-- (void)createCarQueue:(NSArray *)cars;
-- (void)washCars;
+- (void) washCar:(ICCar  *)car;
 
+//inner methods
+- (void)addWasher:(id)washer;
+- (void)removeWasher:(id)washer;
 @end

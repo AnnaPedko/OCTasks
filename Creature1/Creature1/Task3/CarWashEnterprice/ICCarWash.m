@@ -30,18 +30,22 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 @implementation ICCarWash
 
 - (void)dealloc {
+    for (id washer in self.washers) {
+        [washer removeObservers];
+    }
+    
+    [self.accountant removeObserver:self.director];
+
     self.washers = nil;
     self.director = nil;
     self.accountant = nil;
-    self.carQueue = nil;
     self.washController = nil;
     
     [super dealloc];
 }
 
 - (instancetype)init {
-    self.washers = [NSMutableArray object];
-    self.carQueue = [ICQueue object];
+    self = [super init];
     self.washController = [ICCarWashController object];
 
     [self prepareEnterprise];
@@ -50,16 +54,20 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
 }
 
 - (void)prepareEnterprise {
-    [self.washers addObjectsFromArray:[ICWasher objectsWithCount:ICDefaultCountOfWashers]];
-    self.accountant = [ICAccountant object];
-    self.director = [ICDirector object];
+    id accountant = [ICAccountant object];
+    self.accountant = accountant;
+    id director = [ICDirector object];
+    self.director = director;
+    id washers = [NSMutableArray object];
+    self.washers = washers;
     
-    for (ICWasher *washer in self.washers) {
-        [washer addObserver:self.accountant];
-        [washer addObserver:self.washController];
-    }
-    
-    [self.accountant addObserver:self.director];
+    [washers addObjectsFromArray:[NSArray objectsWithCount:ICDefaultCountOfWashers factory:^id{
+        id washer = [ICWasher object];
+        [washer addObservers:@[accountant, self]];
+        
+        return washer;
+    }]];
+    [accountant addObserver:director];
 }
 
 - (id<ICFinancialFlow>)freeEmployee:(NSArray *)employees {
@@ -68,13 +76,12 @@ const static NSUInteger ICDefaultCountOfWashers = 3;
     }
 
 - (void)washCars:(NSArray *)cars {
-    [self.washController createCarQueue:cars];
-    [self.washController createWasherQueue:self.washers];
-    [self.washController washCars];
-}
-
-- (void)employeeDidBecomeBusy:(id)employee {
-    NSLog(@"%@ became busy", employee);
+    id washController = self.washController;
+    [washController addWasher:[self freeEmployee:self.washers]];
+    for (ICCar *car in cars) {
+        [washController washCar:car];
+    }
+    
 }
 
 @end

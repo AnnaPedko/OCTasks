@@ -38,11 +38,8 @@
 }
 
 - (id)dequeue {
-    id object = [self.queue objectAtIndex:0];
-    if (object) {
-        [[object retain] autorelease];
-        [self.queue removeObjectAtIndex:0];
-    }
+    id object = [[self.queue.firstObject retain] autorelease];
+    [self.queue removeObject:object];
     
     return object;
 }

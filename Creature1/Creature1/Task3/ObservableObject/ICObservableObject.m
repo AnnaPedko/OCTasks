@@ -9,7 +9,7 @@
 #import "ICObservableObject.h"
 
 @interface ICObservableObject ()
-@property (nonatomic, retain)   NSHashTable   *mutableObservers;
+@property (nonatomic, retain)   NSHashTable  *mutableObservers;
 
 - (void)notifyOfChangingStateWithSelector:(SEL)selector;
 
@@ -66,13 +66,27 @@
     }
 }
 
+- (void)removeObservers {
+    @synchronized (self) {
+        [self.mutableObservers removeAllObjects];
+    }
+}
+
 - (BOOL)isObservedByObjects:(id)observer {
     @synchronized (self) {
         return [self.mutableObservers containsObject:observer];
     }
 }
 
-#pragma mark - 
+- (void)addObservers:(NSArray *)observers {
+    @synchronized (self) {
+        for (id observer in observers) {
+            [self.mutableObservers addObject:observer];
+        }
+    }
+}
+
+#pragma mark -
 #pragma mark Private
 
 - (SEL)selectorForState:(NSUInteger)state {

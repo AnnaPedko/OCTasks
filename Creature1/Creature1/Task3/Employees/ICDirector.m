@@ -30,7 +30,7 @@ const static NSUInteger ICDefaultExperience = 5;
 #pragma mark -
 #pragma mark Overload methods
 
-- (void)finishProcessObject:(ICEmployee *)object {
+- (void)finishProcessingObject:(ICEmployee *)object {
     NSLog(@" %@ finishProcessObject %@", self, object);
     object.state = ICObjectFree;
 }

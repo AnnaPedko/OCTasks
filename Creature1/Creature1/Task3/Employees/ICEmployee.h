@@ -36,10 +36,11 @@ typedef NS_ENUM(NSUInteger, ICObjectState) {
 @property (nonatomic, assign)   NSUInteger    experience;
 @property (nonatomic, retain)   ICQueue     *queue;
 
-- (void)performObjectSpecificOperation:(id)object;
 - (void)processObject:(id<ICFinancialFlow>)object;
+- (void)performObjectSpecificOperation:(id)object;
+
+//overload points
 - (void)finishWork;
-- (void)finishProcessObject:(id)object;
-- (void)workWithObject:(id)object;
+- (void)finishProcessingObject:(id)object;
 
 @end
