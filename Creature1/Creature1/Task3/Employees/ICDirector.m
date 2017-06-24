@@ -32,12 +32,12 @@ const static NSUInteger ICDefaultExperience = 5;
 
 - (void)finishProcessingObject:(ICEmployee *)object {
     NSLog(@" %@ finishProcessObject %@", self, object);
-    object.state = ICObjectFree;
+    object.state = ICEmployeeFree;
 }
 
 - (void)finishWork {
     NSLog(@"%@ finish work", self);
-    self.state = ICObjectFree;
+    self.state = ICEmployeeFree;
 }
 
 - (void)performObjectSpecificOperation:(id)object {

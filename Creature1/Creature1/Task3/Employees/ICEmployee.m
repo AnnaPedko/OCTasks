@@ -46,10 +46,10 @@ static const NSUInteger ICSleepDuration = 10;
             return;
         }
         
-        if (state == ICObjectFree) {
+        if (state == ICEmployeeFree) {
             id object = [self.queue dequeue];
             if (object) {
-                state = ICObjectBusy;
+                state = ICEmployeeBusy;
                 [self processInBackgroundWithObject:object];
             }
         }
@@ -59,8 +59,8 @@ static const NSUInteger ICSleepDuration = 10;
 
 - (void)processObject:(id<ICFinancialFlow>)object {
     @synchronized (self) {
-        if (ICObjectFree == self.state) {
-            self.state = ICObjectBusy;
+        if (ICEmployeeFree == self.state) {
+            self.state = ICEmployeeBusy;
             NSLog(@"%@ became process object %@",self, object);
             
             [self processInBackgroundWithObject:object];
@@ -77,11 +77,11 @@ static const NSUInteger ICSleepDuration = 10;
 
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
-        case ICObjectFree:
+        case ICEmployeeFree:
             return @selector(employeeDidFinishWork:);
-        case ICObjectBusy:
+        case ICEmployeeBusy:
             return @selector(employeeDidBecomeBusy:);
-        case ICObjectReadyForProcessing:
+        case ICEmployeeReadyForProcessing:
             return @selector(employeeReadyForProcessing:);
         default:
             return [super selectorForState:state];
@@ -127,11 +127,10 @@ static const NSUInteger ICSleepDuration = 10;
 
 - (void)processInBackgroundWithObject:(id)object {
     [self performSelectorInBackground:@selector(performBackgroundProcessingObject:) withObject:object];
-
 }
 
 - (void)finishProcessingObject:(ICEmployee *)object {
-    object.state = ICObjectFree;
+    object.state = ICEmployeeFree;
 }
 
 - (void)finishWork {
@@ -143,7 +142,7 @@ static const NSUInteger ICSleepDuration = 10;
 
     } else {
         NSLog(@"%@ Money = %lu",self, self.money);
-        self.state = ICObjectReadyForProcessing;
+        self.state = ICEmployeeReadyForProcessing;
     }
 }
 

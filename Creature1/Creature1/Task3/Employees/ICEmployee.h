@@ -16,9 +16,9 @@
 @class ICEmployee;
 
 typedef NS_ENUM(NSUInteger, ICObjectState) {
-    ICObjectFree,
-    ICObjectBusy,
-    ICObjectReadyForProcessing
+    ICEmployeeFree,
+    ICEmployeeBusy,
+    ICEmployeeReadyForProcessing
 };
 
 @protocol ICEmployeeObserver <NSObject>

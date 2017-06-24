@@ -106,7 +106,9 @@
 
 - (void)notifyOfChangeState:(NSUInteger)state {
     NSLog(@"%@ object changes state to %lu", self, state);
-    [self notifyOfChangingStateWithSelector:[self selectorForState:state]];
+    @synchronized (self) {
+        [self notifyOfChangingStateWithSelector:[self selectorForState:state]];
+    }
 }
 
 @end

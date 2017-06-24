@@ -41,7 +41,7 @@ const static double ICInterestSalary = 0.1;
     NSLog(@" %@ finishProcessObject %@", self, object);
     NSLog(@"Accountant %@ money = %lu" , self, self.money);
 
-    object.state = ICObjectFree;
+    object.state = ICEmployeeFree;
 }
 
 #pragma mark -
