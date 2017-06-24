@@ -27,6 +27,10 @@
 @implementation ICCarWashController
 
 - (void)dealloc {
+    for (id washer in self.washers) {
+        [washer removeObserver:self];
+    }
+    
     self.washerQueue = nil;
     self.carQueue = nil;
     self.washerDispatch = nil;
@@ -49,46 +53,49 @@
     return self;
 }
 
-- (void)createCarQueue:(NSArray *)cars{
-    for (ICCar *car in cars) {
-        [self.carQueue enqueue:car];
-    }
-}
-
-- (void)createWasherQueue:(NSArray *)washers {
-    for (ICEmployee *washer in washers) {
-        [self.washerQueue enqueue:washer];
-    }
-}
-
-- (void)performWorkWithWasher:(ICEmployee *)washer {
+- (void)addWasher:(id)washer {
     @synchronized (self) {
-        if(![self.carQueue isEmpty]) {
-            [washer.queue enqueue:[self.carQueue dequeue]];
+        id washers = self.washers;
+        if (![washers containsObject:washer]) {
+            [washers addObject:washer];
             
-            if (![washer.queue isEmpty]) {
-                [washer workWithObject:[washer.queue dequeue]];
-            }
+            [washer addObserver:self];
+            [self.washerQueue enqueue:washer];
         }
     }
 }
+
+- (void)removeWasher:(id)washer {
+    @synchronized (self) {
+        [self.washers removeObject:washer];
+        [washer removeObserver:self];
+        
+        [self.washerQueue dequeue];
+    }
+}
+
+- (void)washCar:(ICCar  *)car {
+    @synchronized (self) {
+        ICWasher *washer = [self.washerQueue dequeue];
+        if (washer) {
+            [washer processObject:car];
+        } else {
+            [self.carQueue enqueue:car];
+        }
+    }
+}
+
+#pragma mark - 
+#pragma mark ICEmployeeObserver methods
 
 - (void)employeeDidFinishWork:(ICEmployee *)washer {
     @synchronized (self) {
-        [self.washerQueue enqueue:washer];
-        [self performWorkWithWasher:washer];
-    }
-}
-
-- (void)washCars {
-    @synchronized (self) {
-        for (NSUInteger i = 0; i < [self.washerQueue count]; i++) {
-            ICEmployee *washer = [self.washerQueue dequeue];
-            if (washer && ICObjectFree == washer.state ) {
-                [self performWorkWithWasher:washer];
-            }
+        id car = [self.carQueue dequeue];
+        if (car) {
+            [washer processObject:car];
+        } else {
+            [self.washerQueue enqueue:washer];
         }
     }
 }
-
 @end

@@ -13,11 +13,13 @@
 @property (nonatomic, readonly) NSSet   *observers;
 
 - (void)addObserver:(id)observer;
+- (void)addObservers:(id)observers;
 - (void)removeObserver:(id)observer;
 - (BOOL)isObservedByObjects:(id)observer;
+- (void)removeObservers;
 
 //This method is intended for subclassing. Never call it directly
 - (SEL)selectorForState:(NSUInteger)state;
-- (void)notifyOfChangeState:(NSUInteger)state;
+- (void)notifyOfState:(NSUInteger)state;
 
 @end

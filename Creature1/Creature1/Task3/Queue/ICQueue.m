@@ -8,7 +8,15 @@
 
 #import "ICQueue.h"
 
+@interface ICQueue ()
+
+@property (nonatomic, retain)   NSMutableArray  *mutableQqueue;
+
+@end
+
 @implementation ICQueue
+
+@dynamic queue;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -22,7 +30,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.queue = [NSMutableArray object];
+        self.mutableQqueue = [NSMutableArray object];
     }
     
     return self;
@@ -32,31 +40,32 @@
 #pragma Public Methods
 
 - (void)enqueue:(id)object {
-    if (object) {
-        [self.queue addObject:object];
-     }
+    @synchronized (self) {
+        if (object) {
+            [self.mutableQqueue addObject:object];
+        }
+    }
 }
 
 - (id)dequeue {
-    id object = [self.queue objectAtIndex:0];
-    if (object) {
-        [[object retain] autorelease];
-        [self.queue removeObjectAtIndex:0];
+    @synchronized (self) {
+        id object = [[self.queue.firstObject retain] autorelease];
+        [self.mutableQqueue removeObject:object];
+        
+        return object;
     }
-    
-    return object;
 }
 
 - (BOOL)isEmpty {
-    if ([self count]) {
-        return NO;
-    } else {
-        return YES;
-    }
+    return ![self count];
 }
 
 - (NSUInteger)count {
     return self.queue.count;
 }
 
+
+- (NSArray *)queue {
+    return [[self.mutableQqueue copy] autorelease];
+}
 @end

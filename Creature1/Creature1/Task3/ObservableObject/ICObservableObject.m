@@ -9,7 +9,7 @@
 #import "ICObservableObject.h"
 
 @interface ICObservableObject ()
-@property (nonatomic, retain)   NSHashTable   *mutableObservers;
+@property (nonatomic, retain)   NSHashTable  *mutableObservers;
 
 - (void)notifyOfChangingStateWithSelector:(SEL)selector;
 
@@ -47,7 +47,7 @@
     if (state != _state) {
         _state = state;
             
-        [self notifyOfChangeState:state];
+        [self notifyOfState:state];
     }
 }
 
@@ -55,18 +55,38 @@
 #pragma mark Public
 
 - (void)addObserver:(id)observer {
+    @synchronized (self) {
         [self.mutableObservers addObject:observer];
+    }
 }
 
 - (void)removeObserver:(id)observer {
-    [self.mutableObservers removeObject:observer];
+    @synchronized (self) {
+        [self.mutableObservers removeObject:observer];
+    }
+}
+
+- (void)removeObservers {
+    @synchronized (self) {
+        [self.mutableObservers removeAllObjects];
+    }
 }
 
 - (BOOL)isObservedByObjects:(id)observer {
-    return [self.mutableObservers containsObject:observer];
+    @synchronized (self) {
+        return [self.mutableObservers containsObject:observer];
+    }
 }
 
-#pragma mark - 
+- (void)addObservers:(NSArray *)observers {
+    @synchronized (self) {
+        for (id observer in observers) {
+            [self.mutableObservers addObject:observer];
+        }
+    }
+}
+
+#pragma mark -
 #pragma mark Private
 
 - (SEL)selectorForState:(NSUInteger)state {
@@ -84,9 +104,11 @@
     }
 }
 
-- (void)notifyOfChangeState:(NSUInteger)state {
+- (void)notifyOfState:(NSUInteger)state {
     NSLog(@"%@ object changes state to %lu", self, state);
-    [self notifyOfChangingStateWithSelector:[self selectorForState:state]];
+    @synchronized (self) {
+        [self notifyOfChangingStateWithSelector:[self selectorForState:state]];
+    }
 }
 
 @end

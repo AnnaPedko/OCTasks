@@ -26,10 +26,12 @@ const static NSUInteger ICDefaultMoney = 200;
 }
 
 - (NSUInteger)giveMoney {
-    NSUInteger carMoney = self.money;
-    self.money = 0;
-    
-    return carMoney;
+    @synchronized (self) {
+        NSUInteger carMoney = self.money;
+        self.money = 0;
+        
+        return carMoney;
+    }
 }
 
 @end
