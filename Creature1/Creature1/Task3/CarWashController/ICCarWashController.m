@@ -58,7 +58,7 @@
         [self.washers removeObject:washer];
         [washer removeObserver:self];
         
-        [self.washerQueue dequeue];
+        [self.washerQueue removeObjest:washer];
     }
 }
 

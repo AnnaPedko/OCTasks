@@ -17,4 +17,6 @@
 - (void)enqueue:(id)object;
 - (id)dequeue;
 
+- (void)removeObjest:(id)object;
+
 @end

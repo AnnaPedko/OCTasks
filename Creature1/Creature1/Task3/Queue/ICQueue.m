@@ -56,6 +56,10 @@
     }
 }
 
+- (void)removeObjest:(id)object {
+    [self.mutableQqueue removeObject:object];
+}
+
 - (BOOL)isEmpty {
     return ![self count];
 }
@@ -64,8 +68,8 @@
     return self.queue.count;
 }
 
-
 - (NSArray *)queue {
     return [[self.mutableQqueue copy] autorelease];
 }
+
 @end
