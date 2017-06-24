@@ -66,12 +66,6 @@
     }
 }
 
-- (void)removeObservers {
-    @synchronized (self) {
-        [self.mutableObservers removeAllObjects];
-    }
-}
-
 - (BOOL)isObservedByObjects:(id)observer {
     @synchronized (self) {
         return [self.mutableObservers containsObject:observer];
@@ -79,10 +73,8 @@
 }
 
 - (void)addObservers:(NSArray *)observers {
-    @synchronized (self) {
         for (id observer in observers) {
             [self.mutableObservers addObject:observer];
-        }
     }
 }
 

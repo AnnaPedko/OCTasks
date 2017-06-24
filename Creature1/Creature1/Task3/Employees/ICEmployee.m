@@ -88,6 +88,10 @@ static const NSUInteger ICSleepDuration = 10;
     }
 }
 
+- (void)performObjectSpecificOperation:(id)object {
+    
+}
+
 - (void)performBackgroundProcessingObject:(id<ICFinancialFlow>)object {
     NSLog(@" %@ Perform Background thread with object = %@", self, object);
     
