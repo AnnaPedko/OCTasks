@@ -13,26 +13,25 @@
 #import "ICEmployee.h"
 #import "ICCar.h"
 #import "ICWasher.h"
+#import "ICAccountant.h"
+#import "ICDirector.h"
+
+typedef NSArray *(^ICEmployeeGenerator)(NSUInteger count, Class class, id observer);
+
+static NSUInteger ICNumberOfAccountants = 3;
+static NSUInteger ICNumberOfWashers = 2;
+static NSUInteger ICNumberOfDirectors = 1;
 
 @interface ICCarWashController () <ICEmployeeObserver>
-@property (nonatomic, retain)   ICQueue *washerQueue;
-@property (nonatomic, retain)   ICQueue *carQueue;
 @property (nonatomic, retain)   ICDispatch  *washerDispatch;
 @property (nonatomic, retain)   ICDispatch  *accountantDispatch;
 @property (nonatomic, retain)   ICDispatch  *directorDispatch;
-
 
 @end
 
 @implementation ICCarWashController
 
 - (void)dealloc {
-    for (id washer in self.washers) {
-        [washer removeObserver:self];
-    }
-    
-    self.washerQueue = nil;
-    self.carQueue = nil;
     self.washerDispatch = nil;
     self.accountantDispatch = nil;
     self.directorDispatch = nil;
@@ -43,59 +42,45 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.washerQueue = [ICQueue object];
-        self.carQueue = [ICQueue object];
         self.washerDispatch = [ICDispatch object];
         self.accountantDispatch = [ICDispatch object];
         self.directorDispatch = [ICDispatch object];
+        
+        [self prepareEnterprise];
     }
     
     return self;
 }
 
-- (void)addWasher:(id)washer {
-    @synchronized (self) {
-        id washers = self.washers;
-        if (![washers containsObject:washer]) {
-            [washers addObject:washer];
+- (void)prepareEnterprise {
+    ICDispatch *directorDispath = self.directorDispatch;
+    ICDispatch *accountantDispatch = self.accountantDispatch;
+    ICDispatch *washerDispath = self.washerDispatch;
+    
+     ICEmployeeGenerator generator = ^NSArray *(NSUInteger count, Class cls, id observer){
+        return [NSArray objectsWithCount:count factory:^id{
+            id employee = [cls object];
+            [employee addObserver:observer];
             
-            [washer addObserver:self];
-            [self.washerQueue enqueue:washer];
+            return employee;
+        }];
+    };
+    
+    NSArray *washers = generator(ICNumberOfWashers, [ICWasher class], accountantDispatch);
+    NSArray *accountants = generator(ICNumberOfAccountants, [ICAccountant class], directorDispath);
+    NSArray *director = generator(ICNumberOfDirectors, [ICDirector class], nil);
+    
+    [washerDispath addWorkers:washers];
+    [accountantDispatch addWorkers:accountants];
+    [directorDispath addWorkers:director];
+}
+
+- (void)washCars:(id)cars {
+    @synchronized (self) {
+        for (ICCar *car in cars) {
+            [self.washerDispatch performProcessingWithObject:car];
         }
     }
 }
 
-- (void)removeWasher:(id)washer {
-    @synchronized (self) {
-        [self.washers removeObject:washer];
-        [washer removeObserver:self];
-        
-        [self.washerQueue dequeue];
-    }
-}
-
-- (void)washCar:(ICCar  *)car {
-    @synchronized (self) {
-        ICWasher *washer = [self.washerQueue dequeue];
-        if (washer) {
-            [washer processObject:car];
-        } else {
-            [self.carQueue enqueue:car];
-        }
-    }
-}
-
-#pragma mark - 
-#pragma mark ICEmployeeObserver methods
-
-- (void)employeeDidFinishWork:(ICEmployee *)washer {
-    @synchronized (self) {
-        id car = [self.carQueue dequeue];
-        if (car) {
-            [washer processObject:car];
-        } else {
-            [self.washerQueue enqueue:washer];
-        }
-    }
-}
 @end

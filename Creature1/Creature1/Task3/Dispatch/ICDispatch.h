@@ -13,9 +13,11 @@
 #import "ICEmployee.h"
 
 @interface ICDispatch : NSObject <ICEmployeeObserver>
-@property (nonatomic, retain)   ICQueue *processingObjects;
-@property (nonatomic, retain)   NSMutableArray *handlers;
 
 - (void)performProcessingWithObject:(id<ICFinancialFlow>)object;
+
+- (void)addWorker:(id)worker;
+- (void)addWorkers:(NSArray *)workers;
+- (void)removeWorker:(id)worker;
 
 @end

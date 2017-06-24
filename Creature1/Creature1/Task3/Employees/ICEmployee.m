@@ -78,7 +78,7 @@ static const NSUInteger ICSleepDuration = 10;
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case ICEmployeeFree:
-            return @selector(employeeDidFinishWork:);
+            return @selector(employeeDidBecomeFree:);
         case ICEmployeeBusy:
             return @selector(employeeDidBecomeBusy:);
         case ICEmployeeReadyForProcessing:

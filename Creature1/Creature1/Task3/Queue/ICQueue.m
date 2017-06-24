@@ -9,8 +9,9 @@
 #import "ICQueue.h"
 
 @interface ICQueue ()
-
 @property (nonatomic, retain)   NSMutableArray  *mutableQqueue;
+
+- (void)removeObject:(id)object;
 
 @end
 
@@ -68,4 +69,12 @@
 - (NSArray *)queue {
     return [[self.mutableQqueue copy] autorelease];
 }
+
+- (void)removeObject:(id)object {
+    @synchronized (self) {
+        [self.mutableQqueue removeObject:object];
+    }
+}
+
+
 @end
