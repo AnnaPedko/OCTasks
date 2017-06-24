@@ -63,11 +63,13 @@
 }
 
 - (void)washCar:(ICCar  *)car {
-    ICWasher *washer = [self.washerQueue dequeue];
-    if (washer) {
-        [washer processObject:car];
-    } else {
-        [self.carQueue enqueue:car];
+    @synchronized (self) {
+        ICWasher *washer = [self.washerQueue dequeue];
+        if (washer) {
+            [washer processObject:car];
+        } else {
+            [self.carQueue enqueue:car];
+        }
     }
 }
 
@@ -75,12 +77,13 @@
 #pragma mark ICEmployeeObserver methods
 
 - (void)employeeDidFinishWork:(ICEmployee *)washer {
-    id car = [self.carQueue dequeue];
-    if (car) {
-        [washer processObject:car];
-    } else {
-        [self.washerQueue enqueue:washer];
+    @synchronized (self) {
+        id car = [self.carQueue dequeue];
+        if (car) {
+            [washer processObject:car];
+        } else {
+            [self.washerQueue enqueue:washer];
+        }
     }
 }
-
 @end

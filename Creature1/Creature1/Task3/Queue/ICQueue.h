@@ -10,11 +10,11 @@
 #import "NSObject+ICExtensions.h"
 
 @interface ICQueue : NSObject
-@property (nonatomic, retain)   NSMutableArray  *queue;
+@property (nonatomic, retain)   NSArray  *queue;
+@property (nonatomic, assign)   BOOL    isEmpty;
+@property (nonatomic, assign)   NSUInteger  count;
 
 - (void)enqueue:(id)object;
 - (id)dequeue;
-- (BOOL)isEmpty;
-- (NSUInteger)count;
 
 @end

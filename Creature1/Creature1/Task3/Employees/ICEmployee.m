@@ -101,9 +101,6 @@ static const NSUInteger ICSleepDuration = 10;
                         waitUntilDone:NO];
 }
 
-- (void)performObjectSpecificOperation:(id)object {
-}
-
 - (void)performProcessingOnMainWithObject:(id<ICFinancialFlow>)object {
     NSLog(@"%@  performProcessingOnMainWithObject  -> object = %@", self,object);
     

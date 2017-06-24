@@ -47,7 +47,7 @@
     if (state != _state) {
         _state = state;
             
-        [self notifyOfChangeState:state];
+        [self notifyOfState:state];
     }
 }
 
@@ -104,7 +104,7 @@
     }
 }
 
-- (void)notifyOfChangeState:(NSUInteger)state {
+- (void)notifyOfState:(NSUInteger)state {
     NSLog(@"%@ object changes state to %lu", self, state);
     @synchronized (self) {
         [self notifyOfChangingStateWithSelector:[self selectorForState:state]];

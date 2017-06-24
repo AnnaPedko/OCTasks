@@ -20,6 +20,6 @@
 
 //This method is intended for subclassing. Never call it directly
 - (SEL)selectorForState:(NSUInteger)state;
-- (void)notifyOfChangeState:(NSUInteger)state;
+- (void)notifyOfState:(NSUInteger)state;
 
 @end
