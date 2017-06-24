@@ -76,10 +76,8 @@ static NSUInteger ICNumberOfDirectors = 1;
 }
 
 - (void)washCars:(id)cars {
-    @synchronized (self) {
         for (ICCar *car in cars) {
             [self.washerDispatch performProcessingWithObject:car];
-        }
     }
 }
 

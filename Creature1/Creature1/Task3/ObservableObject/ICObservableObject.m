@@ -88,19 +88,19 @@
 }
 
 - (void)notifyOfChangingStateWithSelector:(SEL)selector {
-    NSHashTable *observers = self.mutableObservers;
-    for (id observer in observers) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self];
+    @synchronized (self) {
+        NSHashTable *observers = self.mutableObservers;
+        for (id observer in observers) {
+            if ([observer respondsToSelector:selector]) {
+                [observer performSelector:selector withObject:self];
+            }
         }
     }
 }
 
 - (void)notifyOfState:(NSUInteger)state {
     NSLog(@"%@ object changes state to %lu", self, state);
-    @synchronized (self) {
         [self notifyOfChangingStateWithSelector:[self selectorForState:state]];
-    }
 }
 
 @end

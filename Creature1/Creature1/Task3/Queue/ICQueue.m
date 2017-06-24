@@ -62,12 +62,15 @@
 }
 
 - (NSUInteger)count {
-    return self.queue.count;
+    @synchronized (self) {
+        return [self.queue count];
+    }
 }
 
-
 - (NSArray *)queue {
-    return [[self.mutableQqueue copy] autorelease];
+    @synchronized (self) {
+        return [[self.mutableQqueue copy] autorelease];
+    }
 }
 
 - (void)removeObject:(id)object {
