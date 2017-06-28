@@ -29,8 +29,10 @@ const static NSUInteger ICDefaultExperience = 2;
 #pragma mark -
 #pragma mark Overload Methods
 
-- (void)finishProcessObject:(ICCar *)object {
+- (void)finishProcessingObject:(ICCar *)object {
     NSLog(@" %@ became clean", object);
+    NSLog(@"---- Money %@  =  %lu" , self, self.money);
+
     object.state = ICCarClean;
 }
 

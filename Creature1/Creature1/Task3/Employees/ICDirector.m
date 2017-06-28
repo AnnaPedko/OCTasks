@@ -31,7 +31,8 @@ const static NSUInteger ICDefaultExperience = 5;
 #pragma mark Overload methods
 
 - (void)finishProcessingObject:(ICEmployee *)object {
-    NSLog(@" %@ finishProcessObject %@", self, object);
+    NSLog(@"---- Money %@  =  %lu" , self, self.salary);
+
     object.state = ICEmployeeFree;
 }
 

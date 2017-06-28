@@ -58,7 +58,7 @@
 }
 
 - (BOOL)isEmpty {
-    return ![self count];
+    return !self.count;
 }
 
 - (NSUInteger)count {

@@ -33,6 +33,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.processedObjects = [ICQueue object];
         self.processingObjects = [ICQueue object];
         self.mutableProcessingObjects = [NSMutableArray object];
     }
@@ -69,27 +70,29 @@
 
 - (void)performProcessingWithObject:(id)object {
     id worker = [self.processingObjects dequeue];
-    [worker processObject:object];
+    if (worker) {
+        [worker processObject:object];
+    } else {
+        [self.processedObjects enqueue:object];
+    }
 }
 
 - (void)employeeReadyForProcessing:(id<ICFinancialFlow>)object {
     NSMutableArray *workers = self.mutableProcessingObjects;
      if (![workers containsObject:object]) {
-         [self.processingObjects enqueue:object];
-    }
-    
-    [self.processedObjects enqueue:object];
-    [self performProcessingWithObject:object];
+         [self performProcessingWithObject:object];
+     }
 }
 
 - (void)employeeDidBecomeFree:(id)object {
     NSMutableArray *workers = self.mutableProcessingObjects;
-    if (![workers containsObject:object]) {
+    if ([workers containsObject:object]) {
         [self.processingObjects enqueue:object];
-    }
     
-    [self.processingObjects enqueue:object];
-    [self performProcessingWithObject:object];
+    if (!self.processedObjects.isEmpty) {
+        [self performProcessingWithObject:[self.processedObjects dequeue]];
+        }
+    }
 }
 
 @end
