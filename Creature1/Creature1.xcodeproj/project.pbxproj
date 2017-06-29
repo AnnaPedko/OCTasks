@@ -29,6 +29,9 @@
 		6530BB0C1EF18596002AC64A /* ICQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB0B1EF18596002AC64A /* ICQueue.m */; };
 		6530BB121EF31CB4002AC64A /* ICCarWashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB111EF31CB4002AC64A /* ICCarWashController.m */; };
 		6530BB181EF4AB44002AC64A /* ICDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB171EF4AB44002AC64A /* ICDispatch.m */; };
+		6530BB2E1F05B3CC002AC64A /* ICTimerWeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB2D1F05B3CC002AC64A /* ICTimerWeakReference.m */; };
+		6530BB311F05B9A7002AC64A /* ICCarsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB301F05B9A7002AC64A /* ICCarsGenerator.m */; };
+		6530BB3B1F05BBDE002AC64A /* NSTimer+ICExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB3A1F05BBDE002AC64A /* NSTimer+ICExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +93,12 @@
 		6530BB111EF31CB4002AC64A /* ICCarWashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCarWashController.m; sourceTree = "<group>"; };
 		6530BB161EF4AB44002AC64A /* ICDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDispatch.h; sourceTree = "<group>"; };
 		6530BB171EF4AB44002AC64A /* ICDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDispatch.m; sourceTree = "<group>"; };
+		6530BB2C1F05B3CC002AC64A /* ICTimerWeakReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICTimerWeakReference.h; sourceTree = "<group>"; };
+		6530BB2D1F05B3CC002AC64A /* ICTimerWeakReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICTimerWeakReference.m; sourceTree = "<group>"; };
+		6530BB2F1F05B9A7002AC64A /* ICCarsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCarsGenerator.h; sourceTree = "<group>"; };
+		6530BB301F05B9A7002AC64A /* ICCarsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCarsGenerator.m; sourceTree = "<group>"; };
+		6530BB391F05BBDE002AC64A /* NSTimer+ICExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+ICExtensions.h"; sourceTree = "<group>"; };
+		6530BB3A1F05BBDE002AC64A /* NSTimer+ICExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+ICExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +135,7 @@
 		6530B9F31EE2307B002AC64A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				6530BB381F05BBCB002AC64A /* NSTimer+ICExtensions */,
 				6530B9F41EE2307B002AC64A /* NSArray+ICExtensions.h */,
 				6530B9F51EE2307B002AC64A /* NSArray+ICExtensions.m */,
 				6530B9F61EE2307B002AC64A /* NSObject+ICExtensions.h */,
@@ -186,6 +196,7 @@
 		6530BA0F1EE2307B002AC64A /* Task3 */ = {
 			isa = PBXGroup;
 			children = (
+				6530BB2B1F05B3AA002AC64A /* Timer */,
 				6530BB151EF4AB27002AC64A /* Dispatch */,
 				6530BB0F1EF31C9F002AC64A /* CarWashController */,
 				6530BB091EF18582002AC64A /* Queue */,
@@ -203,6 +214,8 @@
 			children = (
 				6530BA111EE2307B002AC64A /* ICCar.h */,
 				6530BA121EE2307B002AC64A /* ICCar.m */,
+				6530BB2F1F05B9A7002AC64A /* ICCarsGenerator.h */,
+				6530BB301F05B9A7002AC64A /* ICCarsGenerator.m */,
 			);
 			path = Cars;
 			sourceTree = "<group>";
@@ -280,6 +293,24 @@
 			path = Dispatch;
 			sourceTree = "<group>";
 		};
+		6530BB2B1F05B3AA002AC64A /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				6530BB2C1F05B3CC002AC64A /* ICTimerWeakReference.h */,
+				6530BB2D1F05B3CC002AC64A /* ICTimerWeakReference.m */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		6530BB381F05BBCB002AC64A /* NSTimer+ICExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				6530BB391F05BBDE002AC64A /* NSTimer+ICExtensions.h */,
+				6530BB3A1F05BBDE002AC64A /* NSTimer+ICExtensions.m */,
+			);
+			path = "NSTimer+ICExtensions";
+			sourceTree = "<group>";
+		};
 		653288271EAAA78B00E63A8A = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +384,7 @@
 			files = (
 				6530BA2B1EE2307B002AC64A /* ICClusterAlphabet.m in Sources */,
 				6530BA381EE2307B002AC64A /* ICWasher.m in Sources */,
+				6530BB3B1F05BBDE002AC64A /* NSTimer+ICExtensions.m in Sources */,
 				6530BB121EF31CB4002AC64A /* ICCarWashController.m in Sources */,
 				6530BA271EE2307B002AC64A /* NSArray+ICExtensions.m in Sources */,
 				6530BA391EE2307B002AC64A /* ICObservableObject.m in Sources */,
@@ -365,7 +397,9 @@
 				6530BA351EE2307B002AC64A /* ICAccountant.m in Sources */,
 				6530BA301EE2307B002AC64A /* ICRandomInRange.m in Sources */,
 				6530BA2A1EE2307B002AC64A /* NSString+ICGenerateRandomString.m in Sources */,
+				6530BB2E1F05B3CC002AC64A /* ICTimerWeakReference.m in Sources */,
 				6530BA2D1EE2307B002AC64A /* ICStringsAlphabet.m in Sources */,
+				6530BB311F05B9A7002AC64A /* ICCarsGenerator.m in Sources */,
 				6530BB0C1EF18596002AC64A /* ICQueue.m in Sources */,
 				6530BA341EE2307B002AC64A /* ICCarWash.m in Sources */,
 				6530BA311EE2307B002AC64A /* ICFemaleCreature.m in Sources */,

@@ -12,6 +12,6 @@
 @interface ICCarWash : NSObject <ICEmployeeObserver>
 @property (nonatomic, assign)   NSUInteger  money;
 
-- (void)washCars:(NSArray *)cars;
+- (void)washCars;
 
 @end

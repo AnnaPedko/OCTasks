@@ -36,8 +36,8 @@
     return self;
 }
 
-- (void)washCars:(NSArray *)cars {
-    [self.washController washCars:cars];
+- (void)washCars {
+    [self.washController washCars];
 }
 
 @end

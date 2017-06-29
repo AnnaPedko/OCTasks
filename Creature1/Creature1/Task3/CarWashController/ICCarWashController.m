@@ -15,12 +15,17 @@
 #import "ICWasher.h"
 #import "ICAccountant.h"
 #import "ICDirector.h"
+#import "ICCarsGenerator.h"
+
+#import "NSTimer+ICExtensions.h"
 
 typedef NSArray *(^ICEmployeeGenerator)(NSUInteger count, Class class, id observer);
 
 static NSUInteger ICNumberOfAccountants = 3;
 static NSUInteger ICNumberOfWashers = 2;
 static NSUInteger ICNumberOfDirectors = 1;
+static NSTimeInterval   ICTimerInterval = 20;
+
 
 @interface ICCarWashController () <ICEmployeeObserver>
 @property (nonatomic, retain)   ICDispatch  *washerDispatch;
@@ -47,6 +52,7 @@ static NSUInteger ICNumberOfDirectors = 1;
         self.directorDispatch = [ICDispatch object];
         
         [self prepareEnterprise];
+       
     }
     
     return self;
@@ -75,7 +81,19 @@ static NSUInteger ICNumberOfDirectors = 1;
     [directorDispath addWorkers:director];
 }
 
-- (void)washCars:(id)cars {
+- (NSArray *)generateCars {
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:ICTimerInterval
+                                 weakTarget:self
+                                   selector:@selector(timerDidFire:)
+                                   userInfo:nil
+                                    repeats:YES];
+    
+    return [[[ICCarsGenerator alloc] initWithTimer:timer] autorelease];
+}
+
+
+- (void)washCars {
+    NSArray *cars = [self generateCars];
         for (ICCar *car in cars) {
             [self.washerDispatch performProcessingWithObject:car];
     }
