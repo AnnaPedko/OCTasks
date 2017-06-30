@@ -42,9 +42,10 @@ int main(int argc, const char *argv[]) {
     
     @autoreleasepool {
         ICCarWash *carWash = [ICCarWash object];
-        [carWash washCars];
+
+        NSRunLoop *runLoop = [NSRunLoop mainRunLoop];
+        [runLoop run];
     }
     
-
     return 0;
 }

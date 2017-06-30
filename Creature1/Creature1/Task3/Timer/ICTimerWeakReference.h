@@ -10,5 +10,6 @@
 
 @interface ICTimerWeakReference : NSObject
 - (instancetype)initWithTarget:(id)aTarget selector:(SEL)aSelector;
+- (void)timerDidFire:(NSTimer *)timer;
 
 @end

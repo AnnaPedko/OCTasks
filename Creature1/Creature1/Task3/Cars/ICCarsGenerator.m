@@ -11,7 +11,6 @@
 #import "NSTimer+ICExtensions.h"
 
 
-static NSUInteger ICCarNumber = 5;
 
 
 @implementation ICCarsGenerator

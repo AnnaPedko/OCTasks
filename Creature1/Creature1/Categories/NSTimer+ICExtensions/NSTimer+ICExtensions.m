@@ -8,6 +8,8 @@
 
 #import "NSTimer+ICExtensions.h"
 
+#import "ICTimerWeakReference.h"
+
 @implementation NSTimer (ICExtensions)
 
 + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)ti
@@ -15,10 +17,11 @@
                                    selector:(SEL)aSelector
                                    userInfo:(id)userInfo
                                     repeats:(BOOL)yesOrNo {
+    id proxyTarget = [[[ICTimerWeakReference alloc] initWithTarget:aTarget selector:aSelector] autorelease];
 
     return  [NSTimer scheduledTimerWithTimeInterval:ti
-                                             target:[[ICTimerWeakReference alloc] initWithTarget:aTarget selector:aSelector]
-                                           selector:aSelector
+                                             target:proxyTarget
+                                           selector:@selector(timerDidFire:)
                                            userInfo:userInfo
                                             repeats:yesOrNo];
 }

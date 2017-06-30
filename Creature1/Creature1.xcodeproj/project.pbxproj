@@ -30,7 +30,6 @@
 		6530BB121EF31CB4002AC64A /* ICCarWashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB111EF31CB4002AC64A /* ICCarWashController.m */; };
 		6530BB181EF4AB44002AC64A /* ICDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB171EF4AB44002AC64A /* ICDispatch.m */; };
 		6530BB2E1F05B3CC002AC64A /* ICTimerWeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB2D1F05B3CC002AC64A /* ICTimerWeakReference.m */; };
-		6530BB311F05B9A7002AC64A /* ICCarsGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB301F05B9A7002AC64A /* ICCarsGenerator.m */; };
 		6530BB3B1F05BBDE002AC64A /* NSTimer+ICExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6530BB3A1F05BBDE002AC64A /* NSTimer+ICExtensions.m */; };
 /* End PBXBuildFile section */
 
@@ -95,8 +94,6 @@
 		6530BB171EF4AB44002AC64A /* ICDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICDispatch.m; sourceTree = "<group>"; };
 		6530BB2C1F05B3CC002AC64A /* ICTimerWeakReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICTimerWeakReference.h; sourceTree = "<group>"; };
 		6530BB2D1F05B3CC002AC64A /* ICTimerWeakReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICTimerWeakReference.m; sourceTree = "<group>"; };
-		6530BB2F1F05B9A7002AC64A /* ICCarsGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICCarsGenerator.h; sourceTree = "<group>"; };
-		6530BB301F05B9A7002AC64A /* ICCarsGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICCarsGenerator.m; sourceTree = "<group>"; };
 		6530BB391F05BBDE002AC64A /* NSTimer+ICExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+ICExtensions.h"; sourceTree = "<group>"; };
 		6530BB3A1F05BBDE002AC64A /* NSTimer+ICExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+ICExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,8 +211,6 @@
 			children = (
 				6530BA111EE2307B002AC64A /* ICCar.h */,
 				6530BA121EE2307B002AC64A /* ICCar.m */,
-				6530BB2F1F05B9A7002AC64A /* ICCarsGenerator.h */,
-				6530BB301F05B9A7002AC64A /* ICCarsGenerator.m */,
 			);
 			path = Cars;
 			sourceTree = "<group>";
@@ -399,7 +394,6 @@
 				6530BA2A1EE2307B002AC64A /* NSString+ICGenerateRandomString.m in Sources */,
 				6530BB2E1F05B3CC002AC64A /* ICTimerWeakReference.m in Sources */,
 				6530BA2D1EE2307B002AC64A /* ICStringsAlphabet.m in Sources */,
-				6530BB311F05B9A7002AC64A /* ICCarsGenerator.m in Sources */,
 				6530BB0C1EF18596002AC64A /* ICQueue.m in Sources */,
 				6530BA341EE2307B002AC64A /* ICCarWash.m in Sources */,
 				6530BA311EE2307B002AC64A /* ICFemaleCreature.m in Sources */,

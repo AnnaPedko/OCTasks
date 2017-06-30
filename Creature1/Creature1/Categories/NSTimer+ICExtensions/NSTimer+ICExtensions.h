@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import "ICTimerWeakReference.h"
-
 @interface NSTimer (ICExtensions)
 
 + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)ti
@@ -17,6 +15,5 @@
                                            selector:(SEL)aSelector
                                            userInfo:(id)userInfo
                                             repeats:(BOOL)yesOrNo;
-
 
 @end
