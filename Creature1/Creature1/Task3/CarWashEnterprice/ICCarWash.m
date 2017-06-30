@@ -59,11 +59,11 @@ static NSUInteger ICCarNumber = 5;
                                                  repeats:YES];
 
 }
+
 - (void)generateCars {
     NSArray *cars = [ICCar objectsWithCount:ICCarNumber];
     [self performSelectorInBackground:@selector(washCars:) withObject:cars];
 }
-
 
 - (void)washCars:(NSArray *)cars {
     [self.washController washCars:cars];
